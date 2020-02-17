@@ -12,6 +12,15 @@
 */
 
 Route::get('/', 'frontend\PagesController@index')->name('index');
+// Route::get('/', 'backend\AuthController@authorregister')->name('authorregister');
+// Route::get('/', 'backend\AuthController@authorlogin')->name('authorlogin');
+
+
+Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'admin']], function () {
+    Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+
+
+});
 
 Auth::routes();
 
