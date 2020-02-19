@@ -52,5 +52,25 @@
         <!-- AdminLTE for demo purposes -->
         <script src="{{asset('backend_assets/dist/js/demo.js')}}"></script>
         @stack('scripts')
+
+        <script>
+            // Image brows, live show
+            function readliveImagebrows(input) {
+
+
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $('#imageBrowsLive').attr('src', e.target.result);
+
+                        console.log(e.target.result);
+
+                    };
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+        </script>
     </body>
 </html>

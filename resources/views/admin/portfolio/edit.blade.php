@@ -1,88 +1,88 @@
 @extends('admin.layouts.master')
 @section('title','Create New Certificates')
 
-@push('css')
-
-@endpush
-
 @section('content')
 <section class="content">
     <div class="row">
+        
         @if ($errors->any())
-        @foreach ($errors->all() as $error)
-        <div class="col-12">
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                {{$error}}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-        </div>
-        @endforeach
+            @foreach ($errors->all() as $error)
+                <div class="col-12">
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{$error}}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+            @endforeach
         @endif
         <div class="col-md-12">
             <div class="card">
-                <form method="POST" action="{{route('admin.education.update', $education->id)}}" enctype="multipart/form-data">
+                <form method="POST" action="{{route('admin.portfolio.update', $portfolio->id)}}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6 pb-1">
-                                <label class="control-label mb-0">Exam Name</label>
+                                <label class="control-label mb-0">Title <span class="text-danger">*</span></label>
                                 <div class="">
-                                    <input type="text" name="exam_name" value="{{ $education->exam_name }}" required class="form-control form-control-sm w-100" placeholder="Exam Name">
+                                    <input type="text" name="title" value="{{ $portfolio->title }}" required class="form-control form-control-sm w-100" placeholder="Portfolio Title">
                                 </div>
                             </div>
                             <div class="col-md-6 pb-1">
-                                <label class="control-label mb-0">Exam Short Code</label>
+                                <label class="control-label mb-0">Category <span class="text-danger">*</span></label>
                                 <div class="">
-                                    <input type="text" name="exam_short_code" value="{{ $education->exam_short_code }}" required class="form-control form-control-sm w-100" placeholder="Exam Short Code">
+                                    <select name="category_id" class="form-control form-control-sm">
+                                        @foreach($categories as $category)
+                                            <option value="{{ $category->id }}" {{ $category->id == $portfolio->category_id ? 'selected':'' }}>{{ $category->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 pb-1">
+                                <label class="control-label mb-0">Portfolio Image</label>
+                                <div class="row border">
+                                    <div class="col-5">
+                                        @if ($portfolio->portfolio_image)
+                                            <img id="imageBrowsLive" src="{{ asset('images/portfolio_image/'.$portfolio->portfolio_image) }}"  class="img-fluid portfolio_image_edit border">
+                                        @else
+                                            <img src="https://high-games.com/wp-content/themes/crystalskull/img/defaults/default.jpg" class="img-fluid" alt="">
+                                        @endif
+                                    </div>
+                                    <div class="col-7 align-self-center">
+                                        <input type="file"  id="image" name="portfolio_image" onchange="readliveImagebrows(this);"  class="form-control form-control-sm w-100">
+                                    </div>
                                 </div>
                             </div>
 
                             <div class="col-md-6 pb-1">
-                                <label class="control-label mb-0">Institution Name</label>
-                                <div class="">
-                                    <input type="text" name="institution_name" value="{{ $education->institution_name }}" required class="form-control form-control-sm w-100" placeholder="Institution Name">
-                                </div>
-                            </div>
-                            <div class="col-md-6 pb-1">
-                                <label class="control-label mb-0">Passing Year</label>
-                                <div class="">
-                                    <input type="text" name="passing_year" value="{{ $education->passing_year }}" required class="form-control form-control-sm w-100" placeholder="Passing Year">
-                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label class="control-label mb-0">Link </label>
+                                        <div class="">
+                                            <input type="text" name="link" value="{{ $portfolio->link}}" class="form-control form-control-sm w-100" placeholder="Link Your Work if available">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 mt-3">
+                                        <label class="control-label mb-0">Status <span class="text-danger">*</span></label>
+                                        <div class="">
+                                            <select name="status" class="form-control form-control-sm">
+                                                <option value="0" {{ $category->id == 0 ? 'selected':'' }}>Hide From Frontend</option>
+                                                <option value="1" {{ $category->status == 1 ? 'selected':'' }}>Show On Frontend</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>                                
                             </div>
 
                             <div class="col-md-12 pb-1">
                                 <label class="control-label mb-0">Description</label>
                                 <div class="">
-                                    <textarea name="description" class="form-control form-control-sm w-100">{{ $education->description }}</textarea> 
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 pb-1">
-                                <label class="control-label mb-0">Certificate Image</label>
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        <input type="file" name="certificate_image" class="form-control form-control-sm w-100">
-                                    </div>
-                                    <div class="col-md-4">
-                                        <img src="{{asset('images/certificate_image/'.$education->certificate_image)}}" class="img-fluid" alt="">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 pb-1">
-                                <label class="control-label mb-0">Status</label>
-                                <div class="row">
-                                    <div class="col-md-3 pl-4">
-                                        <input type="radio" name="status" value="1" {{$education->status == 1 ? 'checked':''}} required class="form-check-input" id="active">
-                                        <label class="form-check-label text-success font-weight-bold" for="active">Active</label>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <input type="radio" name="status" value="0" {{$education->status == 0 ? 'checked':''}} class="form-check-input" id="deactive">
-                                        <label class="form-check-label text-danger font-weight-bold" for="deactive">Deactive</label>
-                                    </div>
+                                    <textarea name="description" class="textarea form-control form-control-sm w-100">{{ $portfolio->description}}</textarea> 
                                 </div>
                             </div>
 
@@ -105,5 +105,12 @@
 
 
 @push('scripts')
-
+    <script src="{{asset('backend_assets/plugins/summernote/summernote-bs4.min.js')}}"></script>
+    <script>
+        $(function () {
+            // Summernote
+            $('.textarea').summernote()
+        })
+    </script>
 @endpush
+

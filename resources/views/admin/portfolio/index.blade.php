@@ -12,6 +12,7 @@
                 <div class="col-lg-12 col-xl-12 d-flex justify-content-center">
                     <div class="alert alert-success text-center pr-3 pl-3 p-1 mb-1">
                         {{session('message')}}
+                        <button type="button" class="close ml-4 text-danger" data-dismiss="alert">&times;</button>
                     </div>
                 </div>
             @endif
@@ -37,9 +38,17 @@
                                 <tr>
                                     <td>{{ $loop->index+1 }}</td>
                                     <td>{{ $portfolio->title }}</td>
-                                    <td>{{ $portfolio->portfolio_image }}</td>
+                                    <td>
+                                        <img src="{{ asset('images/portfolio_image/'.$portfolio->portfolio_image) }}" class="img-fluid table_image" alt="">
+                                    </td>
                                     <td>{{ $portfolio->category_id }}</td>
-                                    <td>{{ $portfolio->status }}</td>
+                                    <td>
+                                        @if($portfolio->status == 0)
+                                            <span class="badge bg-yellow">Inactive</span>
+                                            @else
+                                            <span class="badge bg-green">Actived</span>
+                                        @endif
+                                    </td>
                                     <td class="text-center">
                                         <a href="{{route('admin.portfolio.edit', $portfolio->id)}}"
                                            class="btn btn-xs btn-success"><i class="fa fa-edit"></i></a>

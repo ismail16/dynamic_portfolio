@@ -52,7 +52,7 @@ class EducationController extends Controller
 
         try{
             $education->save();
-            return back()->with('success', 'Certificate Saved Successfully !');
+            return redirect()->route('admin.education.index')->with('message', 'Certificate Saved Successfully !');
         }catch (\Exception $exception){
             return back()->with('danger', 'Something went wrong !');
         }
@@ -102,7 +102,7 @@ class EducationController extends Controller
 
         try{
             $education->save();
-            return back()->with('success', 'Certificate Saved Successfully !');
+            return redirect()->route('admin.education.index')->with('message', 'Certificate Updated Successfully !');
         }catch (\Exception $exception){
             return back()->with('danger', 'Something went wrong !');
         }
@@ -115,6 +115,6 @@ class EducationController extends Controller
             unlink('images/certificate_image/'.$education->certificate_image);
         }
         $education->delete();
-        return back()->with('success', 'Certificate Deleted Successfully !');
+        return redirect()->route('admin.education.index')->with('message', 'Certificate Deleted Successfully !');
     }
 }

@@ -35,6 +35,21 @@
             line-height: 1.5;
             border-radius: 3px;
         }
+        .note-editor.note-frame .note-editing-area .note-editable {
+            min-height: 120px !important;
+            padding: 5px !important;
+            overflow: auto;
+            color: #000;
+            word-wrap: break-word;
+            background-color: #fff;
+        }
+        .table_image{
+            width: 70px;
+        }
+        .portfolio_image_edit{
+            width: 150px !important;
+            height: 100px !important;
+        }
     </style>
     @stack('css')
 </head>

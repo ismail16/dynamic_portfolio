@@ -76,12 +76,35 @@
                         </a>
                     </li>
 
-                    <li>
-                        <a style="display: inline-flex;"  data-toggle="modal" data-target="#myModal" class="pad-top-bottom move-me" data-wow-duration="1s" data-wow-delay=".7s">
-                            <i class="fa fa-key icon-round"></i>
-                            <h6 class="wow bounceIn animated" data-wow-duration="1s" data-wow-delay=".8s">LOGIN</h6>
-                        </a>
-                    </li>
+
+                    @if (Route::has('login'))
+                        @auth
+
+                            <li><a style="display: inline-flex;" class="pad-top-bottom move-me" data-wow-duration="1s" data-wow-delay=".7s" href="{{ route('admin.dashboard') }}" >
+                                    <i class="fa fa-home icon-round"></i>
+                                    <h6 class="wow bounceIn animated" data-wow-duration="1s" data-wow-delay=".8s">Dashboard</h6>
+                            </a></li>
+
+                            <li><a style="display: inline-flex;" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <i class="fa fa-key icon-round"></i>
+                                    <h6 class="wow bounceIn animated" data-wow-duration="1s" data-wow-delay=".8s">Logout</h6>
+                            </a></li>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        @else
+                            <li><a style="display: inline-flex;"  data-toggle="modal" data-target="#myModal" class="pad-top-bottom move-me" data-wow-duration="1s" data-wow-delay=".7s">
+                                    <i class="fa fa-key icon-round"></i>
+                                    <h6 class="wow bounceIn animated" data-wow-duration="1s" data-wow-delay=".8s">LOGIN</h6>
+                            </a></li>
+                        @endauth
+                    @endif
+
+
+
+                    
+
+
 
                 </ul>
             </div>

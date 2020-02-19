@@ -12,6 +12,7 @@
                 <div class="col-lg-12 col-xl-12 d-flex justify-content-center">
                     <div class="alert alert-success text-center pr-3 pl-3 p-1 mb-1">
                         {{session('message')}}
+                        <button type="button" class="close ml-4 text-danger" data-dismiss="alert">&times;</button>
                     </div>
                 </div>
             @endif
@@ -41,7 +42,13 @@
                                     <td>{{ $education->exam_short_code }}</td>
                                     <td>{{ $education->institution_name }}</td>
                                     <td>{{ $education->passing_year }}</td>
-                                    <td>{{ $education->status }}</td>
+                                    <td>
+                                        @if($education->status == 0)
+                                            <span class="badge bg-yellow">Inactive</span>
+                                            @else
+                                            <span class="badge bg-green">Actived</span>
+                                        @endif
+                                    </td>
                                     <td class="text-center">
                                         <a href="{{route('admin.education.edit', $education->id)}}"
                                            class="btn btn-xs btn-success"><i class="fa fa-edit"></i></a>

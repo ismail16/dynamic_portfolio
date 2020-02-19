@@ -6,19 +6,12 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Models\Portfolio;
+use App\Models\Category;
 
 class PortfolioController extends Controller
 {
 
-//     category_id
-// title
-// portfolio_image
-// description
-// link
-// status
-
-
-     public function index()
+    public function index()
     {
         $portfolios = Portfolio::orderBy('id', 'desc')->get();
         return view('admin.portfolio.index', compact('portfolios'));
@@ -26,41 +19,38 @@ class PortfolioController extends Controller
 
     public function create()
     {
-        return view('admin.portfolio.create');
+        $categories = Category::orderBy('id', 'desc')->get();
+        return view('admin.portfolio.create', compact('categories'));
     }
 
     public function store(Request $request)
     {
         $this->validate($request, [
-          'exam_name' => 'required',
-          'exam_short_code' => 'required',
-          'institution_name' => 'required',
-          'passing_year' => 'required',
-          'certificate_image' => 'mimes:jpeg,jpg,png,webp',
+          'title' => 'required',
+          'category_id' => 'required'
         ]);
 
         $portfolio = new Portfolio;
 
-        $image = $request->file('certificate_image');
-        $slug = str_slug($request->exam_name);
+        $image = $request->file('portfolio_image');
+        $slug = str_slug($request->title);
         if (isset($image)){
             $imagename = $slug.'-'.uniqid().'.'.$image->getClientOriginalExtension();
-            if (!file_exists('images/certificate_image')){
-                mkdir('images/certificate_image', 777, true);
+            if (!file_exists('images/portfolio_image')){
+                mkdir('images/portfolio_image', 777, true);
             }
-            $image->move('images/certificate_image',$imagename);
-            $portfolio->certificate_image = $imagename;
+            $image->move('images/portfolio_image',$imagename);
+            $portfolio->portfolio_image = $imagename;
         }
-        $portfolio->exam_name = $request->exam_name;
-        $portfolio->exam_short_code = $request->exam_short_code;
-        $portfolio->institution_name = $request->institution_name;
-        $portfolio->passing_year = $request->passing_year;
+        $portfolio->category_id = $request->category_id;
+        $portfolio->title = $request->title;
+        $portfolio->link = $request->link;
         $portfolio->description = $request->description;
         $portfolio->status = $request->status;
 
         try{
             $portfolio->save();
-            return back()->with('success', 'Certificate Saved Successfully !');
+            return redirect()->route('admin.portfolio.index')->with('message', 'Portfolio Saved Successfully !');
         }catch (\Exception $exception){
             return back()->with('danger', 'Something went wrong !');
         }
@@ -74,43 +64,40 @@ class PortfolioController extends Controller
     public function edit($id)
     {
         $portfolio = Portfolio::find($id);
-        return view('admin.portfolio.edit', compact('portfolio'));
+        $categories = Category::orderBy('id', 'desc')->get();
+        return view('admin.portfolio.edit', compact('portfolio','categories'));
     }
 
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-          'exam_name' => 'required',
-          'exam_short_code' => 'required',
-          'institution_name' => 'required',
-          'passing_year' => 'required',
-          'certificate_image' => 'mimes:jpeg,jpg,png,webp',
+          'title' => 'required',
+          'category_id' => 'required'
         ]);
 
-        $image = $request->file('certificate_image');
-        $slug = str_slug($request->exam_name);
+        $image = $request->file('portfolio_image');
+        $slug = str_slug($request->title);
         $portfolio = Portfolio::find($id);
         if (isset($image)){
-            if (file_exists('images/certificate_image/'.$portfolio->certificate_image)){
-                unlink('images/certificate_image/'.$portfolio->certificate_image);
+            if (file_exists('images/portfolio_image/'.$portfolio->portfolio_image)){
+                unlink('images/portfolio_image/'.$portfolio->portfolio_image);
             }
-            $certificate_imagename = $slug.'-'.uniqid().'.'.$certificate_image->getClientOriginalExtension();
+            $portfolio_imagename = $slug.'-'.uniqid().'.'.$portfolio_image->getClientOriginalExtension();
 
-            $certificate_image->move('images/certificate_image',$certificate_imagename);
+            $portfolio_image->move('images/portfolio_image',$portfolio_imagename);
         }else{
-            $certificate_imagename = $portfolio->certificate_image;
+            $portfolio_imagename = $portfolio->portfolio_image;
         }
 
-        $portfolio->exam_name = $request->exam_name;
-        $portfolio->exam_short_code = $request->exam_short_code;
-        $portfolio->institution_name = $request->institution_name;
-        $portfolio->passing_year = $request->passing_year;
+        $portfolio->category_id = $request->category_id;
+        $portfolio->title = $request->title;
+        $portfolio->link = $request->link;
         $portfolio->description = $request->description;
         $portfolio->status = $request->status;
 
         try{
             $portfolio->save();
-            return back()->with('success', 'Certificate Saved Successfully !');
+            return redirect()->route('admin.portfolio.index')->with('message', 'Portfolio Updated Successfully !');
         }catch (\Exception $exception){
             return back()->with('danger', 'Something went wrong !');
         }
@@ -119,10 +106,10 @@ class PortfolioController extends Controller
     public function destroy($id)
     {
         $portfolio = Portfolio::find($id);
-        if (file_exists('images/certificate_image/'.$portfolio->certificate_image)){
-            unlink('images/certificate_image/'.$portfolio->certificate_image);
+        if (file_exists('images/portfolio_image/'.$portfolio->portfolio_image)){
+            unlink('images/portfolio_image/'.$portfolio->portfolio_image);
         }
         $portfolio->delete();
-        return back()->with('success', 'Certificate Deleted Successfully !');
+        return redirect()->route('admin.portfolio.index')->with('message', 'Portfolio Deleted Successfully !');
     }
 }

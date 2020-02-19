@@ -21,10 +21,34 @@
                     </a>
                 </li>
 
-                 <li class="nav-item">
-                    <a href="{{ route('admin.portfolio.index') }}" class="nav-link {{Request::is('admin/portfolio*') ? 'active':''}}">
+                <li class="nav-item has-treeview {{Request::is('admin/category*') ? 'menu-open':''}} {{Request::is('admin/portfolio*') ? 'menu-open':''}}" >
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-briefcase"></i>
+                        <p>
+                            Portfolio
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview ml-3 {{Request::is('admin/category*') ? 'show':'hide'}}" >
+                        <li class="nav-item">
+                            <a href="{{ route('admin.category.index') }}" class="nav-link {{Request::is('admin/category*') ? 'active':''}}">
+                                <i class="fas fa-align-left nav-icon"></i>
+                                <p>Category</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.portfolio.index') }}" class="nav-link {{Request::is('admin/portfolio*') ? 'active':''}}">
+                                <i class="fas fa-file-code nav-icon"></i>
+                                <p>Portfolio</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('admin.setting.edit', 1) }}" class="nav-link {{Request::is('admin/setting*') ? 'active':''}}">
                         <i class="nav-icon far fa fa-book"></i>
-                        <p>Portfolio</p>
+                        <p>Settings</p>
                     </a>
                 </li>
 
@@ -38,7 +62,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-6">
-                <h5 class="text-dark">@yield('title')</h5>
+                    <h5 class="text-dark">@yield('title')</h5>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb breadcrumb-sm float-right">
