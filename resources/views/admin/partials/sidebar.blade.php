@@ -16,7 +16,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('admin.education.index') }}" class="nav-link {{Request::is('admin/education*') ? 'active':''}}">
-                        <i class="nav-icon far fa fa-book"></i>
+                        <i class="nav-icon  fas fa-book-reader"></i>
                         <p>Education</p>
                     </a>
                 </li>
@@ -47,7 +47,7 @@
 
                 <li class="nav-item">
                     <a href="{{ route('admin.setting.edit', 1) }}" class="nav-link {{Request::is('admin/setting*') ? 'active':''}}">
-                        <i class="nav-icon far fa fa-book"></i>
+                        <i class="nav-icon fas fa-cogs"></i>
                         <p>Settings</p>
                     </a>
                 </li>
