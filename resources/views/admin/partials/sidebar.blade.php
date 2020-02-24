@@ -45,12 +45,31 @@
                     </ul>
                 </li>
 
-                <li class="nav-item">
-                    <a href="{{ route('admin.setting.edit', 1) }}" class="nav-link {{Request::is('admin/setting*') ? 'active':''}}">
+                <li class="nav-item has-treeview {{Request::is('admin/setting*') ? 'menu-open':''}} {{Request::is('admin/portfolio*') ? 'menu-open':''}}" >
+                    <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-cogs"></i>
-                        <p>Settings</p>
+                        <p>
+                            Settings
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
                     </a>
+                    <ul class="nav nav-treeview ml-3 {{Request::is('admin/setting*') ? 'show':'hide'}}" >
+                        <li class="nav-item">
+                            <a href="{{ route('admin.profile', 1) }}" class="nav-link {{Request::is('admin/setting/1/Profile*') ? 'active':''}}">
+                                <i class="fas fa-user nav-icon"></i>
+                                <p>Profile</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('admin.social_media_setting',1) }}" class="nav-link {{Request::is('admin/setting/1/social-media') ? 'active':''}}">
+                                <i class="fas fa-link nav-icon"></i>
+                                <p>Social media</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
+
 
             </ul>
         </nav>
