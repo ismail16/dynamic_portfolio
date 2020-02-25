@@ -44,8 +44,6 @@
                             <div class="col-md-6 pb-1">
                                 <label class="control-label mb-0">Portfolio Image</label>
                                 <div class="row border">
-
-
                                     <div class="col-5">
                                         <img id="imageBrowsLive" src="https://high-games.com/wp-content/themes/crystalskull/img/defaults/default.jpg" class="img-fluid portfolio_image_edit border" alt="">
                                     </div>

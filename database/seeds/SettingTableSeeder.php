@@ -14,7 +14,8 @@ class SettingTableSeeder extends Seeder
     {
         DB::table('settings')->insert([
             'name' => 'Mr. Rahman',
-            'image' => 'https://segmetrics.io/wp-content/themes/segmetrics/assets/img/customers/avatar5.png',
+            'image1' => 'https://segmetrics.io/wp-content/themes/segmetrics/assets/img/customers/avatar5.png',
+            'image2' => 'https://segmetrics.io/wp-content/themes/segmetrics/assets/img/customers/avatar5.png',
             'title' => 'Software Engineer With 2+ Years Experience',
             'my_self' => 'I am professional in Web Design and Development, software development and ICT where has a challenging position and which is rapidly expanding and offers excellent advancement.',
             'logo' => 'https://cdn0.iconfinder.com/data/icons/cartoon-hand-gestures-1/100/objects-09-512.png',

@@ -15,24 +15,32 @@ class CreateSettingsTable extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->increments('id');
+
             $table->string('name');
-            $table->string('image')->nullable();
             $table->string('title')->nullable();
-            $table->string('my_self')->nullable();
-            $table->string('logo')->nullable();
+            $table->string('image1')->nullable();
+            $table->string('image1')->nullable();
             $table->string('age')->nullable();
             $table->string('phone')->nullable();
             $table->string('email');
-            $table->string('resume_file')->nullable();
-            $table->string('website')->nullable();
             $table->text('address')->nullable();
-            $table->text('footer_text')->nullable();
+            $table->string('website')->nullable();
+            $table->string('resume_file')->nullable();
+            $table->text('my_self')->nullable();
+
             $table->text('facebook')->nullable();
             $table->text('instagram')->nullable();
             $table->text('youtube')->nullable();
             $table->text('twitter')->nullable();
             $table->text('linkedIn')->nullable();
             $table->text('skype')->nullable();
+
+            $table->string('logo')->nullable();
+            $table->string('bg_navbar')->nullable();
+            $table->string('color_navbar')->nullable();
+            $table->string('bg_footer')->nullable();
+            $table->string('color_footer')->nullable();
+            $table->text('footer_text')->nullable();
 
             $table->tinyInteger('status')->default(0);
             $table->timestamps();
