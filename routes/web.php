@@ -9,11 +9,8 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
     Route::resource('category', 'CategoryController');
     Route::resource('portfolio', 'PortfolioController');
     Route::resource('setting', 'SettingController');
-
-    Route::get('setting/{id}/social-media', 'SocialMediaController@social_media_setting')->name('social_media_setting');
-
-
-    Route::get('setting/{id}/profile', 'ProfileController@profile')->name('profile');
+    Route::resource('setting-social-media', 'SocialMediaController');
+    Route::resource('setting-profile', 'ProfileController');
 });
 
 Auth::routes();

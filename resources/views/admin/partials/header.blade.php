@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>@yield('title') | AdminLTE 3</title>
+    <title>@yield('title') | Portfolio</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
@@ -49,6 +49,14 @@
         .portfolio_image_edit{
             width: 150px !important;
             height: 100px !important;
+        }
+
+        .profile_image_edit{
+            height:50px;
+            width: 100px;
+        }
+        .file_input_sm{
+            font-size: 11px;
         }
     </style>
     @stack('css')

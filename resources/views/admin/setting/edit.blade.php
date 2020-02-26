@@ -2,97 +2,57 @@
 @section('title','Setting')
 
 @push('css')
+<style type="text/css">
 
+</style>
 @endpush
 
 @section('content')
 <div class="container">
     <div class="row">
-      <div class="col-12">
+        @if(session()->has('message'))
+            <div class="col-lg-12 col-xl-12 d-flex justify-content-center">
+                <div class="alert alert-success text-center pr-3 pl-3 p-1 mb-1">
+                    {{session('message')}}
+                    <button type="button" class="close ml-4 text-danger" data-dismiss="alert">&times;</button>
+                </div>
+            </div>
+        @endif
+        <div class="col-12">
           <form action="{{route('admin.setting.update',$setting->id)}}" method="post" enctype="multipart/form-data">
               @csrf
               @method('PUT')
               <div class="card">
-
                 <div class="card-body">
+                    @if ($errors->any())
+                        @foreach ($errors->all() as $error)
+                            <div class="col-lg-12 col-md-12 col-xl-12 justify-content-center">
+                                <div class="alert alert-danger text-center pr-3 pl-3 p-1 mb-1" role="alert">
+                                    {{$error}}
+                                    <button type="button" class="close ml-4" data-dismiss="alert">&times;</button>
+                                </div>
+                            </div>
+                        @endforeach
+                    @endif
                     <div class="row">
-                        {{-- <div class="col-md-6">
+                         <div class="col-md-6">
                             <div class="mb-1">
-                                <label class="mb-0">Name</label>
-                                <input type="text" name="name" value="{{ $setting->name }}" class="form-control form-control-sm">
-                            </div>
-                        </div> --}}
-
-                        {{-- <div class="col-md-6">
-                            <div class="mb-1">
-                                <label class="mb-0">image </label>
-                                <input type="file" name="image" class="form-control form-control-sm">
-                            </div>
-                        </div> --}}
-
-                        <div class="col-md-6">
-                            <div class="mb-1">
-                                <label class="mb-0">logo </label>
-                                <input type="file" name="logo" class="form-control form-control-sm">
+                                <label class="mb-0">Theme</label>
+                                <select name="theme_number" class="form-control form-control-sm">
+                                    <option value="theme1"  {{ $setting->theme_number == 'theme1'? 'selected':'' }}>Theme 1</option>
+                                </select>
                             </div>
                         </div>
 
-                       {{--  <div class="col-md-6">
+                         <div class="col-md-6">
                             <div class="mb-1">
-                                <label class="mb-0">resume_file </label>
-                                <input type="file" name="resume_file" class="form-control form-control-sm">
-                            </div>
-                        </div> --}}
-
-                        <div class="col-md-6">
-                            <div class="mb-1">
-                                <label class="mb-0">title </label>
-                                <input type="text" name="title" value="{{ $setting->title }}" class="form-control form-control-sm">
-                            </div>
-                        </div>
-
-                       
-
-                     {{--    <div class="col-md-6">
-                            <div class="mb-1">
-                                <label class="mb-0">Phone</label>
-                                <input type="text" name="phone" value="{{ $setting->phone }}" class="form-control form-control-sm">
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="mb-1">
-                                <label class="mb-0">Age</label>
-                                <input type="text" name="age" value="{{ $setting->age }}" class="form-control form-control-sm">
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="mb-1">
-                                <label class="mb-0">Email</label>
-                                <input type="email" name="email" value="{{ $setting->email }}" class="form-control form-control-sm">
-                            </div>
-                        </div> --}}
-
-                        <div class="col-12">
-                            <div class="mb-1">
-                                <label class="mb-0 col-md-2">my_self</label>
-                                <input type="text" name="my_self" value="{{ $setting->my_self }}" class="form-control form-control-sm">
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="mb-1">
-                                <label class="mb-0">Website</label>
-                                <input type="text" name="website" value="{{ $setting->website }}" class="form-control form-control-sm">
-                            </div>
-                        </div>
-
-
-                        <div class="col-md-6">
-                            <div class="mb-1">
-                                <label class="mb-0">Address</label>
-                                <input type="text" name="address" value="{{ $setting->address }}" class="form-control form-control-sm">
+                                <label class="mb-0">Theme Color </label>
+                                <select name="theme_color" class="form-control form-control-sm">
+                                    <option value="pink" {{ $setting->theme_color == 'pink'? 'selected':'' }}>Pink</option>
+                                    <option value="brown" {{ $setting->theme_color == 'brown' ? 'selected':'' }}>Brown</option>
+                                    <option value="green" {{ $setting->theme_color == 'green' ? 'selected':'' }}>Green</option>
+                                    <option value="blue" {{ $setting->theme_color == 'blue' ? 'selected':'' }}>Blue</option>
+                                </select>
                             </div>
                         </div>
 
@@ -104,44 +64,36 @@
                         </div>
 
                         <div class="col-md-6">
-                            <div class="mb-1">
-                                <label class="mb-0">Facebook Link</label>
-                                <input type="text" name="facebook" value="{{ $setting->facebook }}" class="form-control form-control-sm">
+                            <div class="row">
+                                <div class="mb-1 col-md-9">
+                                    <label class="mb-0">Logo</label>
+                                    <div class="align-self-center">
+                                        <input type="file" name="logo" onchange="readliveImagebrows(this);"  class="form-control form-control-sm file_input_sm">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 align-self-end">
+                                    @if ($setting->logo)
+                                        <img id="imageBrowsLive" src="{{ asset('images/logo/'.$setting->logo)}}"  class="img-fluid profile_image_edit">
+                                    @else
+                                        <img id="imageBrowsLive" src="https://high-games.com/wp-content/themes/crystalskull/img/defaults/default.jpg" class="img-fluid profile_image_edit" alt="">
+                                    @endif
+                                </div>
                             </div>
                         </div>
 
-                        <div class="col-md-6">
+
+
+                        <div class="col-md-12">
                             <div class="mb-1">
-                                <label class="mb-0">Instagram Link</label>
-                                <input type="text" name="instagram" value="{{ $setting->instagram }}" class="form-control form-control-sm">
+                                <label class="mb-0">Meta Title</label>
+                                <input type="text" name="meta_title" value="{{ $setting->meta_title }}" class="form-control form-control-sm">
                             </div>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="mb-1">
-                                <label class="mb-0">Youtube Link</label>
-                                <input type="text" name="youtube" value="{{ $setting->youtube }}" class="form-control form-control-sm">
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="mb-1">
-                                <label class="mb-0">Twitter Link</label>
-                                <input type="text" name="twitter" value="{{ $setting->twitter }}" class="form-control form-control-sm">
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="mb-1">
-                                <label class="mb-0">LinkedIn Link</label>
-                                <input type="text" name="linkedIn" value="{{ $setting->linkedIn }}" class="form-control form-control-sm">
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="mb-1">
-                                <label class="mb-0">Skype Link</label>
-                                <input type="text" name="linkedIn" value="{{ $setting->skype }}" class="form-control form-control-sm">
+                                <label class="mb-0">Meta Description</label>
+                                <textarea name="meta_description" class="form-control form-control-sm">{{ $setting->meta_description }}</textarea>
                             </div>
                         </div>
 

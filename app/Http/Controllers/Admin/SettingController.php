@@ -9,55 +9,6 @@ use App\Models\Setting;
 
 class SettingController extends Controller
 {
-    public function index()
-    {
-        // $portfolios = Portfolio::orderBy('id', 'desc')->get();
-        // return view('admin.portfolio.index', compact('portfolios'));
-    }
-
-    public function create()
-    {
-        // $categories = Category::orderBy('id', 'desc')->get();
-        // return view('admin.portfolio.create', compact('categories'));
-    }
-
-    public function store(Request $request)
-    {
-        // $this->validate($request, [
-        //   'title' => 'required',
-        //   'category_id' => 'required'
-        // ]);
-
-        // $portfolio = new Portfolio;
-
-        // $image = $request->file('portfolio_image');
-        // $slug = str_slug($request->title);
-        // if (isset($image)){
-        //     $imagename = $slug.'-'.uniqid().'.'.$image->getClientOriginalExtension();
-        //     if (!file_exists('images/portfolio_image')){
-        //         mkdir('images/portfolio_image', 777, true);
-        //     }
-        //     $image->move('images/portfolio_image',$imagename);
-        //     $portfolio->portfolio_image = $imagename;
-        // }
-        // $portfolio->category_id = $request->category_id;
-        // $portfolio->title = $request->title;
-        // $portfolio->link = $request->link;
-        // $portfolio->description = $request->description;
-        // $portfolio->status = $request->status;
-
-        // try{
-        //     $portfolio->save();
-        //     return redirect()->route('admin.portfolio.index')->with('message', 'Portfolio Saved Successfully !');
-        // }catch (\Exception $exception){
-        //     return back()->with('danger', 'Something went wrong !');
-        // }
-    }
-
-    public function show($id)
-    {
-        //
-    }
 
     public function edit($id)
     {
@@ -67,41 +18,35 @@ class SettingController extends Controller
 
     public function update(Request $request, $id)
     {
-        // $this->validate($request, [
-        //   'title' => 'required',
-        //   'category_id' => 'required'
-        // ]);
+        $this->validate($request, [
+          'theme_number' => 'required',
+          'theme_color' => 'required',
+          'footer_text' => 'required'
+        ]);
 
-        // $image = $request->file('portfolio_image');
-        // $slug = str_slug($request->title);
-        // $portfolio = Portfolio::find($id);
-        // if (isset($image)){
-        //     if (file_exists('images/portfolio_image/'.$portfolio->portfolio_image)){
-        //         unlink('images/portfolio_image/'.$portfolio->portfolio_image);
-        //     }
-        //     $portfolio_imagename = $slug.'-'.uniqid().'.'.$portfolio_image->getClientOriginalExtension();
+        $setting = Setting::find($id);
+        $image = $request->file('logo');
+        $slug = str_slug($setting->name);
+        if (isset($image)){
+            if (file_exists('images/logo/'.$setting->logo)){
+                unlink('images/logo/'.$setting->logo);
+            }
+            $setting_imagename = $slug.'-'.uniqid().'.'.$image->getClientOriginalExtension();
+            $image->move('images/logo',$setting_imagename);
+            $setting->logo = $setting_imagename;
 
-        //     $portfolio_image->move('images/portfolio_image',$portfolio_imagename);
-        // }else{
-        //     $portfolio_imagename = $portfolio->portfolio_image;
-        // }
+        }
+        $setting->theme_number = $request->theme_number;
+        $setting->theme_color = $request->theme_color;
+        $setting->footer_text = $request->footer_text;
+        $setting->meta_title = $request->meta_title;
+        $setting->meta_description = $request->meta_description;
 
-        // $portfolio->category_id = $request->category_id;
-        // $portfolio->title = $request->title;
-        // $portfolio->link = $request->link;
-        // $portfolio->description = $request->description;
-        // $portfolio->status = $request->status;
-
-        // try{
-        //     $portfolio->save();
-        //     return redirect()->route('admin.portfolio.index')->with('message', 'Portfolio Updated Successfully !');
-        // }catch (\Exception $exception){
-        //     return back()->with('danger', 'Something went wrong !');
-        // }
-    }
-
-    public function destroy($id)
-    {
-     
+        try{
+            $setting->save();
+            return back()->with('message', 'Setting Updated Successfully !');
+        }catch (\Exception $exception){
+            return back()->with('danger', 'Something went wrong !');
+        }
     }
 }

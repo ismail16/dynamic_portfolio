@@ -27,6 +27,10 @@ body {
     text-align:center;
 }
 
+.pointer{
+  cursor: pointer !important;
+}
+
 section {
     padding:40px 0px 40px 0px;
 }
@@ -119,9 +123,10 @@ border-radius: 0px!important;
         text-decoration:none;
     }
 #home-sec .main-img-2 {
-  max-height:200px;
+  height:180px;
+  width:180px;
   border:5px solid rgb(255, 15, 101);
-  content:url('../img/ismail1.jpg');  /*SMILE IMAGE URL  - RIGHT SIDE IMAGE*/
+  /*content:url('../img/ismail1.jpg');  SMILE IMAGE URL  - RIGHT SIDE IMAGE*/
   cursor:pointer;
 }
 /*#home-sec .main-img-2:hover {

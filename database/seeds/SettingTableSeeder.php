@@ -14,24 +14,30 @@ class SettingTableSeeder extends Seeder
     {
         DB::table('settings')->insert([
             'name' => 'Mr. Rahman',
-            'image1' => 'https://segmetrics.io/wp-content/themes/segmetrics/assets/img/customers/avatar5.png',
-            'image2' => 'https://segmetrics.io/wp-content/themes/segmetrics/assets/img/customers/avatar5.png',
             'title' => 'Software Engineer With 2+ Years Experience',
-            'my_self' => 'I am professional in Web Design and Development, software development and ICT where has a challenging position and which is rapidly expanding and offers excellent advancement.',
-            'logo' => 'https://cdn0.iconfinder.com/data/icons/cartoon-hand-gestures-1/100/objects-09-512.png',
+            'image1' => 'default_profile.png',
+            'image2' => 'default_profile.png',
             'age' => '26',
             'phone' => '11111111111',
             'email' => 'example@gmail.com',
-            'resume_file' => 'https://cdn0.iconfinder.com/data/icons/cartoon-hand-gestures-1/100/objects-09-512.png',
-            'website' => 'www.exapmle.com',
             'address' => 'Dhaka, Bangladesh',
-            'footer_text' => '2018 All Rights Reserved',
+            'website' => 'www.exapmle.com',
+            'resume_file' => 'resume.pdf',
+            'my_self' => 'I am professional in Web Design and Development, software development and ICT where has a challenging position and which is rapidly expanding and offers excellent advancement.',
+            
             'facebook' => 'facebook',
             'instagram' => 'instagram',
             'youtube' => 'youtube',
             'twitter' => 'twitter',
             'linkedIn' => 'linkedIn',
-            'skype' => 'skype'
+            'skype' => 'skype',
+
+            'theme_number' => 'theme1',
+            'theme_color' => 'pink',
+            'footer_text' => '2018 All Rights Reserved',
+            'logo' => 'default_lofo.png',
+            'meta_title' => 'I am professional in Web Design and Development',
+            'meta_description' => 'I am professional in Web Design and Development, software development and ICT where has a challenging position and which is rapidly expanding and offers excellent advancement',
         ]);
     }
 }

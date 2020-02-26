@@ -6,24 +6,34 @@
 @endpush
 
 @section('content')
-<style type="text/css">
-    .profile_image_edit{
-        height:50px;
-        width: 100px;
-    }
-    .file_input_sm{
-        font-size: 11px;
-    }
-</style>
+
 <div class="container">
     <div class="row">
+        @if(session()->has('message'))
+            <div class="col-lg-12 col-xl-12 d-flex justify-content-center">
+                <div class="alert alert-success text-center pr-3 pl-3 p-1 mb-1">
+                    {{session('message')}}
+                    <button type="button" class="close ml-4 text-danger" data-dismiss="alert">&times;</button>
+                </div>
+            </div>
+        @endif
         <div class="col-12">
-            <form action="{{route('admin.setting.update',$setting->id)}}" method="post" enctype="multipart/form-data">
+            <form action="{{route('admin.setting-profile.update',1)}}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="card">
 
                     <div class="card-body">
+                        @if ($errors->any())
+                            @foreach ($errors->all() as $error)
+                                <div class="col-lg-12 col-md-12 col-xl-12 justify-content-center">
+                                    <div class="alert alert-danger text-center pr-3 pl-3 p-1 mb-1" role="alert">
+                                        {{$error}}
+                                        <button type="button" class="close ml-4" data-dismiss="alert">&times;</button>
+                                    </div>
+                                </div>
+                            @endforeach
+                        @endif
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-1">
@@ -40,14 +50,14 @@
                             <div class="col-md-6">
                                 <div class="row">
                                     <div class="mb-1 col-md-9">
-                                        <label class="mb-0">Profile Image</label>
+                                        <label class="mb-0">Profile Image 1</label>
                                         <div class="align-self-center">
                                             <input type="file" name="image1" onchange="readliveImagebrows(this);"  class="form-control form-control-sm file_input_sm">
                                         </div>
                                     </div>
                                     <div class="col-md-3 align-self-end">
                                         @if ($setting->image1)
-                                            <img id="imageBrowsLive" src="{{ asset('images/profile_image/'.$setting->image1) }}"  class="img-fluid profile_image_edit border">
+                                            <img id="imageBrowsLive" src="{{ asset('images/profile/'.$setting->image1) }}"  class="img-fluid profile_image_edit border">
                                         @else
                                             <img id="imageBrowsLive" src="https://high-games.com/wp-content/themes/crystalskull/img/defaults/default.jpg" class="img-fluid profile_image_edit" alt="">
                                         @endif
@@ -63,7 +73,7 @@
                                     </div>
                                     <div class="col-md-3 align-self-end">
                                         @if ($setting->image2)
-                                            <img id="imageBrowsLive2" src="{{ asset('images/profile_image/'.$setting->image2) }}"  class="img-fluid profile_image_edit border">
+                                            <img id="imageBrowsLive2" src="{{ asset('images/profile/'.$setting->image2) }}"  class="img-fluid profile_image_edit border">
                                         @else
                                             <img id="imageBrowsLive2" src="https://high-games.com/wp-content/themes/crystalskull/img/defaults/default.jpg" class="img-fluid profile_image_edit" alt="">
                                         @endif
@@ -94,7 +104,7 @@
                                 </div>
                             </div>
 
-                             <div class="col-md-6">
+                            <div class="col-md-6">
                                 <div class="mb-1">
                                     <label class="mb-0">Address</label>
                                     <textarea name="address" class="form-control form-control-sm" rows="1"> {{ $setting->address }} </textarea>
@@ -111,7 +121,18 @@
                             <div class="col-md-6">
                                 <div class="mb-1">
                                     <label class="mb-0">Resume File </label>
-                                    <input type="file" name="resume_file" class="form-control form-control-sm file_input_sm">
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <input type="file" name="resume_file" class="form-control form-control-sm file_input_sm">
+                                        </div>
+                                        <div class="col-md-3">
+                                            @if ($setting->resume_file)
+                                            <a href="{{ asset('/images/profile/'.$setting->resume_file)}}" target="_blank">Show Resume</a>
+                                            @else
+                                            <span>Not Upload Yet</span>
+                                            @endif
+                                        </div>
+                                    </div>                                    
                                 </div>
                             </div>                           
 

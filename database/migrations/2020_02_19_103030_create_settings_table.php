@@ -19,7 +19,7 @@ class CreateSettingsTable extends Migration
             $table->string('name');
             $table->string('title')->nullable();
             $table->string('image1')->nullable();
-            $table->string('image1')->nullable();
+            $table->string('image2')->nullable();
             $table->string('age')->nullable();
             $table->string('phone')->nullable();
             $table->string('email');
@@ -36,11 +36,11 @@ class CreateSettingsTable extends Migration
             $table->text('skype')->nullable();
 
             $table->string('logo')->nullable();
-            $table->string('bg_navbar')->nullable();
-            $table->string('color_navbar')->nullable();
-            $table->string('bg_footer')->nullable();
-            $table->string('color_footer')->nullable();
+            $table->string('theme_number')->nullable();
+            $table->string('theme_color')->nullable();
             $table->text('footer_text')->nullable();
+            $table->text('meta_title')->nullable();
+            $table->text('meta_description')->nullable();
 
             $table->tinyInteger('status')->default(0);
             $table->timestamps();

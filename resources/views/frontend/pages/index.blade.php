@@ -73,10 +73,11 @@
                         @csrf
                     </form>
                     @else
-                    <li class="mr-4"><a  data-toggle="modal" data-target="#myModal" class="text-light" data-wow-duration="1s" data-wow-delay=".7s">
-
-                        <small class="wow bounceIn animated font-weight-bold" data-wow-duration="1s" data-wow-delay=".8s"><i class="fa fa-key icon-round text-light"></i> LOGIN</small>
-                    </a></li>
+                    <li class="mr-4 pointer">
+                        <a  data-toggle="modal" data-target="#myModal" class="text-light" data-wow-duration="1s" data-wow-delay=".7s">
+                            <small class="wow bounceIn animated font-weight-bold pointer" data-wow-duration="1s" data-wow-delay=".8s"><i class="fa fa-key icon-round text-light "></i> LOGIN</small>
+                        </a>
+                    </li>
                     @endauth
                     @endif
                 </ul>
@@ -89,8 +90,8 @@
             <div class="modal-dialog modal-sm">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Admin Login</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title text_color">Admin Login</h4>
+                        <button type="button" class="close text-danger" data-dismiss="modal">&times;</button>
                     </div>
                     <div class="card card-container">
                         <img id="profile-img" class="profile-img-card" src="{{ asset('frontend_assets/img/ismail2.jpg')}}" />
@@ -119,7 +120,7 @@
                             <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
                         </form>
 
-                        <a href="#" class="forgot-password">
+                        <a href="#" class="forgot-password text_color">
                             Forgot the password?
                         </a>
                     </div>
@@ -133,10 +134,12 @@
         <div class="container">
             <div class="row pad-top-bottom">
                 <div class="col-lg-12 col-md-12 col-sm-12 text-center">
-                    <img src="{{ asset('frontend_assets/img/ismail1.jpg')}}" class="main-img-2 rounded-circle wow bounceIn animated" data-wow-duration="1s" data-wow-delay=".2s" alt="" />
-                    <h1 class="wow bounceIn animated" data-wow-duration="1s" data-wow-delay=".4s">I'm Ismail Hossain</h1>
-                    <h2 class="wow bounceIn animated" data-wow-duration="1s" data-wow-delay=".6s">Software Engineer With 2+ Years Experience</h2>
-                    <a href="#skill-sec" class="btn custom-btn-one btn-lg wow bounceIn animated" data-wow-duration="1s" data-wow-delay=".8s">MORE ABOUT ME</a>
+                    <img src="{{ asset('images/profile/'.$setting->image1)}}" class="main-img-2 rounded-circle wow bounceIn animated" data-wow-duration="1s" data-wow-delay=".2s" alt="" />
+                    <h1 class="wow bounceIn animated" data-wow-duration="1s" data-wow-delay=".4s">I'm {{ $setting->name }}</h1>
+                    <h2 class="wow bounceIn animated" data-wow-duration="1s" data-wow-delay=".6s">
+                        {{ $setting->title }}
+                    </h2>
+                    <a href="#skill-sec" class="btn custom-btn-one btn-lg wow bounceIn animated pointer" data-wow-duration="1s" data-wow-delay=".8s">MORE ABOUT ME</a>
                 </div>
 
             </div>
@@ -156,11 +159,11 @@
                     <div class="color-strip"></div>
                     <div class="personal-information">
                         <ul style="margin-left: -35px;">
-                            <li><span>Name : </span>Ismail Hossain</li>
-                            <li><span>Age : </span>24 Years</li>
-                            <li><span>Phone : </span>8801686254438</li>
-                            <li><span>Email : </span>ismail32@gmail.com</li>
-                            <li><span>Address : </span>Dhaka,Bangladesh</li>
+                            <li><span>Name : </span>{{ $setting->name }}</li>
+                            <li><span>Age : </span>{{ $setting->age }} Years</li>
+                            <li><span>Phone : </span>{{ $setting->phone }}</li>
+                            <li><span>Email : </span>{{ $setting->email }}</li>
+                            <li><span>Address : </span>{{ $setting->address }}</li>
                         </ul>
                     </div>
 
@@ -179,7 +182,7 @@
                 <div class="col-lg-8 col-md-8 col-sm-8 wow bounceIn animated" data-wow-duration="1s" data-wow-delay=".4s">
 
                     <h3 class="text_color">About me</h3>
-                    <p>I am professional in Web Design and Development, software development and ICT where has a challenging position and which is rapidly expanding and offers excellent advancement.</p>
+                    <p>{{ $setting->my_self }}</p>
 
                     <h2 class="text_color">Skills</h2>
                     <div class="progress skill-bar mb-1">
@@ -229,7 +232,7 @@
                             <span class="skill">Photoshop<i class="val">60%</i></span>
                         </div>
                     </div>  
-                    <a href="assets/Ismail-CV.pdf" class="btn btn-style-two btn-lg" download>DOWNLOAD RESUME (.pdf file)</a>               
+                    <a href="{{asset('images/profile/'.$setting->resume_file)}}" target="_blank" class="btn btn-style-two btn-lg pointer mt-3">DOWNLOAD RESUME (.pdf file)</a>               
                 </div>
             </div>
         </div>
@@ -240,7 +243,7 @@
 <section id="portfolio-sec" style="background-color: #c0cad4;">
     <div class="container">
         <div class="">
-            <h2>Recent Projects</h2>
+            <h2 class="text_color">Recent Projects</h2>
         </div>
 
         <div>
@@ -360,13 +363,13 @@
                         <div class="tab-content">
                             <div class="tab-pane fade in active show" id="home">
 
-                                <h4 class="head text-center">PERSONAL DETAILS</h4>
+                                <h4 class="head text-center text_color">PERSONAL DETAILS</h4>
                                 <p class="narrow text-center">
                                     <span>
-                                        <i>NAME : </i>Ismail Hossain
+                                        <i>NAME : </i>{{ $setting->name }}
                                     </span>
                                     <span>
-                                        <i>AGE :</i>24 YEARS
+                                        <i>AGE :</i>{{ $setting->age }} YEARS
                                     </span>
                                     <span>
                                         <i>EXPERIENCE :</i>2 + YEARS TILL DATE
@@ -377,7 +380,7 @@
                             </div>
                             <div class="tab-pane fade" id="profile">
 
-                                <h4 class="head text-center">EDUCATIONAL PROFILE</h4>
+                                <h4 class="head text-center text_color">EDUCATIONAL PROFILE</h4>
                                 <p class="narrow text-center">
                                     <span>
                                         <i>B.S.C(CSE) : </i> "City University" - "2016"
@@ -398,7 +401,7 @@
                             </div>
 
                             <div class="tab-pane fade" id="exp">
-                                <h4 class="head text-center">EXPERIENCE DETAILS</h4>
+                                <h4 class="head text-center text_color">EXPERIENCE DETAILS</h4>
                                 <p class="narrow text-center">
 
                                     <span>
@@ -411,32 +414,27 @@
                                 </p>
                             </div>
                             <div class="tab-pane fade" id="location">
-                                <h4 class="head text-center">PRESENT LOCATION </h4>
+                                <h4 class="head text-center text_color">PRESENT LOCATION </h4>
                                 <p class="narrow text-center">
 
                                     <span>
-                                        <i>LOCALITY : </i>Holding No: 72-Porbo-Rajabazar
+                                        <i>Address : </i>{{ $setting->address }}
                                     </span>
-                                    <span>
-                                        <i>Area : </i> Panthapath, Dhaka- 1215
-                                    </span>
-                                    <span>
-                                        <i>COUNTRY : </i>Bangladesh
-                                    </span>
+                                   
                                 </p>
                             </div>
                             <div class="tab-pane fade" id="contact">
-                                <h4 class="head text-center">CONTACT ME </h4>
+                                <h4 class="head text-center text_color">CONTACT ME </h4>
 
                                 <p class="narrow text-center">
                                     <span>
-                                        <i>EMAIL : </i>ismail32cse@gmail.com
+                                        <i>EMAIL : </i>{{ $setting->email }}
                                     </span>
                                     <span>
-                                        <i>MOBILE : </i>8801686254438
+                                        <i>MOBILE : </i>{{ $setting->phone }}
                                     </span>
                                     <span>
-                                        <i>SKYPE : </i>ismail.hossain2484
+                                        <i>SKYPE : </i>{{ $setting->skype }}
                                     </span>
                                 </p>
                             </div>
@@ -451,7 +449,7 @@
 
 
                         <!-- <h4 class="media-heading"><strong>5 USD</strong> / HOUR</h4> -->
-                        <p>
+                        <p class="text_color">
                             BASIC
                         </p>
                         <a href="#hire-sec" class="btn btn-info">BUY PLAN NOW</a>
@@ -462,7 +460,7 @@
 
 
                         <!-- <h4 class="media-heading"><strong>1000 USD</strong> / MONTH</h4> -->
-                        <p>
+                        <p class="text_color">
                             PREMIUM
                         </p>
                         <a href="#hire-sec" class="btn btn-success ">BUY PLAN NOW</a>
@@ -473,7 +471,7 @@
 
 
                         <!-- <h4 class="media-heading"><strong>10000 USD</strong> / YEAR</h4> -->
-                        <p>
+                        <p class="text_color">
                             UNLIMITED
                         </p>
                         <a href="#hire-sec" class="btn btn-info">BUY PLAN NOW</a>
@@ -551,7 +549,7 @@
                     <p>I am expert in Web Design & Development, Software Development, Ecommerce Development With Raw PHP and Laravel</p>
 
                     <h3>MY LOCATION</h3>
-                    <p><i>ADDRESS :</i> Holding No: 72-Porbo-Rajabazar Panthapath, Dhaka- 1215 Bangladesh</p>
+                    <p><i>ADDRESS :</i> {{ $setting->address }}</p>
                 </div>
                 <div class="col-sm-6">
                     <form>
@@ -575,12 +573,12 @@
         </div>
     </section>
 
-    <section class="bg-dark p-0">
+    <section class="p-0 footer">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <p class="text-light">&copy; 2018 All Rights Reserved 
-                        <a href="http://binarytheme.com" class="text-danger" target="_blank">Ismail Hossain</a>
+                    <p class="text-light">&copy; {{ $setting->footer_text }}
+                        <a href="http://binarytheme.com" class="text-warning" target="_blank">{{ $setting->name }}</a>
                     </p>
                 </div>
             </div>
