@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title','All Payment')
+@section('title','All experience')
 
 @push('css')
     <link rel="stylesheet" href="{{asset('backend_assets/plugins/datatables/dataTables.bootstrap4.css')}}">
@@ -20,41 +20,50 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="table-responsive">
+                            <a href="{{ route('admin.experience.create') }}" class="pull-right btn btn-sm btn-primary float-right ml-2"> <i
+                                class="fa fa-plus"></i> Add New</a>
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
-                                    <th class="text-center">#SL</th>
-                                    <th class="text-center">Name</th>
-                                    <th class="text-center">Email</th>
-                                    <th class="text-center">Message</th>
-                                    <th class="text-center">Action</th>
+                                    <th>#SL</th>
+                                    <th>Company Name</th>
+                                    <th>Job Title</th>
+                                    <th>Start Job</th>
+                                    <th>End Job</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($contacts as $contact)
+                                @foreach($experiences as $experience)
                                 <tr>
-                                    <td class="text-center">{{ $loop->index+1 }}</td>
-                                    <td class="text-center">{{ $contact->name }}</td>
-                                    <td class="text-center">{{ $contact->email }}</td>
-                                    <td class="text-center">{{ $contact->message }}</td>
-                                    <td class="text-center">
-                                        @if($contact->status == 0)
-                                            <a href="{{route('admin.contact.show', $contact->id)}}" class="btn btn-xs btn-danger"><i class="fa fa-eye"></i>
-                                            </a>
-                                        @else
-                                            <a href="{{route('admin.contact.show', $contact->id)}}" class="btn btn-xs btn-success"><i class="fa fa-eye"></i>
-                                            </a>
+                                    <td>{{ $loop->index+1 }}</td>
+                                    <td>{{ $experience->company }}</td>
+                                    <td>{{ $experience->job_title }}</td>
+                                    <td>{{ $experience->start_at_date }}</td>
+                                    <td>{{ $experience->end_at_date }}</td>
+                                    <td>
+                                        @if($experience->status == 0)
+                                            <span class="badge bg-yellow">Inactive</span>
+                                            @else
+                                            <span class="badge bg-green">Actived</span>
                                         @endif
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="{{route('admin.experience.edit', $experience->id)}}"
+                                           class="btn btn-xs btn-success"><i class="fa fa-edit"></i></a>
+
                                         <a href="#" class="btn btn-xs btn-danger table-action-btn on_delete"
                                            data-content="{{$loop->index+1}}"><i
                                                     class="fa fa-trash"></i></a>
+
                                         <form id="on_delete{{$loop->index+1}}"
-                                              action="{{route('admin.contact.destroy', $contact->id)}}"
+                                              action="{{route('admin.experience.destroy', $experience->id)}}"
                                               method="post" class="delete"
-                                              data-content="{{$contact->id}}"
+                                              data-content="{{$experience->id}}"
                                               style="display: none;">
-                                            {{ csrf_field() }}
-                                            {{ method_field('DELETE') }}
+                                            {{csrf_field()}}
+                                            {{method_field('DELETE')}}
                                         </form>
                                     </td>
                                 </tr>

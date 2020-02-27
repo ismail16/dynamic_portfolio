@@ -16,8 +16,29 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('admin.education.index') }}" class="nav-link {{Request::is('admin/education*') ? 'active':''}}">
-                        <i class="nav-icon  fas fa-book-reader"></i>
+                        <i class="nav-icon  fa fa-graduation-cap"></i>
                         <p>Education</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('admin.scholarship-or-award.index') }}" class="nav-link {{Request::is('admin/scholarship-or-award*') ? 'active':''}}">
+                        <i class="nav-icon  fa fa-certificate"></i>
+                        <p>Scholarship</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('admin.skill.index') }}" class="nav-link {{Request::is('admin/skill*') ? 'active':''}}">
+                        <i class="nav-icon  fa fa-puzzle-piece"></i>
+                        <p>Skills</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('admin.experience.index') }}" class="nav-link {{Request::is('admin/experience*') ? 'active':''}}">
+                        <i class="nav-icon fas fa-bookmark"></i>
+                        <p>Experience</p>
                     </a>
                 </li>
 
@@ -75,6 +96,13 @@
                             </a>
                         </li>
                     </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('admin.contact.index') }}" class="nav-link {{Request::is('admin/contact*') ? 'active':''}}">
+                        <i class="nav-icon  far fa-comments"></i>
+                        <p>Message</p>
+                    </a>
                 </li>
             </ul>
         </nav>

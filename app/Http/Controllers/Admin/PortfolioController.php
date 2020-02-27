@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
 use App\Models\Portfolio;
 use App\Models\Category;
 
@@ -75,18 +74,16 @@ class PortfolioController extends Controller
           'category_id' => 'required'
         ]);
 
+        $portfolio = Portfolio::find($id);
         $image = $request->file('portfolio_image');
         $slug = str_slug($request->title);
-        $portfolio = Portfolio::find($id);
         if (isset($image)){
             if (file_exists('images/portfolio_image/'.$portfolio->portfolio_image)){
                 unlink('images/portfolio_image/'.$portfolio->portfolio_image);
             }
-            $portfolio_imagename = $slug.'-'.uniqid().'.'.$portfolio_image->getClientOriginalExtension();
-
-            $portfolio_image->move('images/portfolio_image',$portfolio_imagename);
-        }else{
-            $portfolio_imagename = $portfolio->portfolio_image;
+            $portfolio_imagename = $slug.'-'.uniqid().'.'.$image->getClientOriginalExtension();
+            $image->move('images/portfolio_image',$portfolio_imagename);
+            $portfolio->portfolio_image = $portfolio_imagename;
         }
 
         $portfolio->category_id = $request->category_id;

@@ -180,58 +180,16 @@
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-8 col-sm-8 wow bounceIn animated" data-wow-duration="1s" data-wow-delay=".4s">
-
                     <h3 class="text_color">About me</h3>
                     <p>{{ $setting->my_self }}</p>
-
                     <h2 class="text_color">Skills</h2>
+                    @foreach($skills as $skill)
                     <div class="progress skill-bar mb-1">
-                        <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-                            <span class="skill">HTML <i class="val">100%</i></span>
+                        <div class="progress-bar {{ $skill->percentage < 30 ? 'bg-danger' : '' }} {{ $skill->percentage < 40 ? 'bg-warning' : '' }} {{ $skill->percentage < 51 ? 'bg-info' : '' }} {{ $skill->percentage > 60 ? 'bg-success' : '' }}" role="progressbar" aria-valuenow="{{ $skill->percentage }}" aria-valuemin="0" aria-valuemax="100">
+                            <span class="skill">{{ $skill->name }} <i class="val"> {{ $skill->percentage }} %</i></span>
                         </div>
                     </div>
-
-                    <div class="progress skill-bar mb-1">
-                        <div class="progress-bar bg-info" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" >
-                            <span class="skill">CSS<i class="val">90%</i></span>
-                        </div>
-                    </div>
-
-                    <div class="progress skill-bar mb-1">
-                        <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="90">
-                            <span class="skill">JavaScript<i class="val">90%</i></span>
-                        </div>
-                    </div>
-
-                    <div class="progress skill-bar mb-1">
-                        <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="80">
-                            <span class="skill">jQuery<i class="val">80%</i></span>
-                        </div>
-                    </div>  
-
-                    <div class="progress skill-bar mb-1">
-                        <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="60">
-                            <span class="skill">AngularJS<i class="val">60%</i></span>
-                        </div>
-                    </div>
-
-                    <div class="progress skill-bar mb-1 ">
-                        <div class="progress-bar bg-success" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="90">
-                            <span class="skill">PHP <i class="val">90%</i></span>
-                        </div>
-                    </div>
-
-                    <div class="progress skill-bar mb-1">
-                        <div class="progress-bar bg-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="80" >
-                            <span class="skill">Laravel<i class="val">80%</i></span>
-                        </div>
-                    </div>
-
-                    <div class="progress skill-bar mb-1">
-                        <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="60">
-                            <span class="skill">Photoshop<i class="val">60%</i></span>
-                        </div>
-                    </div>  
+                    @endforeach
                     <a href="{{asset('images/profile/'.$setting->resume_file)}}" target="_blank" class="btn btn-style-two btn-lg pointer mt-3">DOWNLOAD RESUME (.pdf file)</a>               
                 </div>
             </div>
@@ -248,27 +206,29 @@
 
         <div>
             <button class="btn btn-primary filter-button" data-filter="all">All</button>
-            <button class="btn btn-default filter-button" data-filter="php">PHP</button>
-            <button class="btn btn-default filter-button" data-filter="laravel">Laravel</button>
-            <button class="btn btn-default filter-button" data-filter="webapp">WEB APP</button>
+            @foreach($categories as $category)
+                <button class="btn btn-default filter-button" data-filter="{{ $category->id }}">{{ $category->name }}</button>
+            @endforeach   
         </div>
         <br/>
 
         <div class="row bounceIn animated" >
-            <div class="col-md-4 filter php wow bounceIn animated"  style="margin-top: 5px;">
+            @foreach($portfolios as $portfolio)
+            <div class="col-md-4 filter {{ $portfolio->category_id }} wow bounceIn animated"  style="margin-top: 5px;">
                 <div class="each-item">
-                    <img class="port-image" src="{{ asset('frontend_assets/img/portfolio/small/1.png')}}"/>
+                    <img class="port-image" src="{{ asset('images/portfolio_image/'.$portfolio->portfolio_image) }}"/>
                     <div class="cap1">
-                        <p>Giant Group BD </br> Background: html5, css3, bootstrap, js, Jquery, json, php, mysql </br>
-                        Framework: MVC (Based)</p>
+                        <p>{{  $portfolio->title }} </p>
+                        {!! $portfolio->description !!}
                     </div>
                     <div class="cap2">
-                        <a class="_preview" href="http://giantbd.com/" target="_blank"><i class="fa fa-eye"></i>SEE PROJECT </a>
+                        <a class="_preview" href="{{ $portfolio->link }}" target="_blank"><i class="fa fa-eye"></i>SEE PROJECT </a>
                     </div>
                 </div>
-            </div>         
+            </div> 
+            @endforeach       
 
-            <div class="col-md-4 filter laravel wow bounceIn animated" style="margin-top: 5px;">
+            <!-- <div class="col-md-4 filter laravel wow bounceIn animated" style="margin-top: 5px;">
                 <div class="each-item">
                     <img class="port-image" src="{{ asset('frontend_assets/img/portfolio/small/2.png')}}"/>
                     <div class="cap1">
@@ -303,7 +263,7 @@
                         <a class="_preview" href="http://ismail-hossain.com/LaravelE-commerce5.7/" target="_blank"><i class="fa fa-eye"></i>SEE PROJECT </a>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </section>
@@ -382,34 +342,35 @@
 
                                 <h4 class="head text-center text_color">EDUCATIONAL PROFILE</h4>
                                 <p class="narrow text-center">
+
+                                    @foreach($educations as $education)
                                     <span>
-                                        <i>B.S.C(CSE) : </i> "City University" - "2016"
+                                        <i>{{ $education->exam_name }} : </i> "{{ $education->institution_name }}" - "{{ $education->passing_year }}"
                                     </span>
+                                    @endforeach <br>
+
+                                    @foreach($scholarships as $scholarship)
                                     <span>
-                                        <i>H.S.C  :</i> "Khalilor Rahman collage" - "2012"
+                                        <i>{{ $scholarship->name }} : </i> "{{ $scholarship->title }}" - "{{ $scholarship->institution }}" - "{{ $scholarship->win_year }}"
                                     </span>
-                                    <span>
-                                        <i>Dakhil  :</i> "Goraki Harunia Dakhil Madrasah" - "2009"
-                                    </span><br>
-                                    <span>
-                                        <i>Scholarship(SEIP) : </i> "Creative IT" - "Web design & development" - "3 month  2016"
-                                    </span>
-                                    <span>
-                                        <i>Scholarship(LICT) : </i> "Belancer Web Development(PHP & Laravel)" - "3 month  2016"
-                                    </span>
+                                    @endforeach
                                 </p>
                             </div>
 
                             <div class="tab-pane fade" id="exp">
                                 <h4 class="head text-center text_color">EXPERIENCE DETAILS</h4>
                                 <p class="narrow text-center">
-
-                                    <span>
-                                        <i>Work  : </i>"Hektor Technology (Pvt.) Limited" - "Software Engineer" - "January/18 - Current"
-                                    </span>
-                                    <span>
-                                        <i>Internship : </i>"Roselancer" - "Software Engineer(trainee)" - "March 2017 to September 2017"
-                                    </span>
+                                    @if(count($experiences) > 0)
+                                    @foreach($experiences as $experience)
+                                        <span>
+                                            <i>Work  : </i>"{{ $experience->company }}" - "{{ $experience->job_title }}" - "{{ $experience-> start_at_date }} - {{ $experience-> end_at_date == '' ? 'Current' : $experience-> end_at_date }}"
+                                        </span>
+                                    @endforeach
+                                    @else
+                                        <h2 class="text-center">
+                                            <i class="bg-warning p-4"> Have No Experience </i>
+                                        </h2>
+                                    @endif
 
                                 </p>
                             </div>
@@ -552,18 +513,19 @@
                     <p><i>ADDRESS :</i> {{ $setting->address }}</p>
                 </div>
                 <div class="col-sm-6">
-                    <form>
+                    <form method="POST" action="{{ route('contact.post' )}}">
+                        @csrf
                         <div class="form-group">
-                            <input type="text" class="form-control" required="required" placeholder="Your Name" />
+                            <input type="text" name="name" class="form-control" required="required" placeholder="Your Name" />
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" required="required" placeholder="Your Email" />
+                            <input type="text" name="email" class="form-control" required="required" placeholder="Your Email" />
                         </div>
                         <div class="form-group">
                             <textarea name="message" id="message" required="required" class="form-control" style="min-height: 100px;" placeholder="Message"></textarea>
                         </div>
                         <div class="form-group">
-                            <a href="#hire-sec" class="btn custom-btn-one ">CONTACT ME</a>
+                            <button class="btn custom-btn-one ">CONTACT ME </button>
                         </div>
 
                     </form>

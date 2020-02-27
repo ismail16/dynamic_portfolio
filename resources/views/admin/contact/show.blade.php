@@ -13,37 +13,23 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-6">
-                            <div class="form-group row">
-                                <label class="col-form-label col-md-4">Name </label>
-                                <p>: {{ $contact->name }}</p>
+                            <div class="form-group">
+                                <label class="">Name </label>
+                                <p>{{ $contact->name }}</p>
                             </div>
                         </div>
 
                         <div class="col-6">
-                            <div class="form-group row">
-                                <label class="col-form-label col-md-4">Email </label>
-                                <p>: {{ $contact->email }}</p>
-                            </div>
-                        </div>
-
-                        <div class="col-6">
-                            <div class="form-group row">
-                                <label class="col-form-label col-md-4">Phone</label>
-                                <p>: {{ $contact->phone }}</p>
-                            </div>
-                        </div>
-
-                        <div class="col-6">
-                            <div class="form-group row">
-                                <label class="col-form-label col-md-4">Subject</label>
-                                <p>: {{ $contact->subject }} TK</p>
+                            <div class="form-group">
+                                <label class="">Email </label>
+                                <p>{{ $contact->email }}</p>
                             </div>
                         </div>
 
                         <div class="col-12">
-                            <div class="form-group row">
-                                <label class="col-form-label col-md-2">Message</label>
-                                <p>: {{$contact->message}}</p>
+                            <div class="form-group">
+                                <label class="">Message</label>
+                                <p>{{$contact->message}}</p>
                             </div>
                         </div>
                     </div>
