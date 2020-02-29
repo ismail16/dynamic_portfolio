@@ -46,11 +46,11 @@
         </li>
         <li class="nav-item dropdown">
             <a href="{{ route('admin.dashboard') }}" class="_dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-                <img src="{{asset('backend_assets/dist/img/user2-160x160.jpg')}}" class="user-image img-circle" alt="User Image" width="30" style="margin: 5px 20px 0px 10px;">
+                <img src="{{ asset('images/profile/'.$setting->image1)}}" class="user-image img-circle" alt="User Image" width="30" style="margin: 5px 20px 0px 10px;">
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                 <span class="dropdown-item dropdown-header">
-                     <img src="{{asset('backend_assets/dist/img/user2-160x160.jpg')}}" width="100" class="img-circle" alt="User Image">
+                     <img src="{{ asset('images/profile/'.$setting->image1)}}" width="100" class="img-circle" alt="User Image">
                     <p>
                         Admin
                         <small>Member since Nov. 2018</small>

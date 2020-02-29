@@ -1,7 +1,7 @@
         </div>
         <footer class="main-footer">
-            <strong>Copyright &copy; 2019 <a href="#">nogorhat</a>.</strong>
-            All rights reserved.
+            <strong>{{ $setting->footer_text }} <a href="#">{{ $setting->name }}</a>.</strong>
+
             <div class="float-right d-none d-sm-inline-block">
                 <b>Version</b> 1.0.0
             </div>
