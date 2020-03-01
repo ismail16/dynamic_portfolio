@@ -3,6 +3,7 @@
 
 Route::get('/', 'frontend\PagesController@index')->name('index');
 Route::post('/contact-post', 'frontend\PagesController@contact_post')->name('contact.post');
+Route::get('/documentation', 'frontend\PagesController@documentation')->name('documentation');
 
 Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'admin']], function () {
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');

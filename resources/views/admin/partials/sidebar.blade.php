@@ -110,6 +110,13 @@
                         <p>Testimonial</p>
                     </a>
                 </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('documentation') }}" class="nav-link" target="_blank">
+                        <i class="nav-icon  far fa-file-alt"></i>
+                        <p>Documentation</p>
+                    </a>
+                </li>
             </ul>
         </nav>
     </div>

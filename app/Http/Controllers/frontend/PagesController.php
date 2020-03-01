@@ -51,5 +51,10 @@ class PagesController extends Controller
             return back()->with('danger', 'Something went wrong !');
         }
     }
+
+    public function documentation()
+    {
+        return view('documentation.index');
+    }
    
 }
