@@ -17,10 +17,17 @@
     <link href="{{ asset('frontend_assets/css/styleSwitcher.css')}}" rel="stylesheet" />
     <link href="{{ asset('frontend_assets/css/style.css')}}" rel="stylesheet" />
 
-    <link href="{{ asset('frontend_assets/css/themes/pink.css')}}" id="mainCSS" rel="stylesheet" />
-    <!-- <link href="{{ asset('frontend_assets/css/themes/green.css')}}" id="mainCSS" rel="stylesheet" /> -->
-    <!-- <link href="{{ asset('frontend_assets/css/themes/brown.css')}}" id="mainCSS" rel="stylesheet" /> -->
-    <!-- <link href="{{ asset('frontend_assets/css/themes/blue.css')}}" id="mainCSS" rel="stylesheet" /> -->
+    @if($setting->theme_color == 'pink')
+        <link href="{{ asset('frontend_assets/css/themes/pink.css')}}" id="mainCSS" rel="stylesheet" />
+    @elseif($setting->theme_color == 'green')
+        <link href="{{ asset('frontend_assets/css/themes/green.css')}}" id="mainCSS" rel="stylesheet" />
+    @elseif($setting->theme_color == 'brown')
+        <link href="{{ asset('frontend_assets/css/themes/brown.css')}}" id="mainCSS" rel="stylesheet" />
+    @elseif($setting->theme_color == 'blue')
+        <link href="{{ asset('frontend_assets/css/themes/blue.css')}}" id="mainCSS" rel="stylesheet" />
+    @else
+        <link href="{{ asset('frontend_assets/css/themes/pink.css')}}" id="mainCSS" rel="stylesheet" />
+    @endif
 
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css' />
 </head>
@@ -60,16 +67,14 @@
                     @if (Route::has('login'))
                     @auth
                     <li class="mr-4"><a class="text-light" data-wow-duration="1s" data-wow-delay=".7s" href="{{ route('admin.dashboard') }}" >
-
                         <small class="wow bounceIn animated font-weight-bold" data-wow-duration="1s" data-wow-delay=".8s"><i class="fa fa-home icon-round text-light "></i> DASHBOARD</small>
                     </a></li>
                     <li class="mr-4"><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         <small class="wow bounceIn animated font-weight-bold" data-wow-duration="1s" data-wow-delay=".8s"><i class="fa fa-key icon-round text-light"></i> LOGOUT</small>
                     </a></li>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
                         @csrf
                     </form>
-                       
                     @else
                     <li class="mr-4 pointer">
                         <a  data-toggle="modal" data-target="#myModal" class="text-light" data-wow-duration="1s" data-wow-delay=".7s">
@@ -111,16 +116,8 @@
                                 <strong>{{ $errors->first('password') }}</strong>
                             </span>
                             @endif
-                            <div id="remember" class="checkbox">
-                                <label>
-                                    <input type="checkbox" value="remember-me"> Remember me
-                                </label>
-                            </div>
                             <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
                         </form>
-                        <a href="#" class="forgot-password text_color">
-                            Forgot the password?
-                        </a>
                     </div>
                 </div>
             </div>
@@ -137,7 +134,7 @@
                         <h2 class="wow bounceIn animated" data-wow-duration="1s" data-wow-delay=".6s">
                             {{ $setting->title }}
                         </h2>
-                        <a href="#skill-sec" class="btn custom-btn-one btn-lg wow bounceIn animated pointer" data-wow-duration="1s" data-wow-delay=".8s">MORE ABOUT ME</a>
+                        <a href="#about-me" class="btn custom-btn-one btn-lg wow bounceIn animated pointer" data-wow-duration="1s" data-wow-delay=".8s">MORE ABOUT ME</a>
                     </div>
 
                 </div>
@@ -166,18 +163,37 @@
                             </div>
 
                             <div class="social-icon">
-                                <a href="https://www.facebook.com/sheikh.smile" target="_blank">
-                                    <img src="{{ asset('frontend_assets/img/Social/facebook.png')}}" alt="facebook" />
+                                @isset ($setting->facebook)
+                                    <a href="{{ $setting->facebook }}" target="_blank">
+                                    <i class="fa fa-facebook icon-round icon-round text-light"></i>
                                 </a>
-                                <a href="https://www.linkedin.com/in/ismail-hossain-7b8453139/" target="_blank">
-                                    <img src="{{ asset('frontend_assets/img/Social/linkind.png')}}" class="rounded-circle" alt="linkind"/>
+                                @endisset
+                                @isset ($setting->instagram)
+                                    <a href="{{ $setting->instagram }}" target="_blank">
+                                    <i class="fa fa-instagram icon-round icon-round text-light"></i>
                                 </a>
-                                <a href="https://twitter.com/ismail__hossain" target="_blank">
-                                    <img src="{{ asset('frontend_assets/img/Social/twitter.png')}}" alt="twitter" />
+                                @endisset
+                                @isset ($setting->youtube)
+                                    <a href="{{ $setting->youtube }}" target="_blank">
+                                    <i class="fa fa-youtube icon-round icon-round text-light"></i>
+                                @endisset
+                                @isset ($setting->twitter)
+                                     <a href="{{ $setting->twitter }}" target="_blank">
+                                    <i class="fa fa-twitter icon-round icon-round text-light"></i>
+                                @endisset
+                                @isset ($setting->linkedIn)
+                                    <a href="{{ $setting->linkedIn }}" target="_blank">
+                                   <i class="fa fa-linkedin icon-round icon-round text-light"></i>
                                 </a>
+                                @endisset
+
+                                @isset ($setting->skype)
+                                    <a href="{{ $setting->skype }}" target="_blank">
+                                   <i class="fa fa-skype icon-round icon-round text-light"></i>
+                                </a>
+                                @endisset
                             </div>
                         </div>
-
                     </div>
 
                     <div class="col-md-8 pt-2 about_me">
@@ -192,7 +208,7 @@
                                 </div>
                             </div>
                             @endforeach
-                            <a href="{{asset('images/profile/'.$setting->resume_file)}}" target="_blank" class="btn btn-style-two btn-lg pointer mt-3">DOWNLOAD RESUME (.pdf file)</a>               
+                            <a href="{{asset('images/profile/'.$setting->resume_file)}}" target="_blank" class="btn btn-style-two btn-lg pointer mt-3 mb-2">DOWNLOAD RESUME (.pdf file)</a>               
                         </div>
                     </div>
                 </div>
@@ -370,32 +386,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="row pad-top  move-me wow bounceIn animated" data-wow-duration="1s" data-wow-delay=".6s">
-                    <div class="col-lg-4 col-md-4 col-sm-4">
-                        <div class="alert alert-info text-center">
-                            <p class="text_color">
-                                BASIC
-                            </p>
-                            <a href="#hire-sec" class="btn btn-info">BUY PLAN NOW</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4">
-                        <div class="alert alert-success text-center">
-                            <p class="text_color">
-                                PREMIUM
-                            </p>
-                            <a href="#hire-sec" class="btn btn-success ">BUY PLAN NOW</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4">
-                        <div class="alert alert-info text-center">
-                            <p class="text_color">
-                                UNLIMITED
-                            </p>
-                            <a href="#hire-sec" class="btn btn-info">BUY PLAN NOW</a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -408,38 +398,22 @@
                     <h1>CLIENT TESTIMONIALS</h1>
                     <div id="demo" class="carousel slide" data-ride="carousel">
                         <ul class="carousel-indicators">
-                            <li data-target="#demo" data-slide-to="0" class="active"></li>
-                            <li data-target="#demo" data-slide-to="1"></li>
-                            <li data-target="#demo" data-slide-to="2"></li>
+                            @foreach($testimonials as $testimonial)
+                            <li data-target="#demo" data-slide-to="{{$loop->index}}" class="{{  $loop->index == 0? 'active':'' }}"></li>
+                           @endforeach
                         </ul>
                         <div class="carousel-inner">
-                            <div class="carousel-item active">
+                            @foreach($testimonials as $testimonial)
+                            <div class="carousel-item {{  $loop->index == 0? 'active':'' }}">
                                 <h4>
-                                    "Great cooperation and understanding!Great cooperation and understanding!Great cooperation and understanding!"
+                                    "{{ $testimonial->comment }}"
                                 </h4>
                                 <div class="user-img pull-right">
-                                    <img src="{{ asset('frontend_assets/img/user2.png')}}" alt="" class="img-circle image-responsive" />
-                                    <h5 class="">Lorem Dolor</h5>
+                                    <img src="{{ asset('images/testimonial_image/'.$testimonial->image) }}" alt="" class="img-circle image-responsive rounded-circle client_image"/>
+                                    <h5 class="">{{ $testimonial->client_name }}</h5>
                                 </div>
                             </div>
-                            <div class="carousel-item">
-                                <h4>
-                                    "Great cooperation and understanding!Great cooperation and understanding!Great cooperation and understanding!"
-                                </h4>
-                                <div class="user-img pull-right">
-                                    <img src="{{ asset('frontend_assets/img/user2.png')}}" alt="" class="img-circle image-responsive" />
-                                    <h5 class="">Lorem Dolor</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <h4>
-                                    "Great cooperation and understanding!Great cooperation and understanding!Great cooperation and understanding!"
-                                </h4>
-                                <div class="user-img pull-right">
-                                    <img src="{{ asset('frontend_assets/img/user2.png')}}" alt="" class="img-circle image-responsive" />
-                                    <h5 class="">Lorem Dolor</h5>
-                                </div>
-                            </div>
+                           @endforeach
                         </div>
                     </div>
                 </div>
@@ -451,7 +425,7 @@
         <div class="overlay">
             <div class="container">
                 <div class="aligh-self-center pt-5">
-                    <h1>HIRE ME</h1>
+                    <h1>CONTACT ME</h1>
                     <div class=" move-me wow bounceIn animated" data-wow-duration="1s" data-wow-delay=".4s">
                         <div class="row">
                             <div class="col-md-6">
@@ -469,7 +443,7 @@
                                         <input type="text" name="email" class="form-control" required="required" placeholder="Your Email" />
                                     </div>
                                     <div class="form-group">
-                                        <textarea name="message" id="message" required="required" class="form-control" style="min-height: 100px;" placeholder="Message"></textarea>
+                                        <textarea name="message" id="message" required="required" class="form-control" placeholder="Message"></textarea>
                                     </div>
                                     <div class="form-group">
                                         <button class="btn custom-btn-one ">CONTACT ME </button>

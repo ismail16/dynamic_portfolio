@@ -2,7 +2,7 @@
 @section('title','All Payment')
 
 @push('css')
-    <link rel="stylesheet" href="{{asset('backend_assets/plugins/datatables/dataTables.bootstrap4.css')}}">
+
 @endpush
 
 @section('content')
@@ -36,7 +36,7 @@
                                     <td class="text-center">{{ $loop->index+1 }}</td>
                                     <td class="text-center">{{ $contact->name }}</td>
                                     <td class="text-center">{{ $contact->email }}</td>
-                                    <td class="text-center">{{ $contact->message }}</td>
+                                    <td class="text-center w-50">{{ $contact->message }}</td>
                                     <td class="text-center">
                                         @if($contact->status == 0)
                                             <a href="{{route('admin.contact.show', $contact->id)}}" class="btn btn-xs btn-danger"><i class="fa fa-eye"></i>
@@ -50,9 +50,8 @@
                                                     class="fa fa-trash"></i></a>
                                         <form id="on_delete{{$loop->index+1}}"
                                               action="{{route('admin.contact.destroy', $contact->id)}}"
-                                              method="post" class="delete"
-                                              data-content="{{$contact->id}}"
-                                              style="display: none;">
+                                              method="post" class="delete hidden"
+                                              data-content="{{$contact->id}}">
                                             {{ csrf_field() }}
                                             {{ method_field('DELETE') }}
                                         </form>
@@ -71,44 +70,5 @@
 @endsection
 
 @push('scripts')
-    <script src="{{asset('backend_assets/plugins/datatables/jquery.dataTables.js')}}"></script>
-    <script src="{{asset('backend_assets/plugins/datatables/dataTables.bootstrap4.js')}}"></script>
-    <script src="{{asset('js/bootbox.min.js')}}"></script>
-    <script>
-        $(function () {
-            $("#example1").DataTable();
-            $('#example2').DataTable({
-                "paging": true,
-                "lengthChange": false,
-                "searching": false,
-                "ordering": true,
-                "info": true,
-                "autoWidth": false,
-            });
-        });
-    </script>
-    <script>
-        $(document).on("click", ".on_delete", function (e) {
-            var index = $(this).data('content');
-
-            bootbox.confirm({
-                message: "Do you want to remove this?",
-                buttons: {
-                    confirm: {
-                        label: 'Yes',
-                        className: 'btn-sm btn-danger'
-                    },
-                    cancel: {
-                        label: 'No',
-                        className: 'btn-sm btn-default'
-                    }
-                },
-                callback: function (result) {
-                    if (result) {
-                        $("#on_delete" + index).submit();
-                    }
-                }
-            });
-        });
-    </script>
+   
 @endpush

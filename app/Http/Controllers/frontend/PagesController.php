@@ -12,6 +12,7 @@ use App\Models\Skill;
 use App\Models\Scholarship;
 use App\Models\Experience;
 use App\Models\Contact;
+use App\Models\Testimonial;
 
 class PagesController extends Controller
 {
@@ -25,8 +26,9 @@ class PagesController extends Controller
     	$skills = Skill::orderBy('id', 'desc')->where('status', 1)->get();
     	$scholarships = Scholarship::orderBy('id', 'desc')->where('status', 1)->get();
         $experiences = Experience::orderBy('id', 'desc')->where('status', 1)->get();
+        $testimonials = Testimonial::orderBy('id', 'desc')->where('status', 1)->get();
 
-        return view('frontend.pages.index',compact('setting','portfolios','categories','educations','skills','scholarships','experiences','contacts'));
+        return view('frontend.pages.index',compact('setting','portfolios','categories','educations','skills','scholarships','experiences','contacts','testimonials'));
     }
 
     public function contact_post(Request $request){

@@ -67,7 +67,7 @@
                             <div class="col-md-6">
                                 <div class="mb-1">
                                     <label class="mb-0">Skype Link</label>
-                                    <input type="text" name="linkedIn" value="{{ $setting->skype }}" class="form-control form-control-sm">
+                                    <input type="text" name="skype" value="{{ $setting->skype }}" class="form-control form-control-sm">
                                 </div>
                             </div>
                         </div>

@@ -16,6 +16,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
     Route::resource('skill', 'SkillController');
     Route::resource('experience', 'ExperienceController');
     Route::resource('contact', 'ContactController');
+    Route::resource('testimonial', 'TestimonialController');
 });
 
 Auth::routes();

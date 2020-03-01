@@ -82,8 +82,10 @@ class ScholarshipController extends Controller
         $slug = str_slug($request->name);
         if (isset($image)){
             $imagename = $slug.'-'.uniqid().'.'.$image->getClientOriginalExtension();
-            if (file_exists('images/scholarship_image'.$scholarship->certificate)){
-                unlink('images/scholarship_image'.$scholarship->certificate);
+            if ($scholarship->certificate) {
+                if (file_exists('images/scholarship_image'.$scholarship->certificate)){
+                    unlink('images/scholarship_image'.$scholarship->certificate);
+                }
             }
             $image->move('images/scholarship_image',$imagename);
             $scholarship->certificate = $imagename;
@@ -106,8 +108,10 @@ class ScholarshipController extends Controller
     public function destroy($id)
     {
         $scholarship = Scholarship::find($id);
-        if (file_exists('images/scholarship_image/'.$scholarship->certificate)){
-            unlink('images/scholarship_image/'.$scholarship->certificate);
+        if ($scholarship->certificate) {
+            if (file_exists('images/scholarship_image/'.$scholarship->certificate)){
+                unlink('images/scholarship_image/'.$scholarship->certificate);
+            }
         }
         $scholarship->delete();
         return redirect()->route('admin.scholarship-or-award.index')->with('message', 'Certificate Deleted Successfully !');

@@ -73,10 +73,12 @@ class SkillController extends Controller
         $image = $request->file('certificate');
         $slug = str_slug($request->name);
         if (isset($image)){
-            $imagename = $slug.'-'.uniqid().'.'.$image->getClientOriginalExtension();
-            if (file_exists('images/skill'.$skill->certificate)){
-                unlink('images/skill'.$skill->certificate);
+            if ($skill->certificate) {
+                if (file_exists('images/skill/'.$skill->certificate)){
+                    unlink('images/skill/'.$skill->certificate);
+                }
             }
+            $imagename = $slug.'-'.uniqid().'.'.$image->getClientOriginalExtension();
             $image->move('images/skill',$imagename);
             $skill->certificate = $imagename;
         }

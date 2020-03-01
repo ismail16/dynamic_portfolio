@@ -30,6 +30,10 @@
   background-color: #c0cad4;
 }
 
+.client_image{
+  width: 100px;
+}
+
 section {
   padding:40px 0px 40px 0px;
 }

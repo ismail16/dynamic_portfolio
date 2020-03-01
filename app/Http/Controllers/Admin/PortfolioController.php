@@ -78,8 +78,10 @@ class PortfolioController extends Controller
         $image = $request->file('portfolio_image');
         $slug = str_slug($request->title);
         if (isset($image)){
-            if (file_exists('images/portfolio_image/'.$portfolio->portfolio_image)){
-                unlink('images/portfolio_image/'.$portfolio->portfolio_image);
+            if ($portfolio->portfolio_image) {
+                if (file_exists('images/portfolio_image/'.$portfolio->portfolio_image)){
+                    unlink('images/portfolio_image/'.$portfolio->portfolio_image);
+                }
             }
             $portfolio_imagename = $slug.'-'.uniqid().'.'.$image->getClientOriginalExtension();
             $image->move('images/portfolio_image',$portfolio_imagename);
@@ -103,8 +105,10 @@ class PortfolioController extends Controller
     public function destroy($id)
     {
         $portfolio = Portfolio::find($id);
-        if (file_exists('images/portfolio_image/'.$portfolio->portfolio_image)){
-            unlink('images/portfolio_image/'.$portfolio->portfolio_image);
+        if ($portfolio->portfolio_image) {
+            if (file_exists('images/portfolio_image/'.$portfolio->portfolio_image)){
+                unlink('images/portfolio_image/'.$portfolio->portfolio_image);
+            }
         }
         $portfolio->delete();
         return redirect()->route('admin.portfolio.index')->with('message', 'Portfolio Deleted Successfully !');

@@ -83,11 +83,12 @@ class EducationController extends Controller
         $slug = str_slug($request->exam_name);
         $education = Education::find($id);
         if (isset($image)){
-            if (file_exists('images/certificate_image/'.$education->certificate_image)){
-                unlink('images/certificate_image/'.$education->certificate_image);
+            if ($skill->certificate_image) {
+                if (file_exists('images/certificate_image/'.$education->certificate_image)){
+                    unlink('images/certificate_image/'.$education->certificate_image);
+                }
             }
             $certificate_imagename = $slug.'-'.uniqid().'.'.$certificate_image->getClientOriginalExtension();
-
             $certificate_image->move('images/certificate_image',$certificate_imagename);
         }else{
             $certificate_imagename = $education->certificate_image;
@@ -111,8 +112,10 @@ class EducationController extends Controller
     public function destroy($id)
     {
         $education = Education::find($id);
-        if (file_exists('images/certificate_image/'.$education->certificate_image)){
-            unlink('images/certificate_image/'.$education->certificate_image);
+        if ($skill->certificate) {
+            if (file_exists('images/certificate_image/'.$education->certificate_image)){
+                unlink('images/certificate_image/'.$education->certificate_image);
+            }
         }
         $education->delete();
         return redirect()->route('admin.education.index')->with('message', 'Certificate Deleted Successfully !');

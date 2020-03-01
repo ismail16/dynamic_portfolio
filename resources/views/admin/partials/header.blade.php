@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="{{asset('backend_assets/plugins/summernote/summernote-bs4.css')}}">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('backend_assets/plugins/datatables/dataTables.bootstrap4.css')}}">
 
     <style type="text/css" media="screen">
         .btn-xs{
@@ -60,6 +61,15 @@
         }
         .file_input_sm{
             font-size: 11px;
+        }
+        .user_small_image_admin{
+            height: 30px;
+            width: 30px;
+            margin: 5px 20px 0px 10px;
+        }
+        .user_image_admin{
+            height:100px;
+            width: 100px;
         }
     </style>
     @stack('css')

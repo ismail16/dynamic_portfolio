@@ -1,8 +1,8 @@
 @extends('admin.layouts.master')
-@section('title','All Skill')
+@section('title','All Testimonial')
 
 @push('css')
-
+    
 @endpush
 
 @section('content')
@@ -20,37 +20,37 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="table-responsive">
-                            <a href="{{ route('admin.skill.create') }}" class="pull-right btn btn-sm btn-primary float-right ml-2"> <i
+                            <a href="{{ route('admin.testimonial.create') }}" class="pull-right btn btn-sm btn-primary float-right ml-2"> <i
                                 class="fa fa-plus"></i> Add New</a>
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
                                     <th>#SL</th>
-                                    <th>Skill Name</th>
-                                    <th>Skill Percentage</th>
-                                    <th>Certificate</th>
+                                    <th>Client Name</th>
+                                    <th>Image</th>
+                                    <th>Comment</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($skills as $skill)
+                                @foreach($testimonials as $testimonial)
                                 <tr>
                                     <td>{{ $loop->index+1 }}</td>
-                                    <td>{{ $skill->name }}</td>
-                                    <td>{{ $skill->percentage }}</td>
+                                    <td>{{ $testimonial->client_name }}</td>
                                     <td>
-                                        <img src="{{ asset('images/skill/'.$skill->certificate) }}" class="img-fluid table_image" alt="">
+                                        <img src="{{ asset('images/testimonial_image/'.$testimonial->image) }}" class="img-fluid table_image" alt="">
                                     </td>
+                                    <td class="w-50">{{ $testimonial->comment }}</td>
                                     <td>
-                                        @if($skill->status == 0)
+                                        @if($testimonial->status == 0)
                                             <span class="badge bg-yellow">Inactive</span>
                                             @else
                                             <span class="badge bg-green">Actived</span>
                                         @endif
                                     </td>
                                     <td class="text-center">
-                                        <a href="{{route('admin.skill.edit', $skill->id)}}"
+                                        <a href="{{route('admin.testimonial.edit', $testimonial->id)}}"
                                            class="btn btn-xs btn-success"><i class="fa fa-edit"></i></a>
 
                                         <a href="#" class="btn btn-xs btn-danger table-action-btn on_delete"
@@ -58,9 +58,9 @@
                                                     class="fa fa-trash"></i></a>
 
                                         <form id="on_delete{{$loop->index+1}}"
-                                              action="{{route('admin.skill.destroy', $skill->id)}}"
+                                              action="{{route('admin.testimonial.destroy', $testimonial->id)}}"
                                               method="post" class="delete hidden"
-                                              data-content="{{$skill->id}}">
+                                              data-content="{{$testimonial->id}}">
                                             {{csrf_field()}}
                                             {{method_field('DELETE')}}
                                         </form>
@@ -79,5 +79,5 @@
 @endsection
 
 @push('scripts')
-    
+   
 @endpush

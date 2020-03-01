@@ -1,15 +1,15 @@
 @extends('admin.layouts.master')
-@section('title','Payment Confirmation')
+@section('title','Message Show')
 
 @push('css')
 
 @endpush
 
 @section('content')
-<div class="container" id="printarea">
+<div class="container">
     <div class="row">
-      <div class="col-12" style="padding: 0px 50px">
-              <div class="card">
+        <div class="col-12">
+            <div class="card">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-6">
@@ -39,8 +39,7 @@
                 </div>
             </div>
         </div>
-</div>
-
+    </div>
 </div>
 </div>
 @endsection

@@ -1,7 +1,7 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-light-secondary elevation-4">
     <a href="{{ route('admin.dashboard') }}" class="brand-link">
-        <img src="{{ asset('images/logo/'.$setting->logo)}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <img src="{{ asset('images/logo/'.$setting->logo)}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3">
         <span class="brand-text font-weight-light">Dynamic Portfolio</span>
     </a>
 
@@ -104,13 +104,19 @@
                         <p>Message</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.testimonial.index') }}" class="nav-link {{Request::is('admin/testimonial*') ? 'active':''}}">
+                        <i class="nav-icon  fas fa-comment-alt"></i>
+                        <p>Testimonial</p>
+                    </a>
+                </li>
             </ul>
         </nav>
     </div>
 </aside>
 
 <div class="content-wrapper">
-    <div class="content-header" style="padding: 5px;">
+    <div class="content-header">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-6">

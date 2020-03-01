@@ -29,8 +29,10 @@ class ProfileController extends Controller
         $image1 = $request->file('image1');
         $slug = str_slug($setting->name);
         if (isset($image1)){
-            if (file_exists('images/profile/'.$setting->image1) && $setting->image1 != 'default_profile.png'){
-                unlink('images/profile/'.$setting->image1);
+            if ($image1->image1) {
+                if (file_exists('images/profile/'.$setting->image1) && $setting->image1 != 'default_profile.png'){
+                    unlink('images/profile/'.$setting->image1);
+                }
             }
             $setting_image1name = $slug.'-'.uniqid().'.'.$image1->getClientOriginalExtension();
             $image1->move('images/profile',$setting_image1name);
@@ -40,8 +42,10 @@ class ProfileController extends Controller
         $image2 = $request->file('image2');
         $slug = str_slug($setting->name);
         if (isset($image2)){
-            if (file_exists('images/profile/'.$setting->image2) && $setting->image2 != 'default_profile.png'){
-                unlink('images/profile'.$setting->image2);
+            if ($image2->image2) {
+                if (file_exists('images/profile/'.$setting->image2) && $setting->image2 != 'default_profile.png'){
+                    unlink('images/profile'.$setting->image2);
+                }
             }
             $setting_image2name = $slug.'-'.uniqid().'.'.$image2->getClientOriginalExtension();
             $image2->move('images/profile',$setting_image2name);
@@ -51,8 +55,10 @@ class ProfileController extends Controller
         $resume_file = $request->file('resume_file');
         $slug = str_slug($setting->name);
         if (isset($resume_file)){
-            if (file_exists('/profile_resume'.$setting->resume_file)){
-                unlink('/profile_resume'.$setting->resume_file);
+            if ($resume_file->resume_file) {
+                if (file_exists('/profile_resume'.$setting->resume_file)){
+                    unlink('/profile_resume'.$setting->resume_file);
+                }
             }
             $setting_resume_filename = $slug.'-'.'resume'.'-'.uniqid().'.'.$resume_file->getClientOriginalExtension();
             $resume_file->move('images/profile',$setting_resume_filename);

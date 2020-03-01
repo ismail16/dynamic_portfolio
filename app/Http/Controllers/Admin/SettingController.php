@@ -28,8 +28,10 @@ class SettingController extends Controller
         $image = $request->file('logo');
         $slug = str_slug($setting->name);
         if (isset($image)){
-            if (file_exists('images/logo/'.$setting->logo)){
-                unlink('images/logo/'.$setting->logo);
+            if ($setting->logo) {
+                if (file_exists('images/logo/'.$setting->logo)){
+                    unlink('images/logo/'.$setting->logo);
+                }
             }
             $setting_imagename = $slug.'-'.uniqid().'.'.$image->getClientOriginalExtension();
             $image->move('images/logo',$setting_imagename);
