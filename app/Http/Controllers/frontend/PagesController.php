@@ -44,11 +44,12 @@ class PagesController extends Controller
         $contact->name = $request->name;
         $contact->email = $request->email;
         $contact->message = $request->message;
-        try{
+
+        try {
             $contact->save();
-            return redirect()->route('index')->with('message', 'Thank For Contact with Me. I Will Responce soon !');
-        }catch (\Exception $exception){
-            return back()->with('danger', 'Something went wrong !');
+            return response()->json(['success' => 'Thank For Contact with Me. I will responce soon !'], 200);
+        } catch (Exception $e) {
+            return response()->json(['error' => $e], 404);
         }
     }
 

@@ -22,8 +22,7 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="page-header">
-                                            <h3>System Features</h3>
-                                            <hr class="notop">
+                                            <h3 class="border-bottom mt-5">System Features</h3>
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -46,9 +45,9 @@
                                     <div class="col-md-6 border-left">
                                         <ul>
                                             <li class="border-bottom">Portfolio Management</li>
-                                            <li class="border-bottom">Side Setting </li>
                                             <li class="border-bottom">Message Management</li>
                                             <li class="border-bottom">Testimonial Management</li>
+                                            <li class="border-bottom">Side Setting </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -58,8 +57,7 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="page-header">
-                                            <h3>Installation</h3>
-                                            <hr class="notop">
+                                            <h3 class="border-bottom mt-5">Installation</h3>
                                         </div>
                                     </div>
                                     <div class="col-md-5 border-right">
@@ -107,14 +105,13 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="page-header">
-                                            <h3>Login Details:</h3>
-                                            <hr class="notop">
+                                            <h3 class="border-bottom mt-5">Login Details</h3>
                                         </div>
                                     </div>
                                     <div class="col-md-5 border-right">
                                         <p class="text-justify">To log-in to admin panel - please use the following login credentials provided below.</p>
                                         <p class="text-justify">
-                                            <strong class="text-danger">Please Note:</strong> Once you installed the system and you are on login page, if the login page not showing correctly OR not logging to system then you need to check again the .env file which is in side root of main folder, make sure your php have 7.1  version installed. if still problem exist you may contact us at <b>ismail32cse@gmail.com</b>, we will reply you as soon as possible.
+                                            <strong class="text-danger">Please Note:</strong> If System Installed successfully then you find home page of portfolio by browsing your domain. if face any problem check previous step again and retry. make sure your php have 7.2  version installed. if still problem exist you may contact us at <b>ismail32cse@gmail.com</b>, we will reply you as soon as possible.
                                             <br>
                                             <br>
 
@@ -123,7 +120,7 @@
 
                                     <div class="col-md-7">
                                         <strong>The login credentials provided below are for initial usage only - do not forget to update your password after first successful login.</strong>
-                                        <p>After login to admin panel, you can create accounts for employees</p>
+                                        <p>After login to admin panel, you can manage your portfolio</p>
                                         <div class="row">
                                             <div class="col-12">
 
@@ -144,20 +141,19 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="page-header">
-                                            <h3>Admin Dashboard</h3>
-                                            <hr class="notop">
+                                            <h3 class="border-bottom mt-5">Admin Dashboard</h3>
                                         </div>
                                     </div>
                                     <div class="col-md-5 border-right">
                                         <ul>
-                                            <li>Education
-                                            Scholarship
-                                            Skills
-                                            Experience
-                                            Portfolio
-                                            Setting
-                                            Message
-                                            Testimonial</li>
+                                            <li>Education</li>
+                                            <li>Scholarship</li>
+                                            <li>Skills</li>
+                                            <li>Experience</li>
+                                            <li>Portfolio</li>
+                                            <li>Setting</li>
+                                            <li>Message</li>
+                                            <li>Testimonial</li>
                                         </ul>
 
                                     </div>
@@ -174,29 +170,28 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="page-header">
-                                            <h3>Education</h3>
-                                            <hr class="notop">
+                                            <h3 class="border-bottom mt-5">Education</h3>
                                         </div>
                                     </div>
-                                    <div class="col-md-5 border-right">
-                                        <p class="text-justify"> Adding a new education in the system is very easy. you can add all related information of education. The facilities that education management holds in Dynamic Portfolio are listed below:
-                                            <br>
-                                            <br> To click <b>education</b> from sidebar</p>
+                                    <div class="col-md-12 border-right">
+                                        <p>Manage Education in the system is very easy</p>
                                         <ul>
-                                            <li><strong>Add New education</strong></li>
-                                            <p class="text-justify" >You can easily add new education in the system. The form is elaborate with all possible information you might need to add for a new education. During addition of new education you just have to provide the education name ( <span class="text-danger">Name is required</span>), education Contact Person Name, Email, Phone and Address.</p>
-                                            <li><strong>education List</strong></li>
-                                            <p class="text-justify">You can see list of all education at a glance. You Can Edit, Delete From here</p>
-                                        </ul>
-                                        <br>
+                                            <li><strong>Add New Education</strong></li>
+                                            <p class="text-justify"> Go to <strong>'Education'</strong> > <strong>'+Add New'</strong> Fillup Form. click <strong>'Create New'</strong></p>
+                                            <li><strong>Education List</strong></li>
+                                            <p class="text-justify"> You can see list of all Education.  You Can <strong>Edit</strong>, <strong>Delete</strong> From here</p>
+
+                                        </ul>        
+                                        <p class="text-center"><strong>Note: <span class="text-danger">Start ( * )</span> marked field are required.</strong></p>        
                                     </div>
 
-                                    <div class="col-md-7">
-                                        <p><strong>Add education and education List</strong></p>
-                                        <img class="img-fluid" src="{{ asset('backend_assets/dist/img/documentation/Addeducations.png')}}"> </li>
-                                        <p id="educationsList"><strong>education List</strong></p>
-                                        <img class="img-fluid" src="{{ asset('backend_assets/dist/img/documentation/educations.png')}}">
-
+                                    <div class="col-md-6">
+                                        <strong>Add Education Step</strong>
+                                        <img class="img-fluid" src="{{ asset('backend_assets/dist/img/documentation/AddCategory.png')}}"> </li>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <strong>Education Step List</strong>
+                                        <img class="img-fluid" src="{{ asset('backend_assets/dist/img/documentation/AddCategory.png')}}">
                                     </div>
                                 </div>
                             </div>
@@ -205,58 +200,54 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="page-header">
-                                            <h3>Scholarship</h3>
-                                            <hr class="notop">
+                                            <h3 class="border-bottom mt-5">Scholarship</h3>
                                         </div>
                                     </div>
-                                    <div class="col-md-5 border-right">
-                                        <p class="text-justify"> Adding a new scholarship in the system is very easy. You can just click on add scholarship. and put the scholarship name. click submit.
-                                            <br>
-                                            <br> Click to scholarship From sidebar </p>
+                                    <div class="col-md-12 border-right">
+                                        <p>Manage Scholarship in the system is very easy</p>
                                         <ul>
-                                            <li><strong>Categories List</strong></li>
-                                            <p class="text-justify"> You can see list of all Categories. You Can Edit, Delete From here</p>
-                                        </ul>
-                                        <br>
+                                            <li><strong>Add New Scholarship</strong></li>
+                                            <p class="text-justify"> Go to <strong>'Scholarship'</strong> > <strong>'+Add New'</strong> Fillup Form. click <strong>'Create New'</strong></p>
+                                            <li><strong>Scholarship List</strong></li>
+                                            <p class="text-justify"> You can see list of all Scholarship.  You Can <strong>Edit</strong>, <strong>Delete</strong> From here</p>
+                                        </ul>                                        
+                                        <p class="text-center"><strong>Note: <span class="text-danger">Start ( * )</span> marked field are required.</strong></p>
                                     </div>
-                                    <div class="col-7">
-                                        <p><strong>Add scholarship and Categories List</strong></p>
+                                    <div class="col-md-6">
+                                        <strong>Add Scholarship</strong>
+                                        <img class="img-fluid" src="{{ asset('backend_assets/dist/img/documentation/AddCategory.png')}}"> </li>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <strong>Scholarship List</strong>
                                         <img class="img-fluid" src="{{ asset('backend_assets/dist/img/documentation/AddCategory.png')}}">
-                                        <p id="CategoriesList"><strong>Categories List</strong></p>
-                                        <img class="img-fluid" src="{{ asset('backend_assets/dist/img/documentation/Categories.png')}}">
                                     </div>
                                 </div>
-
                             </div>
 
                             <div id="skill">
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="page-header">
-                                            <h3>Skills</h3>
-                                            <hr class="notop">
+                                            <h3 class="border-bottom mt-5">Skills</h3>
                                         </div>
                                     </div>
-                                    <div class="col-md-5 border-right">
-                                        <p class="text-justify"> Adding a new Skills in the system is very easy. You can just click on Skills. and put the Skills name. click submit.
-                                            <br>
-                                            <br> Click to Skills from Sidebar </p>
+                                    <div class="col-md-12 border-right">
+                                        <p>Manage Skills in the system is very easy</p>
                                         <ul>
-
                                             <li><strong>Add New Skills</strong></li>
-                                            <p class="text-justify"> You can easily add new Skills in the system. </p>
-
+                                            <p class="text-justify"> Go to <strong>'Skills'</strong> > <strong>'+Add New'</strong> Fillup Form. click <strong>'Create New'</strong></p>
                                             <li><strong>Skills List</strong></li>
-                                            <p class="text-justify"> You can see list of all Skills.  You Can Edit, Delete From here</p>
-                                        </ul>
+                                            <p class="text-justify"> You can see list of all Skills.  You Can <strong>Edit</strong>, <strong>Delete</strong> From here</p>
+                                        </ul>                                        
+                                        <p class="text-center"><strong>Note: <span class="text-danger">Start ( * )</span> marked field are required.</strong></p>
                                     </div>
-                                    <div class="col-7">
-                                        <p><strong>Add Skills and Skills List</strong></p>
-                                        <img class="img-fluid" src="{{ asset('backend_assets/dist/img/documentation/AddWarehouse.png')}}">
-
-                                        <p id="warehouseList"><strong>Skills List</strong></p>
-                                        <img class="img-fluid" src="{{ asset('backend_assets/dist/img/documentation/Warehouse.png')}}">
-
+                                    <div class="col-md-6">
+                                        <strong>Add Skills</strong>
+                                        <img class="img-fluid" src="{{ asset('backend_assets/dist/img/documentation/AddCategory.png')}}"> </li>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <strong>Skills List</strong>
+                                        <img class="img-fluid" src="{{ asset('backend_assets/dist/img/documentation/AddCategory.png')}}">
                                     </div>
                                 </div>
 
@@ -266,30 +257,26 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="page-header">
-                                            <h3>Experience</h3>
-                                            <hr class="notop">
+                                           <h3 class="border-bottom mt-5">Experience</h3>
                                         </div>
                                     </div>
-                                    <div class="col-md-5 border-right">
-                                        <p class="text-justify"> Adding a new Experience in the system is very easy. you can add all related information of Experience. The facilities that Experience management holds in Dynamic Portfolio are listed below:
-                                            <br>
-                                            <br> Click to ProductsFrom sidebar </p>
+                                    <div class="col-md-12 border-right">
+                                        <p>Manage Experience in the system is very easy</p>
                                         <ul>
-                                            <li id="addProducts"><strong>Add New Experience</strong></li>
-                                            <p class="text-justify"> You can easily add new Experience in the system. The form is elaborate with all possible information you might need to add for a new Experience. During addition of new Experience you just have to provide the Experience, Category, Warehouse, Mfg.Date, Exp.Date, Image, Detail, Quantity, Sell Price, education Price, Model, SKU, education. </p>
-
+                                            <li><strong>Add New Experience</strong></li>
+                                            <p class="text-justify"> Go to <strong>'Experience'</strong> > <strong>'+Add New'</strong> Fillup Form. click <strong>'Create New'</strong></p>
                                             <li><strong>Experience List</strong></li>
-                                            <p class="text-justify"> You can see list of all Experience. You Can View, Edit, Delete From here</p>
-                                        </ul>
+                                            <p class="text-justify"> You can see list of all Experience.  You Can <strong>Edit</strong>, <strong>Delete</strong> From here</p>
+                                        </ul>                                        
+                                        <p class="text-center"><strong>Note: <span class="text-danger">Start ( * )</span> marked field are required.</strong></p>
                                     </div>
-                                    <div class="col-7">
-                                        <p><strong>Add Experience and Experience List</strong></p>
-                                        <img class="img-fluid" src="{{ asset('backend_assets/dist/img/documentation/AddProduct.png')}}">
-
-                                        <p id="ProductsList"><strong>Experience List</strong></p>
-                                        <img class="img-fluid" src="{{ asset('backend_assets/dist/img/documentation/Products.png')}}">
-                                        <p id="ViewProduct"><strong>View Experience</strong></p>
-                                        <img class="img-fluid" src="{{ asset('backend_assets/dist/img/documentation/viewProducts.png')}}">
+                                    <div class="col-md-6">
+                                        <strong>Add Experience</strong>
+                                        <img class="img-fluid" src="{{ asset('backend_assets/dist/img/documentation/AddCategory.png')}}"> </li>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <strong>Experience List</strong>
+                                        <img class="img-fluid" src="{{ asset('backend_assets/dist/img/documentation/AddCategory.png')}}">
                                     </div>
                                 </div>
 
@@ -299,27 +286,53 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="page-header">
-                                            <h3>Portfolio</h3>
-                                            <hr class="notop">
+                                            <h3 class="border-bottom mt-5">Portfolio</h3>
                                         </div>
                                     </div>
-                                    <div class="col-md-5 border-right">
-                                        <p class="text-justify"> Adding a new Portfolio in the system is very easy. You can add all related information of a Portfolio. The facilities that Portfolio management holds in Dynamic Portfolio are listed below:
-                                            <br>
-                                            <br> Click Portfolios from sidebar </p>
+                                    <div class="col-md-12">
+                                        <p>
+                                            Adding a new Portfolio in the system is very easy<br>
+                                            First, You should Create <strong>'Category'</strong> for create portfolio
+                                        </p>
+
+                                        <ul>
+                                            <li><strong>Add New Category</strong></li>
+                                            <p class="text-justify"> Go to <strong>'Category'</strong> > <strong>'+Add New'</strong> Fillup Form. click <strong>'Create New'</strong></p>
+                                            <li><strong>Category List</strong></li>
+                                            <p class="text-justify"> You can see list of all Category.  You Can <strong>Edit</strong>, <strong>Delete</strong> From here</p>
+                                        </ul>
+                                        <p class="text-center"><strong>Note: <span class="text-danger">Start ( * )</span> marked field are required.</strong></p>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <strong>Add Category</strong>
+                                        <img class="img-fluid" src="{{ asset('backend_assets/dist/img/documentation/AddCategory.png')}}"> </li>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <strong>Category List</strong>
+                                        <img class="img-fluid" src="{{ asset('backend_assets/dist/img/documentation/AddCategory.png')}}">
+                                    </div>
+                                    <div class="col-md-12 mt-4">
+                                    <strong>After then </strong>
+                                        <p class="m-0">
+                                            <p class="text-justify"> Go to <strong>'Portfolio'</strong> > <strong>'+Add New'</strong> Fillup Form. click <strong>'Create New'</strong></p>
+                                        </p>
                                         <ul>
                                             <li><strong>Add New Portfolio</strong></li>
-                                            <p class="text-justify"> You can easily add new Portfolio in the system. The form is elaborate with all possible information you might need to add for a new Portfolio. During addition of new Portfolio you just have to provide the Customer Name, Mobile #, Email, Address. </p>
+                                            <p class="text-justify"> You can easily add new Portfolio in the system. </p>
 
-                                            <li><strong>Customers List</strong></li>
-                                            <p class="text-justify"> You can see list of all Portfolio. You Can Edit, Delete From here </p>
+                                            <li><strong>Portfolio List</strong></li>
+                                            <p class="text-justify"> You can see list of all Portfolio.  You Can <strong>Edit</strong>, <strong>Delete</strong> From here</p>
                                         </ul>
+                                        <p class="text-center"><strong>Note: <span class="text-danger">Start ( * )</span> marked field are required.</strong></p>
                                     </div>
-                                    <div class="col-7">
-                                        <p><strong>Add Portfolio</strong></p>
-                                        <img class="img-fluid" src="{{ asset('backend_assets/dist/img/documentation/AddCustomer.png')}}"> </li>
-                                        <p><strong>Portfolio List</strong></p>
-                                        <img class="img-fluid" src="{{ asset('backend_assets/dist/img/documentation/Customers.png')}}"> </li>
+                                    <div class="col-md-6">
+                                        <strong>Add Portfolio</strong>
+                                        <img class="img-fluid" src="{{ asset('backend_assets/dist/img/documentation/AddCategory.png')}}"> </li>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <strong>Portfolio List</strong>
+                                        <img class="img-fluid" src="{{ asset('backend_assets/dist/img/documentation/AddCategory.png')}}">
                                     </div>
                                 </div>
 
@@ -329,53 +342,58 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="page-header">
-                                            <h3>Setting</h3>
-                                            <hr class="notop">
+                                           <h3 class="border-bottom mt-5">Setting</h3>
                                         </div>
                                     </div>
-                                    <div class="col-md-5 border-right">
-                                        <p class="text-justify"> Adding company info in the system is very easy. You have to add all related information of company in form.
-                                            <br>
-                                            <br> To view company info go to " <b>Setting</b> " </p>
-                                    </div>
-                                    <div class="col-7">
-                                        <p><strong>Company-info</strong></p>
-                                        <img class="img-fluid" src="{{ asset('backend_assets/dist/img/documentation/Company-info.png')}}">
-                                    </div>
+                                    <div class="col-md-12 border-right">
+                                       <p>Manage Setting in the system is very easy</p>
+                                        <ul>
+                                            <li><strong>General Settings</strong></li>
+                                            <p class="text-justify"> Go to <strong> 'Settings' > 'General Settings' </strong>Edit Form Carefully. click <strong>'Update'</strong>
+                                                <br>
+                                                <strong>Note: <span class="text-danger">Start ( * )</span> marked field are required.</strong>
+                                            </p>
+                                            <img class="img-fluid" src="{{ asset('backend_assets/dist/img/documentation/Company-info.png')}}">
+
+                                            <li class="mt-4"><strong>Profile Setting</strong></li>
+                                            <p class="text-justify"> Go to <strong> 'Settings' > 'Profile' </strong>Edit Form Carefully. click <strong>'Update'</strong>
+                                                <br>
+                                                <strong>Note: <span class="text-danger">Start ( * )</span> marked field are required.</strong>
+                                            </p>
+                                            <img class="img-fluid" src="{{ asset('backend_assets/dist/img/documentation/Company-info.png')}}">
+
+                                            <li class="mt-4"><strong>Social media</strong></li>
+                                            <p class="text-justify"> Go to <strong> 'Settings' > 'Social media' </strong>Edit Form Carefully. click <strong>'Update'</strong>
+                                                <br>
+                                                <strong>Note: <span class="text-danger">Start ( * )</span> marked field are required.</strong>
+                                            </p>
+                                            <img class="img-fluid" src="{{ asset('backend_assets/dist/img/documentation/Company-info.png')}}">
+                                        </ul>                                  
+                                    </div>                                    
                                 </div>
                             </div>
 
                             <div id="message">
-                                <div class="row">
+                                <div class="row mt-3">
                                     <div class="col-12">
                                         <div class="page-header">
-                                            <h3>Message</h3>
-                                            <hr class="notop">
+                                            <h3 class="border-bottom mt-5">Message</h3>
                                         </div>
                                     </div>
-                                    <div class="col-md-5 border-right">
-                                        <p class="text-justify"> Adding a new Expense Invoices in the system is very easy. The facilities that invoice management holds in Dynamic Portfolio are listed below:
-                                            <br>
-                                            <br> Click Expenses Invoices From Sidebar </p>
-                                            
+                                    <div class="col-md-12">
+                                        <p>Manage Message in the system is very easy</p>
                                         <ul>
-                                            <li><strong>Add New Expense Invoice</strong></li>
-                                            <p class="text-justify"> once you add expense type to the system then you can easily add new expense invoice in the system. add the Item info , Quantity, Rate, the system will automatially do calculation.</p>
-
-                                            <li><strong>Expense Invoice List</strong></li>
-                                            <p class="text-justify"> You can see list of all expense invoice at a glance. </p>
-
-                                            <li><strong>Print/View Expense Invoice</strong></li>
-                                            <p class="text-justify"> once you created invoice then go to invoice view, Edit, Delete invoice and print. </p>
-                                        </ul>
+                                            <li><strong>Show Message</strong></li>
+                                            <p class="text-justify"> Go to <strong>'Message'</strong>  then you can see message list.This people want to contact with you from your portfolio contact form. You can See Detail of Message from here</p>
+                                        </ul>                    
                                     </div>
-                                    <div class="col-7">
+                                    <div class="col-md-6">
                                         <p><strong>Add Expense Invoice</strong></p>
                                         <img class="img-fluid" src="{{ asset('backend_assets/dist/img/documentation/AddExpense.png')}}">
-                                        <p><strong>Expense Invoices List</strong></p>
-                                        <img class="img-fluid" src="{{ asset('backend_assets/dist/img/documentation/expenseinvoicesList.png')}}">
-                                        <p><strong>Print/View Expense Invoice</strong></p>
-                                        <img class="img-fluid" src="{{ asset('backend_assets/dist/img/documentation/expenseinvoiceInvoices.png')}}">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p><strong>Add Expense Invoice</strong></p>
+                                        <img class="img-fluid" src="{{ asset('backend_assets/dist/img/documentation/AddExpense.png')}}">
                                     </div>
                                 </div>
 
@@ -385,32 +403,26 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="page-header">
-                                            <h3>Testimonial</h3>
-                                            <hr class="notop">
+                                           <h3 class="border-bottom mt-5">Testimonial</h3>
                                         </div>
                                     </div>
-                                    <div class="col-md-5 border-right">
-                                         <p class="text-justify"> Adding a new Loans in the system is very easy. You can 
-                                            add all related information of a Loans. The facilities that Loans management holds in Dynamic Portfolio are listed below:
-                                            <br>
-                                            <br> Click Loans from sidebar </p>
+                                    <div class="col-md-12 border-right">
+                                        <p>Manage Testimonial in the system is very easy</p>
                                         <ul>
-                                            <li><strong>Add New Loans</strong></li>
-                                            <p class="text-justify"> You can easily add new Loans in the system. The form is elaborate with all possible information you might need to add for a new Loans. During addition of new Loan you just have to provide the Loaner name, Loaner Mobile, Loaner Email, Taken date, End date Loaner Address. </p>
-
-                                            <li><strong>Loans List</strong></li>
-                                            <p class="text-justify"> You can see list of all Loans. You Can View, Edit, Delete From here </p>
-                                        </ul>
-
-                                        </ul>
+                                            <li><strong>Add New Testimonial</strong></li>
+                                            <p class="text-justify"> Go to <strong>'Testimonial'</strong> > <strong>'+Add New'</strong> Fillup Form. click <strong>'Create New'</strong></p>
+                                            <li><strong>Testimonial List</strong></li>
+                                            <p class="text-justify"> You can see list of all Testimonial.  You Can <strong>Edit</strong>, <strong>Delete</strong> From here</p>
+                                        </ul>                                        
+                                        <p class="text-center"><strong>Note: <span class="text-danger">Start ( * )</span> marked field are required.</strong></p>
                                     </div>
-                                    <div class="col-7">
+                                    <div class="col-md-6">
                                         <p><strong>Add Loan</strong></p>
                                         <img class="img-fluid" src="{{ asset('backend_assets/dist/img/documentation/AddLoan.png')}}">
+                                    </div>
+                                    <div class="col-md-6">
                                         <p><strong>Loans List</strong></p>
                                         <img class="img-fluid" src="{{ asset('backend_assets/dist/img/documentation/LoansList.png')}}">
-                                        <p><strong>View Loan Detail</strong></p>
-                                        <img class="img-fluid" src="{{ asset('backend_assets/dist/img/documentation/Loansview.png')}}">
                                     </div>
                                 </div>
 
@@ -420,8 +432,7 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="page-header">
-                                            <h3>Customer Support</h3>
-                                            <hr class="notop">
+                                            <h3 class="border-bottom mt-5">Customer Support</h3>
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -438,8 +449,7 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="page-header">
-                                            <h3>Product Customization</h3>
-                                            <hr class="notop">
+                                            <h3 class="border-bottom mt-5">Product Customization</h3>
                                         </div>
                                     </div>
                                     <div class="col-12">

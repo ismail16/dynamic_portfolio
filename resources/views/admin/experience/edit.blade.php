@@ -57,7 +57,7 @@
                             <div class="col-md-12 pb-1">
                                 <label class="control-label mb-0">Job Description</label>
                                 <div class="">
-                                    <textarea name="description" class="form-control form-control-sm w-100">{{ $experience->job_description }}</textarea> 
+                                    <textarea name="job_description" class="form-control form-control-sm w-100">{{ $experience->job_description }}</textarea> 
                                 </div>
                             </div>
 

@@ -101,57 +101,16 @@
 						<li class="nav-item has-treeview" >
 							<a href="#portfolio" class="nav-link">
 								<i class="nav-icon fas fa-briefcase"></i>
-								<p>
-									Portfolio
-									<i class="fas fa-angle-left right"></i>
-								</p>
+								<p>Portfolio</p>
 							</a>
-							<ul class="nav nav-treeview ml-3 {{Request::is('admin/category*') ? 'show':'hide'}}" >
-								<li class="nav-item">
-									<a href="{{ route('admin.category.index') }}" class="nav-link {{Request::is('admin/category*') ? 'active':''}}">
-										<i class="fas fa-align-left nav-icon"></i>
-										<p>Category</p>
-									</a>
-								</li>
-								<li class="nav-item">
-									<a href="{{ route('admin.portfolio.index') }}" class="nav-link {{Request::is('admin/portfolio*') ? 'active':''}}">
-										<i class="fas fa-file-code nav-icon"></i>
-										<p>Portfolio</p>
-									</a>
-								</li>
-							</ul>
+							
 						</li>
 
 						<li class="nav-item has-treeview " >
 							<a href="#setting" class="nav-link">
 								<i class="nav-icon fas fa-cogs"></i>
-								<p>
-									Settings
-									<i class="fas fa-angle-left right"></i>
-								</p>
+								<p>Settings</p>
 							</a>
-							<ul class="nav nav-treeview ml-3 {{Request::is('admin/setting*') ? 'show':'hide'}}" >
-								<li class="nav-item">
-									<a href="{{ route('admin.setting.edit',1) }}" class="nav-link {{Request::is('admin/setting/1/edit') ? 'active':''}}">
-										<i class="fas fa-link nav-icon"></i>
-										<p>General Settings</p>
-									</a>
-								</li>
-
-								<li class="nav-item">
-									<a href="{{ route('admin.setting-profile.edit', 1) }}" class="nav-link {{Request::is('admin/setting-profile/1/edit*') ? 'active':''}}">
-										<i class="fas fa-user nav-icon"></i>
-										<p>Profile</p>
-									</a>
-								</li>
-
-								<li class="nav-item">
-									<a href="{{ route('admin.setting-social-media.edit',1) }}" class="nav-link {{Request::is('admin/setting-social-media/1/edit') ? 'active':''}}">
-										<i class="fas fa-link nav-icon"></i>
-										<p>Social media</p>
-									</a>
-								</li>
-							</ul>
 						</li>
 
 						<li class="nav-item">

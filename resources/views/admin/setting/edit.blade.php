@@ -38,6 +38,7 @@
                                     <label class="mb-0">Theme</label>
                                     <select name="theme_number" class="form-control form-control-sm">
                                         <option value="theme1"  {{ $setting->theme_number == 'theme1'? 'selected':'' }}>Theme 1</option>
+                                        <option value="theme2"  {{ $setting->theme_number == 'theme2'? 'selected':'' }}>Theme 2</option>
                                     </select>
                                 </div>
                             </div>

@@ -66,6 +66,21 @@
                     </ul>
                 </li>
 
+                <li class="nav-item">
+                    <a href="{{ route('admin.testimonial.index') }}" class="nav-link {{Request::is('admin/testimonial*') ? 'active':''}}">
+                        <i class="nav-icon  fas fa-comment-alt"></i>
+                        <p>Testimonial</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('admin.contact.index') }}" class="nav-link {{Request::is('admin/contact*') ? 'active':''}}">
+                        <i class="nav-icon  far fa-comments"></i>
+                        <p>Message</p>
+                    </a>
+                </li>
+                
+
                 <li class="nav-item has-treeview {{Request::is('admin/setting*') ? 'menu-open':''}} {{Request::is('admin/portfolio*') ? 'menu-open':''}}" >
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-cogs"></i>
@@ -98,18 +113,7 @@
                     </ul>
                 </li>
 
-                <li class="nav-item">
-                    <a href="{{ route('admin.contact.index') }}" class="nav-link {{Request::is('admin/contact*') ? 'active':''}}">
-                        <i class="nav-icon  far fa-comments"></i>
-                        <p>Message</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('admin.testimonial.index') }}" class="nav-link {{Request::is('admin/testimonial*') ? 'active':''}}">
-                        <i class="nav-icon  fas fa-comment-alt"></i>
-                        <p>Testimonial</p>
-                    </a>
-                </li>
+                
 
                 <li class="nav-item">
                     <a href="{{ route('documentation') }}" class="nav-link" target="_blank">
