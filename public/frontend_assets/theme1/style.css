@@ -26,7 +26,7 @@
   width: 200px;
 }
 
-#client-feedback-sec{
+#client-feedbacks{
   background-color: #c0cad4;
 }
 
@@ -95,7 +95,7 @@ h1 {
   color: #fff;
 }
 /* =============================================================
-  HOME SECTION STYLES
+  homes SECTION STYLES
   ============================================================ */
   .navbar-brand img{
     height: 60px;
@@ -106,7 +106,7 @@ h1 {
     background-color: #000; opacity: .8; color: #fff;
   }
 
-  #home-sec {
+  #homes{
 
     background: url(../img/home.jpg) no-repeat center center;
     padding: 0;
@@ -114,52 +114,51 @@ h1 {
     background-size: cover;
     background-attachment: fixed;
   }
-  #home-sec .overlay {
+  #homes .overlay {
     padding-top:100px;
     background:rgba(0, 0, 0, 0.80);
     min-height:650px;
   }
-  #home-sec .main-img {
+  #homes .main-img {
     max-height:200px;
     border:5px solid rgb(255, 15, 101);
     content:url('../img/sad.jpg');  /*SAD IMAGE URL  - LEFT SIDE IMAGE*/
     cursor:pointer;
   }
-  #home-sec .main-img:hover {
+  #homes .main-img:hover {
     content:url('../img/smile.jpg'); /*SIMLE IMAGE URL ON HOVER - LEFT SIDE IMAGE*/
     cursor:pointer;
   }
-  #home-sec a,#home a:hover {
+  #homes a,#homes a:hover {
     text-decoration:none;
   }
-  #home-sec .main-img-2 {
+  #homes .main-img-2{
     height:180px;
     width:180px;
-    border:5px solid rgb(255, 15, 101);
     /*content:url('../img/ismail1.jpg');  SMILE IMAGE URL  - RIGHT SIDE IMAGE*/
     cursor:pointer;
   }
-/*#home-sec .main-img-2:hover {
+/*#homes .main-img-2:hover {
   content:url('../img/ismail2.jpg');  /*SAD IMAGE URL ON HOVER - RIGHT SIDE IMAGE*/
-  cursor:pointer;
-}
+  /*cursor:pointer;*/
+/*}*/
 */
 
-#home-sec h1 {
+#homes h1 {
   font-weight: 900;
   padding: 20px 0px 0px 0px;
 }
-#home-sec h2 {
+#homes h2 {
   font-weight: 400;
   padding: 0px 0px 30px 0px;
   color:#fff;
 }
-#home-sec h3 {
+#homes h3 {
   padding: 5px 0px;
   color:#fff;
   font-weight:800;
 }
-#home-sec small {
+#homes small {
   color:#fff;
 }
 .icon-round {
@@ -190,10 +189,10 @@ h1 {
   ============================================================ */
 
 
-  #about-sec .social-icon {
+  #abouts .social-icon {
     padding:10px 0px 30px 0px;
   }
-  #about-sec .social-icon a > img {
+  #abouts .social-icon a > img {
     padding:5px;
   }
 
@@ -201,11 +200,11 @@ h1 {
 /* =============================================================
   SKILL SECTION STYLES ( easy-pie-chart css)
   ============================================================ */
-  #about-me h4 {
+  #abouts h4 {
     font-weight: 600;
     color:rgb(255, 15, 101);
   }
-  #about-me {
+  #abouts {
 
     background: url(../img/skill.jpg) no-repeat center center;
     padding: 0;
@@ -213,7 +212,7 @@ h1 {
     background-size: cover;
     background-attachment: fixed;
   }
-  #about-me .overlay {
+  #abouts .overlay {
     padding-top:50px;
     background:url(../img/overlays/15.png);
     min-height: 450px;
@@ -360,7 +359,7 @@ span.round-tabs.five{
   background: #fafafa;
 }
 .nav-tabs > li {
-  width: 20%;
+  width: 33%;
 }
 
 .board li:after {
@@ -460,7 +459,7 @@ span.round-tabs.five{
   ===================================*/
 
 
-  #education-sec {
+  #educations {
 
     background: url(../img/testi.jpg) no-repeat center center;
     padding: 0;
@@ -470,19 +469,19 @@ span.round-tabs.five{
     color:#fff;
 
   }
-  #education-sec  .overlay {
+  #educations  .overlay {
    padding-top: 60px;
    background: rgba(0, 0, 0, 0.80);
    min-height: 400px;
  }
- #education-sec h4 {
+ #educations h4 {
   line-height:40px;
 
 }
-#education-sec i {
+#educations i {
   padding:5px;
 }
-#education-sec img {
+#educations img {
   border:3px solid rgb(255, 15, 101);
   margin:5px;
 }
@@ -510,32 +509,32 @@ span.round-tabs.five{
   PORTFOLIO STYLES 
   ===================================*/
 
-  #portfolio-sec {
+  #portfolios {
     background-color: #c0cad4;
   }
-  #portfolio-sec i {
+  #portfolios i {
     margin-right:5px;
     color:#fff;
     font-size:20px;
   }
-  #portfolio-sec .col-xs-12.col-sm-4.col-md-3 {
+  #portfolios .col-xs-12.col-sm-4.col-md-3 {
     padding: 0;
   }
 
-  .portfolio-sec-wrap {
+  .portfolios-wrap {
     position: relative;
     cursor: pointer;
   }
 
-  #portfolio-sec a:hover {
+  #portfolios a:hover {
     text-decoration: none;
   }
 
-  .portfolio-sec-wrap img {
+  .portfolios-wrap img {
     width: 100%;
   }
 
-  .portfolio-sec-wrap .portfolio-sec-inner {
+  .portfolios-wrap .portfolios-inner {
     top: 0;
     background: transparent;
     opacity: .8;
@@ -544,16 +543,16 @@ span.round-tabs.five{
     margin-bottom: 0;
   }
 
-  .portfolio-sec-wrap .portfolio-sec-inner h3 {
+  .portfolios-wrap .portfolios-inner h3 {
     margin: 10px 0;
   }
 
-  .portfolio-sec-wrap .portfolio-sec-inner h3 a {
+  .portfolios-wrap .portfolios-inner h3 a {
     font-size: 24px;
     color: #fff;
   }
 
-  .portfolio-sec-wrap .overlay {
+  .portfolios-wrap .overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -571,7 +570,7 @@ span.round-tabs.five{
     padding: 30px;
   }
 
-  .portfolio-sec-wrap .overlay .preview {
+  .portfolios-wrap .overlay .preview {
     bottom: 0;
     display: inline-block;
     height: 35px;
@@ -582,14 +581,14 @@ span.round-tabs.five{
     color: #fff;
   }
 
-  .portfolio-sec-wrap:hover .overlay {
+  .portfolios-wrap:hover .overlay {
     opacity: 1;
   }
 
   /*=====================================
   HIRE STYLES 
   ===================================*/
-  #contact-me {
+  #contacts {
 
     background: url(../img/hire.jpg) no-repeat center center;
     padding: 0;
@@ -600,27 +599,29 @@ span.round-tabs.five{
 
 
   }
-  #contact-me .overlay {
+  #contacts .overlay {
     background:rgba(0, 0, 0, 0.80);
     min-height:570px;
   }
-  #contact-me .form-control {
+  #contacts .form-control {
     background-color:transparent;
   }
 
-  #contact-me input {
+  #contacts input {
     color: #fff;
   }
 
-
+  #contacts textarea {
+    color: #fff;
+  }
 
 /*=====================================
   FOOTER STYLES 
   ===================================*/
-  #footer-sec h3{
+  #footers h3{
     color: rgb(255, 15, 101);
   }
-  #footer-sec i{
+  #footers i{
     color: rgb(255, 15, 101);
     margin-right:10px;
   }

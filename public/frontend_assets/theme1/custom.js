@@ -1,20 +1,7 @@
-﻿/*=============================================================
-    Authour URI: www.binarytheme.com
-    License: Commons Attribution 3.0
-
-    http://creativecommons.org/licenses/by/3.0/
-
-    100% Free To use For Personal And Commercial Use.
-    IN EXCHANGE JUST GIVE US CREDITs AND TELL YOUR FRIENDS ABOUT US
-   
-    ========================================================  */
-
-(function ($) {
+﻿(function ($) {
     "use strict";
     var mainApp = {
-
         main_fun: function () {
-
             /*====================================
              EASING PLUGIN SCRIPTS 
             ======================================*/
@@ -43,20 +30,20 @@
 
             });
             /*====================================
-           DOWNLOAD RESUME SECTION TOOL TIP SCRIPTS 
-          ======================================*/
+                DOWNLOAD RESUME SECTION TOOL TIP SCRIPTS 
+            ======================================*/
             $(function () {
                 $('a[title]').tooltip();
             });
             /*====================================
-       TESTIMONIAL SECTION SCRIPTS 
-       ======================================*/
+                TESTIMONIAL SECTION SCRIPTS 
+            ======================================*/
             $('#testimonial-main').carousel({
                 interval: 4000 //TIME IN MILLI SECONDS
             })
             /*====================================
-          PRETTYPHOTO FUNCTION
-          ======================================*/
+                PRETTYPHOTO FUNCTION
+            ======================================*/
 
             $("a.preview").prettyPhoto({
                 social_tools: false
@@ -70,35 +57,24 @@
             /*====================================
             WRITE YOUR SCRIPTS HERE
             ======================================*/
-
-
-
-
-
         },
 
         initialization: function () {
             mainApp.main_fun();
 
         }
-
     }
     // Initializing ///
-
     $(document).ready(function () {
         mainApp.main_fun();
     });
-
 }(jQuery));
 
 
 // portfolio
-
 $(document).ready(function(){
-
     $(".filter-button").click(function(){
         var value = $(this).attr('data-filter');
-        
         if(value == "all")
         {
             //$('.filter').removeClass('hidden');
@@ -106,22 +82,12 @@ $(document).ready(function(){
         }
         else
         {
-//            $('.filter[filter-item="'+value+'"]').removeClass('hidden');
-//            $(".filter").not('.filter[filter-item="'+value+'"]').addClass('hidden');
+            //$('.filter[filter-item="'+value+'"]').removeClass('hidden');
+            //$(".filter").not('.filter[filter-item="'+value+'"]').addClass('hidden');
             $(".filter").not('.'+value).hide('3000');
             $('.filter').filter('.'+value).show('3000');
-            
         }
     });
-
 });
 
 
-
- $(document).ready(function() {
-      $('.progress .progress-bar').css("width",
-                function() {
-                    return $(this).attr("aria-valuenow") + "%";
-                }
-        )
-    });

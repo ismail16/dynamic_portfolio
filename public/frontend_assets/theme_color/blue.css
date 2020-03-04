@@ -1,22 +1,17 @@
-﻿/*=============================================================
-    Authour URI: www.binarytheme.com
-    License: Commons Attribution 3.0
-
-    http://creativecommons.org/licenses/by/3.0/
-
-    100% Free To use For Personal And Commercial Use.
-    IN EXCHANGE JUST GIVE US CREDITs AND TELL YOUR FRIENDS ABOUT US
-   
-    ========================================================  */
-
-/* =============================================================
-   GENERAL STYLES
- ============================================================ */
- h1 {
-color:#3361f5;
+﻿h1 {
+  color:#3361f5;
 }
-.text_color {
-  color: #3361f5;
+
+.theme_color {
+  color:#3361f5;
+}
+
+.theme_bg_color{
+  background-color:#3361f5;
+}
+
+.font_color{
+  color: #fff;
 }
 
 .navbar {
@@ -26,73 +21,44 @@ color:#3361f5;
 .footer{
   background-color:#3361f5;
 }
-/* =============================================================
-  BUTTON SECTION STYLES
- ============================================================ */
+
+#homes .main-img-2 {
+  border:5px solid #3361f5;
+}
+
 .custom-btn-one {
-   border-color: #3361f5;
+ border-color: #3361f5;
 }
-   
-/* =============================================================
-  HOME SECTION STYLES
- ============================================================ */
 
- #home-sec .main-img {     
-   border:5px solid #3361f5;
+#home-sec .main-img {     
+ border:5px solid #3361f5;
 }
- #home-sec .main-img-2 {
-   border:5px solid #3361f5;
-}
-    .icon-round:hover {
-        background-color:#3361f5;
-    }
-
-.icon-round-active {
-      background-color:#3361f5;
+#home-sec .main-img-2 {
+ border:5px solid #3361f5;
 }
 
 
-/* =============================================================
-  SKILL SECTION STYLES ( easy-pie-chart css)
- ============================================================ */
-    #skill-sec h4 {
-color:#3361f5;
-}
-      /* =============================================================
-  DOWNLOAD SECTION STYLES
- ============================================================ */
 .board .tab-content i {
-    color: #3361f5;
+  color: #3361f5;
 }
 
-  /*=====================================
-  TESTIMONIALS STYLES 
-    ===================================*/
 
-    #testimonial-main img {
-        border:3px solid #3361f5;
-    }
-    /*=====================================
-  PORTFOLIO STYLES 
-    ===================================*/
+#testimonial-main img {
+  border:3px solid #3361f5;
+}
 
 .portfolio-sec-wrap .overlay {
-    background-color: #3361f5;
+  background-color: #3361f5;
 }
 
- /*=====================================
-  FOOTER STYLES 
-    ===================================*/
 #footer-sec h3{
-    color: #3361f5;
+  color: #3361f5;
 }
 #footer-sec i{
-    color: #3361f5;
+  color: #3361f5;
 }
- /*=====================================
-  SCROLLUP STYLES 
-    ===================================*/
+
 a.scrollup {
-background: #3361f5;
+  background: #3361f5;
 
 }

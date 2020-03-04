@@ -1,171 +1,175 @@
-<nav class="navbar navbar-expand-lg static-top ">
-        <div class="container">
-            <a class="navbar-brand p-0" href="#">
-                <img src="{{ asset('images/logo/'.$setting->logo)}}" alt="">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="mr-4">
-                        <a href="#about-me" class="text-light" data-wow-duration="1s" data-wow-delay=".1s">
-                            <small class="wow bounceIn animated font-weight-bold" data-wow-duration="1s" data-wow-delay=".2s"><i class="fa fa-info icon-round icon-round text-light"></i> ABOUT ME</small>
-                        </a>
-                    </li>
-                    <li class="mr-4">
-                        <a href="#portfolio-sec" class="text-light" data-wow-duration="1s" data-wow-delay=".5s">
-                            <small class="wow bounceIn animated font-weight-bold" data-wow-duration="1s" data-wow-delay=".6s"><i class="fa fa-briefcase icon-round text-light"></i> PORTFOLIO </small>
-                        </a>
-                    </li> 
-                    <li class="mr-4">
-                        <a href="#education-sec" class="text-light" data-wow-duration="1s" data-wow-delay=".3s">
-                            <small class="wow bounceIn animated font-weight-bold" data-wow-duration="1s" data-wow-delay=".4s"><i class="fa fa-graduation-cap icon-round text-light" aria-hidden="true"></i> EDUCATION</small>
-                        </a>
-                    </li>
-                    <li class="mr-4">
-                        <a href="#contact-me" class="text-light" data-wow-duration="1s" data-wow-delay=".7s">
-                            <small class="wow bounceIn animated font-weight-bold" data-wow-duration="1s" data-wow-delay=".8s"><i class="far fa-paper-plane   icon-round text-light"></i> CONTACT ME</small>
-                        </a>
-                    </li>
-
-                    @if (Route::has('login'))
-                    @auth
-                    <li class="mr-4"><a class="text-light" data-wow-duration="1s" data-wow-delay=".7s" href="{{ route('admin.dashboard') }}" >
-                        <small class="wow bounceIn animated font-weight-bold" data-wow-duration="1s" data-wow-delay=".8s"><i class="fa fa-home icon-round text-light "></i> DASHBOARD</small>
-                    </a></li>
-                    <li class="mr-4"><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        <small class="wow bounceIn animated font-weight-bold" data-wow-duration="1s" data-wow-delay=".8s"><i class="fa fa-key icon-round text-light"></i> LOGOUT</small>
-                    </a></li>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
-                        @csrf
-                    </form>
-                    @else
-                    <li class="mr-4 pointer">
-                        <a  data-toggle="modal" data-target="#myModal" class="text-light" data-wow-duration="1s" data-wow-delay=".7s">
-                            <small class="wow bounceIn animated font-weight-bold pointer" data-wow-duration="1s" data-wow-delay=".8s"><i class="fa fa-key icon-round text-light "></i> LOGIN</small>
-                        </a>
-                    </li>
-                    @endauth 
-                    @endif
-
-                </ul>
-            </div>
-        </div>
-    </nav>
-
+<nav class="navbar navbar-expand-lg fixed-top ">
     <div class="container">
-        <div class="modal fade" id="myModal" role="dialog">
-            <div class="modal-dialog modal-sm">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title text_color">Admin Login</h4>
-                        <button type="button" class="close text-danger" data-dismiss="modal">&times;</button>
-                    </div>
-                    <div class="card card-container">
-                        <img id="profile-img" class="profile-img-card" src="{{ asset('frontend_assets/img/ismail2.jpg')}}" />
-                        <form class="form-signin" method="POST" action="{{ route('login') }}">
-                            @csrf
-                            <span id="reauth-email" class="reauth-email"></span>
-                            <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+        <a class="navbar-brand p-0" href="#">
+            <img src="{{ asset('images/logo/'.$setting->logo)}}" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="mr-4">
+                    <a href="#about" id="about" data-wow-duration="1s" data-wow-delay=".1s">
+                        <small class="wow bounceIn animated font-weight-bold font_color" data-wow-duration="1s" data-wow-delay=".2s"><i class="fa fa-info icon-round icon-round font_color"></i> ABOUT ME</small>
+                    </a>
+                </li>
+                <li class="mr-4">
+                    <a href="#portfolio" id="portfolio"  data-wow-duration="1s" data-wow-delay=".5s">
+                        <small class="wow bounceIn animated font-weight-bold font_color" data-wow-duration="1s" data-wow-delay=".6s"><i class="fa fa-briefcase icon-round font_color"></i> PORTFOLIO </small>
+                    </a>
+                </li> 
+                <li class="mr-4">
+                    <a href="#education" id="education" data-wow-duration="1s" data-wow-delay=".3s">
+                        <small class="wow bounceIn animated font-weight-bold font_color" data-wow-duration="1s" data-wow-delay=".4s"><i class="fa fa-graduation-cap icon-round font_color" aria-hidden="true"></i> EDUCATION</small>
+                    </a>
+                </li>
+                <li class="mr-4">
+                    <a href="#contact" id="contact" data-wow-duration="1s" data-wow-delay=".7s">
+                        <small class="wow bounceIn animated font-weight-bold font_color" data-wow-duration="1s" data-wow-delay=".8s"><i class="far fa-paper-plane icon-round font_color"></i> CONTACT ME</small>
+                    </a>
+                </li>
 
-                            @if ($errors->has('email'))
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $errors->first('email') }}</strong>
-                            </span>
-                            @endif
-                            <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                @if (Route::has('login'))
+                @auth
+                <li class="mr-4">
+                    <a class="" data-wow-duration="1s" data-wow-delay=".7s" href="{{ route('admin.dashboard') }}" >
+                        <small class="wow bounceIn animated font-weight-bold font_color" data-wow-duration="1s" data-wow-delay=".8s"><i class="fa fa-home icon-round font_color"></i> DASHBOARD</small>
+                    </a>
+                </li>
+                <li class="mr-4">
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <small class="wow bounceIn animated font-weight-bold font_color" data-wow-duration="1s" data-wow-delay=".8s"><i class="fa fa-key icon-round font_color"></i> LOGOUT</small>
+                    </a>
+                </li>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
+                    @csrf
+                </form>
+                @else
+                <li class="mr-4 pointer">
+                    <a  data-toggle="modal" data-target="#myModal" data-wow-duration="1s" data-wow-delay=".7s">
+                        <small class="wow bounceIn animated font-weight-bold pointer" data-wow-duration="1s" data-wow-delay=".8s"><i class="fa fa-key icon-round font_color"></i> LOGIN</small>
+                    </a>
+                </li>
+                @endauth 
+                @endif
 
-                            @if ($errors->has('password'))
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $errors->first('password') }}</strong>
-                            </span>
-                            @endif
-                            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
-                        </form>
-                    </div>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title theme_color">Admin Login</h4>
+                    <button type="button" class="close text-danger" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="card card-container">
+                    <img id="profile-img" class="profile-img-card" src="{{ asset('frontend_assets/img/ismail2.jpg')}}" />
+                    <form class="form-signin" method="POST" action="{{ route('login') }}">
+                        @csrf
+                        <span id="reauth-email" class="reauth-email"></span>
+                        <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+
+                        @if ($errors->has('email'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('email') }}</strong>
+                        </span>
+                        @endif
+                        <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+
+                        @if ($errors->has('password'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('password') }}</strong>
+                        </span>
+                        @endif
+                        <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <div id="home-sec">
-        <div class="overlay">
-            <div class="container">
-                <div class="row pad-top-bottom">
-                    <div class="col-lg-12 col-md-12 col-sm-12 text-center">
-                        <img src="{{ asset('images/profile/'.$setting->image1)}}" class="main-img-2 rounded-circle wow bounceIn animated" data-wow-duration="1s" data-wow-delay=".2s" alt="" />
-                        <h1 class="wow bounceIn animated" data-wow-duration="1s" data-wow-delay=".4s">I'm {{ $setting->name }}</h1>
-                        <h2 class="wow bounceIn animated" data-wow-duration="1s" data-wow-delay=".6s">
-                            {{ $setting->title }}
-                        </h2>
-                        <a href="#about-me" class="btn custom-btn-one btn-lg wow bounceIn animated pointer" data-wow-duration="1s" data-wow-delay=".8s">MORE ABOUT ME</a>
-                    </div>
-
+<div id="homes">
+    <div class="overlay">
+        <div class="container">
+            <div class="row pad-top-bottom">
+                <div class="col-lg-12 col-md-12 col-sm-12 text-center">
+                    <img src="{{ asset('images/profile/'.$setting->image1)}}" class="main-img-2 rounded-circle wow bounceIn animated" data-wow-duration="1s" data-wow-delay=".2s" alt="" />
+                    <h1 class="wow bounceIn animated" data-wow-duration="1s" data-wow-delay=".4s">I'm {{ $setting->name }}</h1>
+                    <h2 class="wow bounceIn animated" data-wow-duration="1s" data-wow-delay=".6s">
+                        {{ $setting->title }}
+                    </h2>
+                    <a href="#about-me" class="btn custom-btn-one btn-lg wow bounceIn animated pointer" data-wow-duration="1s" data-wow-delay=".8s">MORE ABOUT ME</a>
                 </div>
 
             </div>
+
         </div>
     </div>
+</div>
 
-    <section id="about-me">
-        <div class="overlay">
-            <div class="container">
-                <div class="row" >
-                    <div class="col-md-4 pt-3 pb-3 bg-black">
-                        <div class="wow bounceIn animated">
-                            <img src="{{ asset('images/profile/'.$setting->image2)}}" class="main-img-2 img-circle wow bounceIn animated animated image2" alt="" >
-                            <h6 class="text_color">WHAT TO KNOW, ABOUT ME ?</h6>
-                            <div class="color-strip"></div>
-                            <div class="personal-information">
-                                <ul>
-                                    <li><span>Name : </span>{{ $setting->name }}</li>
-                                    <li><span>Age : </span>{{ $setting->age }} Years</li>
-                                    <li><span>Phone : </span>{{ $setting->phone }}</li>
-                                    <li><span>Email : </span>{{ $setting->email }}</li>
-                                    <li><span>Address : </span>{{ $setting->address }}</li>
-                                </ul>
-                            </div>
+<section id="abouts">
+    <div class="overlay">
+        <div class="container">
+            <div class="row pt-5">
+                <div class="col-md-4 pt-3 pb-3 bg-black">
+                    <div class="wow bounceIn animated">
+                        <img src="{{ asset('images/profile/'.$setting->image2)}}" class="main-img-2 img-circle wow bounceIn animated animated image2" alt="" >
+                        <h6 class="theme_color">WHAT TO KNOW, ABOUT ME ?</h6>
+                        <div class="color-strip"></div>
+                        <div class="personal-information">
+                            <ul>
+                                <li><span>Name : </span>{{ $setting->name }}</li>
+                                <li><span>Age : </span>{{ $setting->age }} Years</li>
+                                <li><span>Phone : </span>{{ $setting->phone }}</li>
+                                <li><span>Email : </span>{{ $setting->email }}</li>
+                                <li><span>Address : </span>{{ $setting->address }}</li>
+                            </ul>
+                        </div>
 
-                            <div class="social-icon">
-                                @isset ($setting->facebook)
-                                    <a href="{{ $setting->facebook }}" target="_blank">
-                                    <i class="fab fa-facebook-f icon-round icon-round text-light"></i>
-                                </a>
-                                @endisset
-                                @isset ($setting->instagram)
-                                    <a href="{{ $setting->instagram }}" target="_blank">
-                                    <i class="fab fa-instagram icon-round icon-round text-light"></i>
-                                </a>
-                                @endisset
-                                @isset ($setting->youtube)
-                                    <a href="{{ $setting->youtube }}" target="_blank">
-                                    <i class="fab fa-youtube icon-round icon-round text-light"></i>
+                        <div class="social-icon">
+                            @isset ($setting->facebook)
+                            <a href="{{ $setting->facebook }}" target="_blank">
+                                <i class="fab fa-facebook-f icon-round icon-round text-light"></i>
+                            </a>
+                            @endisset
+                            @isset ($setting->instagram)
+                            <a href="{{ $setting->instagram }}" target="_blank">
+                                <i class="fab fa-instagram icon-round icon-round text-light"></i>
+                            </a>
+                            @endisset
+                            @isset ($setting->youtube)
+                            <a href="{{ $setting->youtube }}" target="_blank">
+                                <i class="fab fa-youtube icon-round icon-round text-light"></i>
                                 @endisset
                                 @isset ($setting->twitter)
-                                     <a href="{{ $setting->twitter }}" target="_blank">
+                                <a href="{{ $setting->twitter }}" target="_blank">
                                     <i class="fab fa-twitter icon-round icon-round text-light"></i>
-                                @endisset
-                                @isset ($setting->linkedIn)
+                                    @endisset
+                                    @isset ($setting->linkedIn)
                                     <a href="{{ $setting->linkedIn }}" target="_blank">
-                                   <i class="fab fa-linkedin-in icon-round icon-round text-light"></i>
-                                </a>
-                                @endisset
+                                     <i class="fab fa-linkedin-in icon-round icon-round text-light"></i>
+                                 </a>
+                                 @endisset
 
-                                @isset ($setting->skype)
-                                    <a href="{{ $setting->skype }}" target="_blank">
-                                   <i class="fab fa-skype icon-round icon-round text-light"></i>
-                                </a>
-                                @endisset
-                            </div>
-                        </div>
-                    </div>
+                                 @isset ($setting->skype)
+                                 <a href="{{ $setting->skype }}" target="_blank">
+                                     <i class="fab fa-skype icon-round icon-round text-light"></i>
+                                 </a>
+                                 @endisset
+                             </div>
+                         </div>
+                     </div>
 
-                    <div class="col-md-8 pt-2 about_me">
+                     <div class="col-md-8 pt-2 about_me">
                         <div class="wow bounceIn animated" data-wow-duration="1s" data-wow-delay=".4s">
-                            <h2 class="text_color">About me</h2>
+                            <h2 class="theme_color">About me</h2>
                             <p>{{ $setting->my_self }}</p>
-                            <h2 class="text_color">Skills</h2>
+                            <h2 class="theme_color">Skills</h2>
                             @foreach($skills as $skill)
                             <div class="progress skill-bar mb-1">
                                 <div class="progress-bar {{ $skill->percentage < 30 ? 'bg-danger' : '' }} {{ $skill->percentage < 40 ? 'bg-warning' : '' }} {{ $skill->percentage < 51 ? 'bg-info' : '' }} {{ $skill->percentage > 60 ? 'bg-success' : '' }}" role="progressbar" aria-valuenow="{{ $skill->percentage }}" aria-valuemin="0" aria-valuemax="100">
@@ -181,10 +185,10 @@
         </div>
     </section>
 
-    <section id="portfolio-sec">
+    <section id="portfolios">
         <div class="container">
-            <div class="">
-                <h2 class="text_color">Recent Projects</h2>
+            <div class="pt-5">
+                <h2 class="theme_color">Recent Projects</h2>
             </div>
 
             <div>
@@ -214,137 +218,72 @@
         </div>
     </section>
 
-    <section id="education-sec">
+    <section id="educations">
         <div class="overlay">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 wow bounceIn animated" data-wow-duration="1s" data-wow-delay=".4s">
+                        <div class="row p-3">
 
-                        <div class="board">
-                            <div class="board-inner">
-                                <ul class="nav nav-tabs text-center" id="myTab">
-                                    <li class="mb-2">
-                                        <a href="#home" data-toggle="tab" title="PERSONAL DETAILS" class="rounded-circle bg-light p-3">
-                                            <span class="">
-                                                <i class="fa fa-home h4"></i>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li class="mb-2">
-                                        <a href="#profile" data-toggle="tab" title="EDUCATIONAL PROFILE" class="rounded-circle bg-light p-3 ">
-                                            <span class="">
-                                                <i class="fa fa-graduation-cap h4"></i>
-                                            </span>
-                                        </a>
-                                    </li>
-
-                                    <li class="mb-2">
-                                        <a href="#exp" data-toggle="tab" title="EXPERIENCE DETAILS" class="rounded-circle bg-light p-3 ">
-                                            <span class="">
-                                                <i class="fa fa-recycle h4"></i>
-                                            </span>
-                                        </a>
-                                    </li>
-
-                                    <li class="mb-2">
-                                        <a href="#location" data-toggle="tab" title="PRESENT LOCATION" class="rounded-circle bg-light p-3 ">
-                                            <span class="">
-                                                <i class="fas fa-map-marker-alt h4"></i>
-                                            </span>
-                                        </a>
-                                    </li>
-
-                                    <li class="mb-2">
-                                        <a href="#contact" data-toggle="tab" title="CONTACT ME" class="rounded-circle bg-light p-3 ">
-                                            <span class="">
-                                                <i class="far fa-comments h4"></i>
-                                            </span>
-                                        </a>
-                                    </li>
-
-                                </ul>
-                            </div>
-
-                            <div class="tab-content">
-                                <div class="tab-pane fade in active show" id="home">
-
-                                    <h4 class="head text-center text_color">PERSONAL DETAILS</h4>
-                                    <p class="narrow text-center">
-                                        <span>
-                                            <i>NAME : </i>{{ $setting->name }}
-                                        </span>
-                                        <span>
-                                            <i>AGE :</i>{{ $setting->age }} YEARS
-                                        </span>
-                                        <span>
-                                            <i>EXPERIENCE :</i>2 + YEARS TILL DATE
-                                        </span>
-                                    </p>
-
-
-                                </div>
-                                <div class="tab-pane fade" id="profile">
-
-                                    <h4 class="head text-center text_color">EDUCATIONAL PROFILE</h4>
-                                    <p class="narrow text-center">
-
+                            @if(count($educations) > 0)
+                            <div class="col-md-12 text-center pt-5">
+                                <span class="rounded-circle bg-light p-3 border border-warning">
+                                    <i class="fa fa-graduation-cap h4 text-primary"></i>
+                                </span>
+                                <div class="border border-warning p-3">
+                                    <div class="">
+                                        <span class="h4 border-bottom theme_color">EDUCATIONAL PROFILE</span>
+                                    </div>
+                                    <div class="text-warning text-center mt-3">
                                         @foreach($educations as $education)
-                                        <span>
+                                        <h5>
                                             <i>{{ $education->exam_name }} : </i> "{{ $education->institution_name }}" - "{{ $education->passing_year }}"
-                                        </span>
-                                        @endforeach <br>
-
-                                        @foreach($scholarships as $scholarship)
-                                        <span>
-                                            <i>{{ $scholarship->name }} : </i> "{{ $scholarship->title }}" - "{{ $scholarship->institution }}" - "{{ $scholarship->win_year }}"
-                                        </span>
-                                        @endforeach
-                                    </p>
-                                </div>
-
-                                <div class="tab-pane fade" id="exp">
-                                    <h4 class="head text-center text_color">EXPERIENCE DETAILS</h4>
-                                    <p class="narrow text-center">
-                                        @if(count($experiences) > 0)
-                                        @foreach($experiences as $experience)
-                                        <span>
-                                            <i>Work  : </i>"{{ $experience->company }}" - "{{ $experience->job_title }}" - "{{ $experience-> start_at_date }} - {{ $experience-> end_at_date == '' ? 'Current' : $experience-> end_at_date }}"
-                                        </span>
-                                        @endforeach
-                                        @else
-                                        <h2 class="text-center">
-                                            <i class="bg-warning p-4"> Have No Experience </i>
-                                        </h2>
-                                        @endif
-
-                                    </p>
-                                </div>
-                                <div class="tab-pane fade" id="location">
-                                    <h4 class="head text-center text_color">PRESENT LOCATION </h4>
-                                    <p class="narrow text-center">
-
-                                        <span>
-                                            <i>Address : </i>{{ $setting->address }}
-                                        </span>
-
-                                    </p>
-                                </div>
-                                <div class="tab-pane fade" id="contact">
-                                    <h4 class="head text-center text_color">CONTACT ME </h4>
-
-                                    <p class="narrow text-center">
-                                        <span>
-                                            <i>EMAIL : </i>{{ $setting->email }}
-                                        </span>
-                                        <span>
-                                            <i>MOBILE : </i>{{ $setting->phone }}
-                                        </span>
-                                        <span>
-                                            <i>SKYPE : </i>{{ $setting->skype }}
-                                        </span>
-                                    </p>
+                                        </h5>
+                                        @endforeach                                            
+                                    </div>
                                 </div>
                             </div>
+                            @endif
+
+                            @if(count($scholarships) > 0)
+                            <div class="col-md-12 text-center pt-5">
+                                <span class="rounded-circle bg-light p-3 border border-warning">
+                                    <i class="fa fa-certificate h4 text-primary"></i>
+                                </span>
+                                <div class="border border-warning p-3">
+                                    <div class="">
+                                        <span class="h4 border-bottom theme_color">SCHOLARSHIP PROFILE</span>
+                                    </div>
+                                    <div class="text-warning text-center mt-3">
+                                        @foreach($scholarships as $scholarship)
+                                        <h5>
+                                            <i>{{ $scholarship->name }} : </i> "{{ $scholarship->title }}" - "{{ $scholarship->institution }}" - "{{ $scholarship->win_year }}"
+                                        </h5>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                            @endif
+
+                            @if(count($experiences) > 0)
+                                <div class="col-md-12 text-center pt-5">
+                                    <span class="rounded-circle bg-light p-3 border border-warning">
+                                        <i class="fas fa-bookmark h4 text-primary"></i>
+                                    </span>
+                                    <div class="border border-warning p-3">
+                                        <div class="">
+                                            <span class="h4 border-bottom theme_color">EXPERIENCE DETAILS</span>
+                                        </div>
+                                        <div class="text-warning text-center mt-3">
+                                            @foreach($experiences as $experience)
+                                            <h5>
+                                                <i>Work  : </i>"{{ $experience->company }}" - "{{ $experience->job_title }}" - "{{ $experience-> start_at_date }} - {{ $experience-> end_at_date == '' ? 'Current' : $experience-> end_at_date }}"
+                                            </h5>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
 
                         </div>
                     </div>
@@ -353,16 +292,16 @@
         </div>
     </section>
 
-    <section id="client-feedback-sec">
+    <section id="client-feedbacks">
         <div class="container">
-            <div class="row pad-top-bottom wow bounceIn animated" data-wow-duration="1s" data-wow-delay=".2s">
+            <div class="row  pt-5 pad-top-bottom wow bounceIn animated" data-wow-duration="1s" data-wow-delay=".2s">
                 <div class="col-md-12 text-center">
                     <h1>CLIENT TESTIMONIALS</h1>
                     <div id="demo" class="carousel slide" data-ride="carousel">
                         <ul class="carousel-indicators">
                             @foreach($testimonials as $testimonial)
                             <li data-target="#demo" data-slide-to="{{$loop->index}}" class="{{  $loop->index == 0? 'active':'' }}"></li>
-                           @endforeach
+                            @endforeach
                         </ul>
                         <div class="carousel-inner">
                             @foreach($testimonials as $testimonial)
@@ -375,7 +314,7 @@
                                     <h5 class="">{{ $testimonial->client_name }}</h5>
                                 </div>
                             </div>
-                           @endforeach
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -383,7 +322,7 @@
         </div> 
     </section>
 
-    <section id="contact-me">
+    <section id="contacts">
         <div class="overlay">
             <div class="container">
                 <div class="aligh-self-center pt-5">
@@ -422,7 +361,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <p class="text-light">&copy; {{ $setting->footer_text }}
+                        <p class="font_color">&copy; {{ $setting->footer_text }}
                             <a href="http://binarytheme.com" class="text-warning" target="_blank">{{ $setting->name }}</a>
                         </p>
                     </div>
@@ -430,6 +369,3 @@
             </div>
         </div>
     </section>
-    <div class="move-me">
-        <a href="#navbar" class="scrollup"><i class="fa fa-chevron-up"></i></a>
-    </div>
