@@ -6,7 +6,7 @@
 </style>
 <nav class="navbar navbar-expand-lg theme_bg_color fixed-top" id="sideNav">
     <a class="navbar-brand" href="#page-top">
-        <span class="d-block d-lg-none text-light">{{ $setting->name }}</span>
+        <span class="d-block d-lg-none font_color">{{ $setting->name }}</span>
         <span class="d-none d-lg-block">
             <img class="img-fluid img-profile rounded-circle mx-auto mb-2 image2" src="{{ asset('images/profile/'.$setting->image1)}}" alt="">
         </span>
@@ -99,7 +99,7 @@
 </div>
 
 <div class="container-fluid p-0">
-    <section class="p-5" id="abouts">
+    <section class="p-5 bg_color" id="abouts">
         <img src="{{ asset('images/profile/'.$setting->image2)}}" class="image2" alt="" >
         <h3 class="mb-0 theme_color">I'm {{ $setting->name }}</h3>
         <div class="subheading mb-4">
@@ -140,7 +140,7 @@
         </div>
     </section><hr>
 
-    <section class="p-5" id="experiences">
+    <section class="p-5 bg_color" id="experiences">
         <h3 class="mb-3 theme_color">Experience</h3>
         @if(count($experiences) > 0)
             @foreach($experiences as $experience)
@@ -171,7 +171,7 @@
         @endif
     </section><hr>
 
-    <section class="p-5" id="educations">
+    <section class="p-5 bg_color" id="educations">
         <h3 class="mb-3 theme_color">Education</h3>
         @foreach($educations as $education)
         <div class="mb-2 bg-light p-4 border-bottom">
@@ -195,7 +195,7 @@
         @endforeach 
     </section><hr>
 
-    <section class="p-5" id="skills">
+    <section class="p-5 bg_color" id="skills">
         <div class="w-100">
             <h3 class="mb-3 theme_color">Skills</h3>
             <div class="mb-2 bg-light p-4 border-bottom">
@@ -214,7 +214,7 @@
         </div>
     </section><hr>
 
-    <section class="p-5" id="awards">
+    <section class="p-5 bg_color" id="awards">
         <h3 class="mb-3 theme_color">Scholarship or Awards</h3>
         <div class="mb-2 bg-light p-4 border-bottom">
             <ul class="fa-ul mb-0">
@@ -230,7 +230,7 @@
         </div>
     </section><hr>
 
-    <section class="p-5" id="portfolios">
+    <section class="p-5 bg_color" id="portfolios">
         <h3 class="mb-3 theme_color">Portfolio</h3>
         <div class="row">
             @foreach($portfolios as $portfolio)
@@ -254,12 +254,12 @@
         </div>
     </section><hr>
 
-    <section class="p-5" id="contacts">
+    <section class="p-5 bg_color" id="contacts">
         <h3 class="mb-3 theme_color">CONTACT ME</h3>
         <div class="row">
             <div class="col-md-6">
                 <p class="text-justify">{{ $setting->my_self }}</p>
-                <h5>MY LOCATION</h5>
+                <h5 class="theme_color">MY LOCATION</h5>
                 <p><i>ADDRESS :</i> {{ $setting->address }}</p>
             </div>
             <div class="col-sm-6">
