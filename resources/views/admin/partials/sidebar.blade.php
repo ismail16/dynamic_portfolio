@@ -92,7 +92,7 @@
                     <ul class="nav nav-treeview ml-3 {{Request::is('admin/setting*') ? 'show':'hide'}}" >
                         <li class="nav-item">
                             <a href="{{ route('admin.setting.edit',1) }}" class="nav-link {{Request::is('admin/setting/1/edit') ? 'active':''}}">
-                                <i class="fas fa-link nav-icon"></i>
+                                <i class="fas fa-cog nav-icon"></i>
                                 <p>General Settings</p>
                             </a>
                         </li>

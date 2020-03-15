@@ -12,14 +12,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{asset('backend_assets/plugins/fontawesome-free/css/all.min.css')}}">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- Tempusdominus Bbootstrap 4 -->
-    <link rel="stylesheet" href="{{asset('backend_assets/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
-    <!-- iCheck -->
-    <link rel="stylesheet" href="{{asset('backend_assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
-    <!-- JQVMap -->
-    <link rel="stylesheet" href="{{asset('backend_assets/plugins/jqvmap/jqvmap.min.css')}}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('backend_assets/dist/css/adminlte.min.css')}}">
     <!-- overlayScrollbars -->
@@ -29,48 +21,12 @@
     <!-- summernote -->
     <link rel="stylesheet" href="{{asset('backend_assets/plugins/summernote/summernote-bs4.css')}}">
     <!-- Google Font: Source Sans Pro -->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('backend_assets/plugins/datatables/dataTables.bootstrap4.css')}}">
+    <link rel="stylesheet" href="{{asset('backend_assets/customs.css')}}">
 
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <style type="text/css" media="screen">
-        .btn-xs{
-            padding: 1px 5px;
-            font-size: 12px;
-            line-height: 1.5;
-            border-radius: 3px;
-        }
-        .note-editor.note-frame .note-editing-area .note-editable {
-            min-height: 120px !important;
-            padding: 5px !important;
-            overflow: auto;
-            color: #000;
-            word-wrap: break-word;
-            background-color: #fff;
-        }
-        .table_image{
-            width: 70px;
-        }
-        .portfolio_image_edit{
-            width: 150px !important;
-            height: 100px !important;
-        }
-
-        .profile_image_edit{
-            height:50px;
-            width: 100px;
-        }
-        .file_input_sm{
-            font-size: 11px;
-        }
-        .user_small_image_admin{
-            height: 30px;
-            width: 30px;
-            margin: 5px 20px 0px 10px;
-        }
-        .user_image_admin{
-            height:100px;
-            width: 100px;
-        }
+        
     </style>
     @stack('css')
 </head>

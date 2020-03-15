@@ -17,18 +17,18 @@
             /*====================================
             SKILL CHART SCRIPTS 
            ======================================*/
-            $(function () {
-                $('.chart').easyPieChart({
-                    easing: 'easeOutBounce',
-                    onStep: function (from, to, percent) {
-                        $(this.el).find('.percent').text(Math.round(percent));
-                    },
-                    barColor: '#05D6AC', //FORCOLOR OF CHART
-                    lineWidth: 10, //WIDTH OF STRIP OF SKILL CHART
-                    size: 150, //WIDTH - HEIGHT OF SKILL CHART(SHOULD BE IN SQUARE)
-                });
+            // $(function () {
+            //     $('.chart').easyPieChart({
+            //         easing: 'easeOutBounce',
+            //         onStep: function (from, to, percent) {
+            //             $(this.el).find('.percent').text(Math.round(percent));
+            //         },
+            //         barColor: '#05D6AC', //FORCOLOR OF CHART
+            //         lineWidth: 10, //WIDTH OF STRIP OF SKILL CHART
+            //         size: 150, //WIDTH - HEIGHT OF SKILL CHART(SHOULD BE IN SQUARE)
+            //     });
 
-            });
+            // });
             /*====================================
                 DOWNLOAD RESUME SECTION TOOL TIP SCRIPTS 
             ======================================*/
@@ -45,9 +45,9 @@
                 PRETTYPHOTO FUNCTION
             ======================================*/
 
-            $("a.preview").prettyPhoto({
-                social_tools: false
-            });
+            // $("a.preview").prettyPhoto({
+            //     social_tools: false
+            // });
             /*====================================
              WOW PLUGIN SCRIPTS 
             ======================================*/

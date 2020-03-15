@@ -47,7 +47,7 @@
                                             <li class="border-bottom">Portfolio Management</li>
                                             <li class="border-bottom">Message Management</li>
                                             <li class="border-bottom">Testimonial Management</li>
-                                            <li class="border-bottom">Side Setting </li>
+                                            <li class="border-bottom">Settings </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -150,10 +150,21 @@
                                             <li>Scholarship</li>
                                             <li>Skills</li>
                                             <li>Experience</li>
-                                            <li>Portfolio</li>
-                                            <li>Setting</li>
-                                            <li>Message</li>
+                                            <li>Portfolio
+                                                <ul>
+                                                    <li>Category</li>
+                                                    <li>Portfolio</li>
+                                                </ul>
+                                            </li>
                                             <li>Testimonial</li>
+                                            <li>Message</li>
+                                            <li>Setting
+                                                <ul>
+                                                    <li>General Settings</li>
+                                                    <li>Profile</li>
+                                                    <li>Social media</li>
+                                                </ul>
+                                            </li>
                                         </ul>
 
                                     </div>

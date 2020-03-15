@@ -32,6 +32,8 @@
         <link href="{{ asset('frontend_assets/theme_color/blue.css')}}" rel="stylesheet" />
     @elseif($setting->theme_color == 'light')
         <link href="{{ asset('frontend_assets/theme_color/light.css')}}" rel="stylesheet" />
+    @elseif($setting->theme_color == 'dark')
+        <link href="{{ asset('frontend_assets/theme_color/dark.css')}}" rel="stylesheet" />
     @else
         <link href="{{ asset('frontend_assets/theme_color/pink.css')}}" rel="stylesheet" />
     @endif

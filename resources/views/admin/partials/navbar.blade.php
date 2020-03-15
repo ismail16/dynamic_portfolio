@@ -13,7 +13,7 @@
         <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#">
                 <i class="far fa-comments"></i>
-                <span class="badge badge-danger navbar-badge">
+                <span class="badge badge-warning navbar-badge font-weight-bold ">
                     {{ App\Models\Contact::orderBy('id', 'desc')->where('status', 0)->count() }}
                 </span>
             </a>

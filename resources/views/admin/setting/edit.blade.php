@@ -48,6 +48,7 @@
                                     <label class="mb-0">Theme Color </label>
                                     <select name="theme_color" class="form-control form-control-sm">
                                         <option value="light" {{ $setting->theme_color == 'light'? 'selected':'' }}>Light</option>
+                                        <option value="dark" {{ $setting->theme_color == 'dark'? 'selected':'' }}>Dark</option>
                                         <option value="pink" {{ $setting->theme_color == 'pink'? 'selected':'' }}>Pink</option>
                                         <option value="brown" {{ $setting->theme_color == 'brown' ? 'selected':'' }}>Brown</option>
                                         <option value="green" {{ $setting->theme_color == 'green' ? 'selected':'' }}>Green</option>
