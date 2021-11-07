@@ -28,7 +28,7 @@ class PagesController extends Controller
         $experiences = Experience::orderBy('id', 'desc')->where('status', 1)->get();
         $testimonials = Testimonial::orderBy('id', 'desc')->where('status', 1)->get();
 
-        return view('frontend.pages.index',compact('setting','portfolios','categories','educations','skills','scholarships','experiences','contacts','testimonials'));
+        return view('frontend.pages.index',compact('setting','portfolios','categories','educations','skills','scholarships','experiences','testimonials'));
     }
 
     public function contact_post(Request $request){

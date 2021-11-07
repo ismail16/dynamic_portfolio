@@ -11,9 +11,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <![endif]-->
     <title>Ismail Portfolio</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <!-- <link href="{{ asset('frontend_assets/css/font-awesome.min.css') }}" rel="stylesheet" /> -->
-    <link href="https://blackrockdigital.github.io/startbootstrap-resume/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('frontend_assets/bootstrap/css/bootstrap.min.css') }}">
+
+    <link href="{{ asset('frontend_assets/css/font-awesome.min.css') }}" rel="stylesheet" />
+
 
     @if($setting->theme_number == 'theme1')
         <link href="{{ asset('frontend_assets/theme1/animate.css')}}" rel="stylesheet" />
@@ -39,25 +40,10 @@
     @endif
 
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css' />
+    <link href="{{ asset('frontend_assets/theme_color/customs.css')}}" rel="stylesheet" />
+
 </head>
-<style type="text/css">
-    #gotoTop {
-      display: none;
-      position: fixed;
-      bottom: 20px;
-      right: 30px;
-      z-index: 99;
-      font-size: 18px;
-      border: 1px solid red;
-      outline: none;
-      color: white;
-      cursor: pointer;
-      padding: 5px 12px;
-    }
-    #gotoTop:hover {
-      background-color: #555;
-    }
-</style>
+
 <body>
 
     @if($setting->theme_number == 'theme1')
@@ -68,11 +54,13 @@
 
 
 
-    <button onclick="topFunction()" id="gotoTop" title="Go to top" class="bg_color"><i class="fa fa-chevron-up"></i></button>
+    <button onclick="topFunction()" id="gotoTop" title="Go to top" class="">
+        <i class="fa fa-chevron-up"></i>
+    </button>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="{{ asset('frontend_assets/bootstrap/js/jquery.min.js')}}"></script>
+    <script src="{{ asset('frontend_assets/bootstrap/js/popper.min.js')}}"></script>
+    <script src="{{ asset('frontend_assets/bootstrap/js/bootstrap.min.js')}}"></script>
 
     @if($setting->theme_number == 'theme1')
         <script src="{{ asset('frontend_assets/theme1/wow.min.js')}}"></script>

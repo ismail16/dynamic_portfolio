@@ -1,0 +1,16 @@
+#gotoTop {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: 1px solid red;
+  outline: none;
+  color: white;
+  cursor: pointer;
+  padding: 5px 12px;
+}
+#gotoTop:hover {
+  background-color: #555;
+}

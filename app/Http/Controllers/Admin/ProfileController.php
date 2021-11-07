@@ -28,8 +28,12 @@ class ProfileController extends Controller
         $setting = Setting::find($id);
         $image1 = $request->file('image1');
         $slug = str_slug($setting->name);
+
+        // return $setting->image1;
+        // return $request;
+
         if (isset($image1)){
-            if ($image1->image1) {
+            if ($setting->image1) {
                 if (file_exists('images/profile/'.$setting->image1) && $setting->image1 != 'default_profile.png'){
                     unlink('images/profile/'.$setting->image1);
                 }
@@ -42,7 +46,7 @@ class ProfileController extends Controller
         $image2 = $request->file('image2');
         $slug = str_slug($setting->name);
         if (isset($image2)){
-            if ($image2->image2) {
+            if ($setting->image2) {
                 if (file_exists('images/profile/'.$setting->image2) && $setting->image2 != 'default_profile.png'){
                     unlink('images/profile'.$setting->image2);
                 }
