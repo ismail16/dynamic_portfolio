@@ -188,7 +188,7 @@
 
                 <div class="col-md-3 text-md-right">
                     <span class="text-primary">{{ $education->passing_year }}</span>
-                    <img src="{{ asset('images/profile/'.$setting->image1)}}" class="img-fluid">
+                    <img src="{{ asset('images/certificate_image/'.$education->certificate_image)}}" class="img-fluid">
                 </div>
             </div>
         </div>
