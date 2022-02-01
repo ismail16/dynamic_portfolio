@@ -88,7 +88,7 @@ class EducationController extends Controller
                     unlink('images/certificate_image/'.$education->certificate_image);
                 }
             }
-            $certificate_imagename = $slug.'-'.uniqid().'.'.$certificate_image->getClientOriginalExtension();
+            $certificate_imagename = $slug.'-'.uniqid().'.'.$image->getClientOriginalExtension();
             $certificate_image->move('images/certificate_image',$certificate_imagename);
         }else{
             $certificate_imagename = $education->certificate_image;
