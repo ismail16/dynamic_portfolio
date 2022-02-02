@@ -5,7 +5,7 @@
     }
 </style>
 <nav class="navbar navbar-expand-lg theme_bg_color fixed-top" id="sideNav">
-    <a class="navbar-brand" href="#page-top">
+    <a class="navbar-brand">
         <span class="d-block d-lg-none font_color">{{ $setting->name }}</span>
         <span class="d-none d-lg-block">
             <img class="img-fluid img-profile rounded-circle mx-auto mb-2 image2" src="{{ asset('images/profile/'.$setting->image1)}}" alt="">
@@ -66,7 +66,7 @@
             </form>
             @else
             <li class="nav-item">
-                <a class="nav-link font_color" data-toggle="modal" data-target="#myModal">Login</a>
+                <a href="" class="nav-link font_color" data-toggle="modal" data-target="#myModal">Login</a>
             </li>
             @endauth 
             @endif
@@ -79,13 +79,10 @@
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title theme_color">Admin Login</h5>
+                    <h5 class="modal-title theme_color">Login</h5>
                     <button type="button" class="close text-danger" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="card card-container">
-                    <div class="text-center mt-2">
-                        <img id="profile-img" class="profile-img-login rounded-circle" src="{{ asset('frontend_assets/img/ismail2.jpg')}}"/>
-                    </div>
                     <form class="form-signin p-4 form-group" method="POST" action="{{ route('login') }}">
                         @csrf
                         <span id="reauth-email" class="reauth-email"></span>
@@ -120,6 +117,10 @@
             {{ $setting->title }}
         </div>
         <p class="lead mb-4">{{ $setting->my_self }}</p>
+       <div class="personal-information">
+            <b class="border-bottom"><i class="fa fa-phone-square"></i> Phone : </span>{{ $setting->phone }}</b><br>
+            <b class="border-bottom"><i class="fa fa-envelope-o"></i> Email : </span>{{ $setting->email }}</b>
+        </div><br>
         <div class="social-icons">
             @isset ($setting->facebook)
             <a href="{{ $setting->facebook }}" target="_blank" class="theme_bg_color">
@@ -287,7 +288,13 @@
         <div class="row">
             <div class="col-md-6">
                 <p class="text-justify">{{ $setting->my_self }}</p>
-                <h5 class="theme_color">MY LOCATION</h5>
+                <h6 class="theme_color">WHAT TO KNOW, ABOUT ME ?</h6>
+            <div class="color-strip"></div>
+            <div class="personal-information mb-3">
+                <span><i class="fa fa-phone-square"></i> Phone : </span>{{ $setting->phone }}</span><br>
+                <span><i class="fa fa-envelope-o"></i> Email : </span>{{ $setting->email }}</span>
+            </div>
+                <h6 class="theme_color">MY LOCATION</h6>
                 <p><i>ADDRESS :</i> {{ $setting->address }}</p>
             </div>
             <div class="col-sm-6">

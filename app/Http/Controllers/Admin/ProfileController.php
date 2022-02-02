@@ -29,9 +29,6 @@ class ProfileController extends Controller
         $image1 = $request->file('image1');
         $slug = str_slug($setting->name);
 
-        // return $setting->image1;
-        // return $request;
-
         if (isset($image1)){
             if ($setting->image1) {
                 if (file_exists('images/profile/'.$setting->image1) && $setting->image1 != 'default_profile.png'){
@@ -48,7 +45,7 @@ class ProfileController extends Controller
         if (isset($image2)){
             if ($setting->image2) {
                 if (file_exists('images/profile/'.$setting->image2) && $setting->image2 != 'default_profile.png'){
-                    unlink('images/profile'.$setting->image2);
+                    unlink('images/profile/'.$setting->image2);
                 }
             }
             $setting_image2name = $slug.'-'.uniqid().'.'.$image2->getClientOriginalExtension();
@@ -58,8 +55,9 @@ class ProfileController extends Controller
 
         $resume_file = $request->file('resume_file');
         $slug = str_slug($setting->name);
+        
         if (isset($resume_file)){
-            if ($resume_file->resume_file) {
+            if ($setting->resume_file) {
                 if (file_exists('/profile_resume'.$setting->resume_file)){
                     unlink('/profile_resume'.$setting->resume_file);
                 }
