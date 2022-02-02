@@ -23,7 +23,7 @@ class PagesController extends Controller
     	$portfolios = Portfolio::orderBy('id', 'desc')->where('status', 1)->get();
     	$categories = Category::orderBy('id', 'desc')->where('status', 1)->get();
     	$educations = Education::orderBy('id', 'desc')->where('status', 1)->get();
-    	$skills = Skill::orderBy('id', 'desc')->where('status', 1)->get();
+    	$skills = Skill::orderBy('id', 'asc')->where('status', 1)->get();
     	$scholarships = Scholarship::orderBy('id', 'desc')->where('status', 1)->get();
         $experiences = Experience::orderBy('id', 'desc')->where('status', 1)->get();
         $testimonials = Testimonial::orderBy('id', 'desc')->where('status', 1)->get();

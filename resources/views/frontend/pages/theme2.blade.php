@@ -12,28 +12,43 @@
         </span>
     </a>
     <button class="navbar-toggler border" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="fas fa-align-justify"></span>
+        <span class="fa fa-align-justify font_color"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
             <li class="nav-item">
                 <a class="nav-link font_color" href="#about" id="about">About</a>
             </li>
+            @if($experiences != '[]')
             <li class="nav-item">
                 <a class="nav-link font_color" href="#experience" id="experience">Experience</a>
             </li>
+            @endif
+
+            @if($educations != '[]')
             <li class="nav-item">
                 <a class="nav-link font_color" href="#education" id="education">Education</a>
             </li>
+            @endif
+
+            @if($skills != '[]')
             <li class="nav-item">
                 <a class="nav-link font_color" href="#skill" id="skill">Skills</a>
             </li>
+            @endif
+
+            @if($scholarships != '[]')
             <li class="nav-item">
                 <a class="nav-link font_color" href="#award" id="award">Awards/Scholarship</a>
             </li>
+            @endif
+
+            @if($portfolios != '[]')
             <li class="nav-item">
                 <a class="nav-link font_color" href="#portfolio" id="portfolio">Portfolio</a>
             </li>
+            @endif
+
 
             <li class="nav-item">
                 <a class="nav-link font_color" href="#contact-me" id="contact-me">Contact Me</a>
@@ -105,41 +120,42 @@
         <div class="subheading mb-4">
             {{ $setting->title }}
         </div>
-        <p class="lead mb-5">{{ $setting->my_self }}</p>
+        <p class="lead mb-4">{{ $setting->my_self }}</p>
         <div class="social-icons">
             @isset ($setting->facebook)
             <a href="{{ $setting->facebook }}" target="_blank" class="theme_bg_color">
-                <i class="fab fa-facebook-f icon-round icon-round font_color"></i>
+                <i class="fa fa-facebook-f icon-round icon-round font_color"></i>
             </a>
             @endisset
             @isset ($setting->instagram)
                 <a href="{{ $setting->instagram }}" target="_blank" class="theme_bg_color"> 
-                    <i class="fab fa-instagram icon-round icon-round font_color"></i>
+                    <i class="fa fa-instagram icon-round icon-round font_color"></i>
                 </a>
             @endisset
             @isset ($setting->youtube)
                 <a href="{{ $setting->youtube }}" target="_blank" class="theme_bg_color">
-                    <i class="fab fa-youtube icon-round icon-round font_color"></i>
+                    <i class="fa fa-youtube icon-round icon-round font_color"></i>
                 </a>
             @endisset
             @isset ($setting->twitter)
                 <a href="{{ $setting->twitter }}" target="_blank" class="theme_bg_color">
-                    <i class="fab fa-twitter icon-round icon-round font_color"></i>
+                    <i class="fa fa-twitter icon-round icon-round font_color"></i>
                 </a>
             @endisset
             @isset ($setting->linkedIn)
                 <a href="{{ $setting->linkedIn }}" target="_blank" class="theme_bg_color">
-                    <i class="fab fa-linkedin-in icon-round icon-round font_color"></i>
+                    <i class="fa fa-linkedin icon-round icon-round font_color"></i>
                 </a>
             @endisset
             @isset ($setting->skype)
                 <a href="{{ $setting->skype }}" target="_blank" class="theme_bg_color">
-                    <i class="fab fa-skype icon-round icon-round font_color"></i>
+                    <i class="fa fa-skype icon-round icon-round font_color"></i>
                 </a>
             @endisset
         </div>
     </section><hr>
 
+     @if($experiences != '[]')
     <section class="p-5 bg_color" id="experiences">
         <h3 class="mb-3 theme_color">Experience</h3>
         @if(count($experiences) > 0)
@@ -153,8 +169,8 @@
                         <div class="col-md-3">
                             <div class="text-md-right">
                                 <span class="text-primary">
-                                    {{ $experience-> start_at_date }} - 
-                                    {{ $experience-> end_at_date == '' ? 'Current' : $experience-> end_at_date }}
+                                    {{ $experience->start_at_date }} to 
+                                    {{ $experience->end_at_date == '' ? 'Current' : $experience->end_at_date }}
                                 </span>
                             </div>
                         </div>
@@ -170,7 +186,9 @@
             </h3>
         @endif
     </section><hr>
+    @endif
 
+     @if($educations != '[]')
     <section class="p-5 bg_color" id="educations">
         <h3 class="mb-3 theme_color">Education</h3>
         @foreach($educations as $education)
@@ -194,7 +212,9 @@
         </div>
         @endforeach 
     </section><hr>
+    @endif
 
+     @if($skills != '[]')
     <section class="p-5 bg_color" id="skills">
         <div class="w-100">
             <h3 class="mb-3 theme_color">Skills</h3>
@@ -204,7 +224,7 @@
                     @foreach($skills as $skill)
                     <div class="progress skill-bar mb-1">
                         <div class="progress-bar {{ $skill->percentage < 30 ? 'bg-danger' : '' }} {{ $skill->percentage < 40 ? 'bg-warning' : '' }} {{ $skill->percentage < 51 ? 'bg-info' : '' }} {{ $skill->percentage > 60 ? 'bg-success' : '' }}" role="progressbar" aria-valuenow="{{ $skill->percentage }}" aria-valuemin="0" aria-valuemax="100">
-                            <span class="skill"> {{ $skill->name }} <i class="val"> {{ $skill->percentage }} %</i></span>
+                            <span class="skill text-left ml-3 font-weight-bold "> {{ $skill->name }} <i class="val"> {{ $skill->percentage }} %</i></span>
                         </div>
                     </div>
                     <!-- <li><i class="fa-li fa fa-check"></i>{{ $skill->name }}, {{ $skill->percentage }}%</li> -->
@@ -213,7 +233,9 @@
             </div>
         </div>
     </section><hr>
+    @endif
 
+    @if($scholarships != '[]')
     <section class="p-5 bg_color" id="awards">
         <h3 class="mb-3 theme_color">Scholarship or Awards</h3>
         <div class="mb-2 bg-light p-4 border-bottom">
@@ -229,7 +251,9 @@
             </ul>
         </div>
     </section><hr>
+    @endif
 
+    @if($portfolios != '[]')
     <section class="p-5 bg_color" id="portfolios">
         <h3 class="mb-3 theme_color">Portfolio</h3>
         <div class="row">
@@ -253,6 +277,8 @@
             @endforeach      
         </div>
     </section><hr>
+    @endif
+
 
     <section class="p-5 bg_color" id="contacts">
         <h3 class="mb-3 theme_color">CONTACT ME</h3>

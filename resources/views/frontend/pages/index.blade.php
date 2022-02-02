@@ -54,7 +54,7 @@
 
 
 
-    <button onclick="topFunction()" id="gotoTop" title="Go to top" class="">
+    <button onclick="topFunction()" id="gotoTop" title="Go to top" class="border theme_color">
         <i class="fa fa-chevron-up"></i>
     </button>
 
