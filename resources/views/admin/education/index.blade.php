@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title','All education')
+@section('title','All Certificates')
 
 @push('css')
     

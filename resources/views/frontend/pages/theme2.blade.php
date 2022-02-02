@@ -19,6 +19,18 @@
             <li class="nav-item">
                 <a class="nav-link font_color" href="#about" id="about">About</a>
             </li>
+            @if($skills != '[]')
+            <li class="nav-item">
+                <a class="nav-link font_color" href="#skill" id="skill">Skills</a>
+            </li>
+            @endif
+
+            @if($portfolios != '[]')
+            <li class="nav-item">
+                <a class="nav-link font_color" href="#portfolio" id="portfolio">Portfolio</a>
+            </li>
+            @endif
+
             @if($experiences != '[]')
             <li class="nav-item">
                 <a class="nav-link font_color" href="#experience" id="experience">Experience</a>
@@ -31,24 +43,11 @@
             </li>
             @endif
 
-            @if($skills != '[]')
-            <li class="nav-item">
-                <a class="nav-link font_color" href="#skill" id="skill">Skills</a>
-            </li>
-            @endif
-
             @if($scholarships != '[]')
             <li class="nav-item">
                 <a class="nav-link font_color" href="#award" id="award">Awards/Scholarship</a>
             </li>
             @endif
-
-            @if($portfolios != '[]')
-            <li class="nav-item">
-                <a class="nav-link font_color" href="#portfolio" id="portfolio">Portfolio</a>
-            </li>
-            @endif
-
 
             <li class="nav-item">
                 <a class="nav-link font_color" href="#contact-me" id="contact-me">Contact Me</a>
@@ -155,7 +154,58 @@
         </div>
     </section><hr>
 
-     @if($experiences != '[]')
+    @if($skills != '[]')
+    <section class="p-5 bg_color" id="skills">
+        <div class="w-100">
+            <h3 class="mb-3 theme_color">Skills</h3>
+            <div class="mb-2 bg-light p-4 border-bottom">
+
+                <ul class="fa-ul mb-0">
+                    @foreach($skills as $skill)
+                    <div class="progress skill-bar mb-1">
+                        <div class="progress-bar {{ $skill->percentage < 30 ? 'bg-danger' : '' }} {{ $skill->percentage < 40 ? 'bg-warning' : '' }} {{ $skill->percentage < 51 ? 'bg-info' : '' }} {{ $skill->percentage > 60 ? 'bg-success' : '' }}" role="progressbar" aria-valuenow="{{ $skill->percentage }}" aria-valuemin="0" aria-valuemax="100">
+                            <span class="skill text-left ml-3 font-weight-bold "> {{ $skill->name }} <i class="val"> {{ $skill->percentage }} %</i></span>
+                        </div>
+                    </div>
+                    <!-- <li><i class="fa-li fa fa-check"></i>{{ $skill->name }}, {{ $skill->percentage }}%</li> -->
+                    @endforeach
+                </ul>
+            </div>
+        </div>
+    </section><hr>
+    @endif
+
+    @if($portfolios != '[]')
+    <section class="p-5 bg_color" id="portfolios">
+        <h3 class="mb-3 theme_color">Portfolio</h3>
+        <div class="row">
+            @foreach($portfolios as $portfolio)
+            <div class="col-md-4">
+                <div class="mb-2 bg-light p-4 border-bottom">
+                    <div class="">
+                        <h6 class="mb-0 text-nowrap">{{  $portfolio->title }}</h6>
+                        {!! $portfolio->description !!}
+                    </div>
+                    <div>
+                        @if($portfolio->portfolio_image)
+                            <img src="{{ asset('images/portfolio_image/'.$portfolio->portfolio_image) }}" class="img-fluid">
+                        @else
+                            <img src="{{ asset('images/portfolio_image/default.jpg') }}" class="img-fluid">
+                        @endif
+                    </div>
+                    <div class="mt-2">
+                        <a href="{{ $portfolio->link }}" target="_blank">
+                            <i class="fa fa-hand-o-right"></i> SEE DEMO 
+                        </a>
+                    </div>
+                </div>
+            </div>
+            @endforeach      
+        </div>
+    </section><hr>
+    @endif
+
+    @if($experiences != '[]')
     <section class="p-5 bg_color" id="experiences">
         <h3 class="mb-3 theme_color">Experience</h3>
         @if(count($experiences) > 0)
@@ -214,27 +264,6 @@
     </section><hr>
     @endif
 
-     @if($skills != '[]')
-    <section class="p-5 bg_color" id="skills">
-        <div class="w-100">
-            <h3 class="mb-3 theme_color">Skills</h3>
-            <div class="mb-2 bg-light p-4 border-bottom">
-
-                <ul class="fa-ul mb-0">
-                    @foreach($skills as $skill)
-                    <div class="progress skill-bar mb-1">
-                        <div class="progress-bar {{ $skill->percentage < 30 ? 'bg-danger' : '' }} {{ $skill->percentage < 40 ? 'bg-warning' : '' }} {{ $skill->percentage < 51 ? 'bg-info' : '' }} {{ $skill->percentage > 60 ? 'bg-success' : '' }}" role="progressbar" aria-valuenow="{{ $skill->percentage }}" aria-valuemin="0" aria-valuemax="100">
-                            <span class="skill text-left ml-3 font-weight-bold "> {{ $skill->name }} <i class="val"> {{ $skill->percentage }} %</i></span>
-                        </div>
-                    </div>
-                    <!-- <li><i class="fa-li fa fa-check"></i>{{ $skill->name }}, {{ $skill->percentage }}%</li> -->
-                    @endforeach
-                </ul>
-            </div>
-        </div>
-    </section><hr>
-    @endif
-
     @if($scholarships != '[]')
     <section class="p-5 bg_color" id="awards">
         <h3 class="mb-3 theme_color">Scholarship or Awards</h3>
@@ -252,33 +281,6 @@
         </div>
     </section><hr>
     @endif
-
-    @if($portfolios != '[]')
-    <section class="p-5 bg_color" id="portfolios">
-        <h3 class="mb-3 theme_color">Portfolio</h3>
-        <div class="row">
-            @foreach($portfolios as $portfolio)
-            <div class="col-md-6">
-                <div class="mb-2 bg-light p-4 border-bottom">
-                    <div class="">
-                        <h5 class="mb-0">{{  $portfolio->title }}</h5>
-                        {!! $portfolio->description !!}
-                    </div>
-                    <div>
-                        <img src="{{ asset('images/portfolio_image/'.$portfolio->portfolio_image) }}" class="img-fluid">
-                    </div>
-                    <div class="mt-2">
-                        <a href="{{ $portfolio->link }}" target="_blank">
-                            <i class="fa fa-eye"></i>SEE DEMO 
-                        </a>
-                    </div>
-                </div>
-            </div>
-            @endforeach      
-        </div>
-    </section><hr>
-    @endif
-
 
     <section class="p-5 bg_color" id="contacts">
         <h3 class="mb-3 theme_color">CONTACT ME</h3>
