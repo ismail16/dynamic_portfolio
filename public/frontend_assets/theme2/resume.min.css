@@ -16,6 +16,13 @@ body {
 	width: 100px;
 }
 
+#gotoTop{
+  position: fixed;
+  bottom: 60px;
+  right: 5px;
+}
+
+
 h1,h2,h3,	h4,h5,h6 {
 	font-family: 'Saira Extra Condensed', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 	font-weight: 700;
@@ -50,14 +57,14 @@ p.lead {
 
 .social-icons a {
 	display: inline-block;
-	height: 3.5rem;
-	width: 3.5rem;
+	height: 2.5rem;
+	width: 2.5rem;
 	/*background-color: #495057;*/
 	color: #fff!important;
 	border-radius: 100%;
 	text-align: center;
 	font-size: 1.5rem;
-	line-height: 3.5rem;
+	line-height: 2.5rem;
 	margin: 5px
 }
 

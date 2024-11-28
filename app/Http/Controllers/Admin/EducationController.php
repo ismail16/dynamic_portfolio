@@ -83,15 +83,14 @@ class EducationController extends Controller
         $slug = str_slug($request->exam_name);
         $education = Education::find($id);
         if (isset($image)){
-            if ($skill->certificate_image) {
+            if ($education->certificate_image) {
                 if (file_exists('images/certificate_image/'.$education->certificate_image)){
                     unlink('images/certificate_image/'.$education->certificate_image);
                 }
             }
-            $certificate_imagename = $slug.'-'.uniqid().'.'.$certificate_image->getClientOriginalExtension();
-            $certificate_image->move('images/certificate_image',$certificate_imagename);
-        }else{
-            $certificate_imagename = $education->certificate_image;
+            $certificate_imagename = $slug.'-'.uniqid().'.'.$image->getClientOriginalExtension();
+            $image->move('images/certificate_image',$certificate_imagename);
+            $education->certificate_image = $certificate_imagename;
         }
 
         $education->exam_name = $request->exam_name;

@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title','Create New Certificates')
+@section('title','Create New portfolio')
 
 @section('content')
 <section class="content">
@@ -71,8 +71,8 @@
                                         <label class="control-label mb-0">Status <span class="text-danger">*</span></label>
                                         <div class="">
                                             <select name="status" class="form-control form-control-sm">
-                                                <option value="0" {{ $category->id == 0 ? 'selected':'' }}>Hide From Frontend</option>
-                                                <option value="1" {{ $category->status == 1 ? 'selected':'' }}>Show On Frontend</option>
+                                                <option value="0" {{ $portfolio->status == 0 ? 'selected':'' }}>Hide From Frontend</option>
+                                                <option value="1" {{ $portfolio->status == 1 ? 'selected':'' }}>Show On Frontend</option>
                                             </select>
                                         </div>
                                     </div>
@@ -89,10 +89,10 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <a href="{{route('admin.education.index')}}" class="btn btn-sm btn-info"> <i class="fa fa-list"></i> Certificates</a>
+                        <a href="{{route('admin.portfolio.index')}}" class="btn btn-sm btn-info"> <i class="fa fa-list"></i> portfolio</a>
 
                         <div class="float-right">
-                            <a href="{{route('admin.education.index')}}" class="btn btn-sm btn-secondary mr-2"> Cancel</a>
+                            <a href="{{route('admin.portfolio.index')}}" class="btn btn-sm btn-secondary mr-2"> Cancel</a>
                             <button type="submit" class="btn btn-sm btn-info"><i class="fas fa-sync-alt"></i> Update</button>
                         </div>
                     </div>

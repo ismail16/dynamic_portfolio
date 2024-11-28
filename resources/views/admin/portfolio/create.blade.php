@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title','Create New Certificates')
+@section('title','Create New portfolio')
 
 @section('content')
 <section class="content">
@@ -83,10 +83,10 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <a href="{{route('admin.education.index')}}" class="btn btn-sm btn-info"> <i class="fa fa-list"></i> Certificates</a>
+                        <a href="{{route('admin.portfolio.index')}}" class="btn btn-sm btn-info"> <i class="fa fa-list"></i> portfolio</a>
 
                         <div class="float-right">
-                            <a href="{{route('admin.education.index')}}" class="btn btn-sm btn-secondary mr-2"> Cancel</a>
+                            <a href="{{route('admin.portfolio.index')}}" class="btn btn-sm btn-secondary mr-2"> Cancel</a>
                             <button type="submit" class="btn btn-sm btn-info"><i class="fa fa-plus"></i> Create New</button>
                         </div>
                     </div>
