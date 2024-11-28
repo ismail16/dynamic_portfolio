@@ -362,7 +362,7 @@
                 <div class="row">
                     <div class="col-md-12 text-center">
                         <p class="font_color">&copy; {{ $setting->footer_text }}
-                            <a href="http://binarytheme.com" class="text-warning" target="_blank">{{ $setting->name }}</a>
+                            <a href="/" class="text-warning" target="_blank">{{ $setting->name }}</a>
                         </p>
                     </div>
                 </div>
