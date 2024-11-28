@@ -363,8 +363,6 @@
             </div>
         </div>
     </section>
-
-<<<<<<< HEAD
         <section class="p-0 footer">
             <div class="container">
                 <div class="row">
@@ -373,15 +371,6 @@
                             <a href="/" class="text-warning" target="_blank">{{ $setting->name }}</a>
                         </p>
                     </div>
-=======
-    <section class="p-0 footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <p class="font_color">&copy; {{ $setting->footer_text }}
-                        <a href="http://binarytheme.com" class="text-warning" target="_blank">{{ $setting->name }}</a>
-                    </p>
->>>>>>> 15159beea89d9a37fadc37aee2d6911e53aca71c
                 </div>
             </div>
         </div>
