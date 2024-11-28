@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Skill;
+use Illuminate\Support\Str;
 
 class SkillController extends Controller
 {
@@ -29,7 +30,7 @@ class SkillController extends Controller
         $skill = new Skill;
 
         $image = $request->file('certificate');
-        $slug = str_slug($request->name);
+        $slug = Str::slug($request->name);
         if (isset($image)){
             $imagename = $slug.'-'.uniqid().'.'.$image->getClientOriginalExtension();
             if (!file_exists('images/skill')){
@@ -71,7 +72,7 @@ class SkillController extends Controller
 
         $skill = Skill::find($id);
         $image = $request->file('certificate');
-        $slug = str_slug($request->name);
+        $slug = Str::slug($request->name);
         if (isset($image)){
             if ($skill->certificate) {
                 if (file_exists('images/skill/'.$skill->certificate)){

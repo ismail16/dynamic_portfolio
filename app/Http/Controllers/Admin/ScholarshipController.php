@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Scholarship;
+use Illuminate\Support\Str;
+
 
 class ScholarshipController extends Controller
 {
@@ -32,7 +34,7 @@ class ScholarshipController extends Controller
         $scholarship = new Scholarship;
 
         $image = $request->file('certificate');
-        $slug = str_slug($request->name);
+        $slug = Str::slug($request->name);
         if (isset($image)){
             $imagename = $slug.'-'.uniqid().'.'.$image->getClientOriginalExtension();
             if (!file_exists('images/scholarship_image')){
@@ -79,7 +81,7 @@ class ScholarshipController extends Controller
 
         $scholarship = Scholarship::find($id);
         $image = $request->file('certificate');
-        $slug = str_slug($request->name);
+        $slug = Str::slug($request->name);
         if (isset($image)){
             $imagename = $slug.'-'.uniqid().'.'.$image->getClientOriginalExtension();
             if ($scholarship->certificate) {

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Portfolio;
 use App\Models\Category;
+use Illuminate\Support\Str;
+
 
 class PortfolioController extends Controller
 {
@@ -32,7 +34,7 @@ class PortfolioController extends Controller
         $portfolio = new Portfolio;
 
         $image = $request->file('portfolio_image');
-        $slug = str_slug($request->title);
+        $slug = Str::slug($request->title);
         if (isset($image)){
             $imagename = $slug.'-'.uniqid().'.'.$image->getClientOriginalExtension();
             if (!file_exists('images/portfolio_image')){
@@ -76,7 +78,7 @@ class PortfolioController extends Controller
 
         $portfolio = Portfolio::find($id);
         $image = $request->file('portfolio_image');
-        $slug = str_slug($request->title);
+        $slug = Str::slug($request->title);
         if (isset($image)){
             if ($portfolio->portfolio_image) {
                 if (file_exists('images/portfolio_image/'.$portfolio->portfolio_image)){

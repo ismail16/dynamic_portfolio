@@ -5,11 +5,10 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Setting;
+use Illuminate\Support\Str;
 
 class ProfileController extends Controller
 {
-
-
     public function edit($id)
     {
         $setting = Setting::find($id);
@@ -27,7 +26,7 @@ class ProfileController extends Controller
 
         $setting = Setting::find($id);
         $image1 = $request->file('image1');
-        $slug = str_slug($setting->name);
+        $slug = Str::slug($setting->name);
 
         if (isset($image1)){
             if ($setting->image1) {
@@ -41,7 +40,7 @@ class ProfileController extends Controller
         }
 
         $image2 = $request->file('image2');
-        $slug = str_slug($setting->name);
+        $slug = Str::slug($setting->name);
         if (isset($image2)){
             if ($setting->image2) {
                 if (file_exists('images/profile/'.$setting->image2) && $setting->image2 != 'default_profile.png'){
@@ -54,7 +53,7 @@ class ProfileController extends Controller
         }
 
         $resume_file = $request->file('resume_file');
-        $slug = str_slug($setting->name);
+        $slug = Str::slug($setting->name);
         
         if (isset($resume_file)){
             if ($setting->resume_file) {

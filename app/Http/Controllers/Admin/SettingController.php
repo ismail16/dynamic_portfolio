@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 
 use App\Models\Setting;
 
@@ -26,7 +27,7 @@ class SettingController extends Controller
 
         $setting = Setting::find($id);
         $image = $request->file('logo');
-        $slug = str_slug($setting->name);
+        $slug = Str::slug($setting->name);
         if (isset($image)){
             if ($setting->logo) {
                 if (file_exists('images/logo/'.$setting->logo)){

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Contact;
+use Illuminate\Support\Str;
+
 
 class ContactController extends Controller
 {
